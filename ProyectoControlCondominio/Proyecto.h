@@ -1,15 +1,34 @@
 #pragma once
-#include "Proyecto.h"
+#include "Edificio.h"
 
 using namespace System;
 using namespace System::Collections::Generic;
 
-public ref class Proyecto {
-	private: 
-		String^ codigo;
-		int cantCondominios;
+namespace ProyectoControlCondominioModel {
+	public ref class Proyecto {
+	private:
+		String^ codigo;//
+		int cantEdificios;//
+		String^ Departamento;
+		String^ Provincia;//
+		String^ Distrito;//
+		String^ NombreCondominio;//
+		String^ FechaCreacion;//
+		List<Edificio^>^ listaEdificios;
 	public:
 		Proyecto();
-		Proyecto(String^ codigo, int cantCondominios);
-
-};
+		Proyecto(String^ codigo, int cantEdificios, String^ Departamento, String^ Provincia, String^ Distrito, String^ NombreCondominio, String^ FechaCreacion);
+		String^ getCodigo();
+		void setCodigo(String^ codigo);
+		String^ getNombre();
+		void setNombre(String^ NombreCondominio);
+		int getCantEdificios();
+		void setCantEdificios(int cantEdificios);
+		String^ getProvincia();
+		void setProvincia(String^ Provincia);
+		String^ getDistrito();
+		void setDistrito(String^ Distrito);
+		String^ getFechaCreacion();
+		void setFechaCreacion(String^ FechaCreacion);
+	};
+}

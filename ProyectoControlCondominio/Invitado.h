@@ -3,11 +3,13 @@
 
 using namespace System;
 
-public ref class Invitado :Usuario {
+namespace ProyectoControlCondominioModel {
+	public ref class Invitado :Usuario {
 	private:
 		String^ fecha;
 		String^ hora;
 	public:
 		Invitado();
 		Invitado(String^ fecha, String^ hora);
-};
+	};
+}

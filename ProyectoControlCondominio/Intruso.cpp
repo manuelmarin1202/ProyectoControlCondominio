@@ -1,5 +1,5 @@
 #include "Intruso.h"
-
+using namespace ProyectoControlCondominioModel;
 Intruso::Intruso() {
 
 }

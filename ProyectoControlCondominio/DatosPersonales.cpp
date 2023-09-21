@@ -1,5 +1,5 @@
 #include "DatosPersonales.h"
-
+using namespace ProyectoControlCondominioModel;
 DatosPersonales::DatosPersonales() {
 
 }

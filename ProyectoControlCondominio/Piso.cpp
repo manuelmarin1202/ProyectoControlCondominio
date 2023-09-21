@@ -1,5 +1,5 @@
 #include "Piso.h"
-
+using namespace ProyectoControlCondominioModel;
 Piso::Piso() {
 
 }

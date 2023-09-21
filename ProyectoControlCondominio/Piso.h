@@ -3,7 +3,8 @@
 using namespace System;
 using namespace System::Collections::Generic;
 
-public ref class Piso {
+namespace ProyectoControlCondominioModel {
+	public ref class Piso {
 	private:
 		int numApartamentos;
 		int numPiso;
@@ -11,5 +12,6 @@ public ref class Piso {
 	public:
 		Piso();
 		Piso(int numApartamentos, int numPiso, List<Apartamento^>^ listaApartamentos);
-};
+	};
+}
 

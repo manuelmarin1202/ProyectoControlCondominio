@@ -1,5 +1,5 @@
 #include "Registro.h"
-
+using namespace ProyectoControlCondominioModel;
 Registro::Registro() {
 
 }

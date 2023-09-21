@@ -2,12 +2,14 @@
 
 using namespace System;
 
-public ref class Registro {
+namespace ProyectoControlCondominioModel {
+	public ref class Registro {
 	private:
 		int cantIntrusos;
 		int cantIngresos;
 		String^ numeroEmergencias;
-	public:	
+	public:
 		Registro();
 		Registro(int cantIntrusos, int cantIngresos, String^ numeroEmergencias);
-};
+	};
+}

@@ -1,5 +1,5 @@
 #include "Apartamento.h"
-
+using namespace ProyectoControlCondominioModel;
 Apartamento::Apartamento() {
 
 }

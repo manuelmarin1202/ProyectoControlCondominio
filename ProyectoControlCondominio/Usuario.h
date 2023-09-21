@@ -2,10 +2,12 @@
 
 using namespace System;
 
-public ref class Usuario {
+namespace ProyectoControlCondominioModel {
+	public ref class Usuario {
 	private:
 		String^ codigo;
 	public:
 		Usuario();
 		Usuario(String^ codigo);
-};
+	};
+}

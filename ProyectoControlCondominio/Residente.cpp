@@ -1,5 +1,5 @@
 #include "Residente.h"
-
+using namespace ProyectoControlCondominioModel;
 Residente::Residente() {
 
 }

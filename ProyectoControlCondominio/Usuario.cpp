@@ -1,5 +1,5 @@
 #include "Usuario.h"
-
+using namespace ProyectoControlCondominioModel;
 Usuario::Usuario() {
 
 }

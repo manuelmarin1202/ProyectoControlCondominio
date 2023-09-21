@@ -2,7 +2,8 @@
 
 using namespace System;
 
-public ref class DatosPersonales {
+namespace ProyectoControlCondominioModel {
+	public ref class DatosPersonales {
 	private:
 		String^ nombre;
 		String^ apellidoPaterno;
@@ -11,4 +12,5 @@ public ref class DatosPersonales {
 	public:
 		DatosPersonales();
 		DatosPersonales(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni);
-};
+	};
+}

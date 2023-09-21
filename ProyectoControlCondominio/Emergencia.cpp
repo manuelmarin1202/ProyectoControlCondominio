@@ -1,5 +1,5 @@
 #include "Emergencia.h"
-
+using namespace ProyectoControlCondominioModel;
 Emergencia::Emergencia() {
 
 }

@@ -1,0 +1,6 @@
+1;5;Lima;Lima;San Miguel;Los Jardines;12/02/2004
+2;7;Lima;Lima;Miraflores;Los Pinos;23/05/2009
+3;2;Lima;Lima;Los Olivos;Los Portales;11/09/2001
+4;5;Lima;Lima;Ate;San Germán;15/07/2015
+5;4;La Libertad;Trujillo;Trujillo;Los Manglares;20/04/2020
+6;3;Cusco;Cusco;Cusco;Los Recintos;07/10/2018

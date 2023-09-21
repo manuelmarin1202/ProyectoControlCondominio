@@ -1,5 +1,5 @@
 #include "Invitado.h"
-
+using namespace ProyectoControlCondominioModel;
 Invitado::Invitado() {
 
 }

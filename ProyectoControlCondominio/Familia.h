@@ -5,7 +5,8 @@
 using namespace System;
 using namespace System::Collections::Generic;
 
-public ref class Familia {
+namespace ProyectoControlCondominioModel {
+	public ref class Familia {
 	private:
 		String^ apellido;
 		int cantInvitados;
@@ -15,4 +16,5 @@ public ref class Familia {
 	public:
 		Familia();
 		Familia(String^ apellido, int cantInvitados, int CantFamiliares, List<Residente^>^ listaResidentes, List<Invitado^>^ listaInvitados);
-};
+	};
+}

@@ -1,5 +1,5 @@
 #include "Tiempo.h"
-
+using namespace ProyectoControlCondominioModel;
 Tiempo::Tiempo() {
 
 }

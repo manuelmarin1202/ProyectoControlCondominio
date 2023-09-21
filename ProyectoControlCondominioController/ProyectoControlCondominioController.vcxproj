@@ -20,13 +20,12 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
-    <ProjectGuid>{AEACEEEC-C01F-4078-AC60-E65ADF5FE4B8}</ProjectGuid>
+    <ProjectGuid>{06309076-CA84-4A5D-8678-EEABAE2946BB}</ProjectGuid>
     <EnableManagedPackageReferenceSupport>true</EnableManagedPackageReferenceSupport>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
-    <RootNamespace>ProyectoControlCondominio</RootNamespace>
+    <RootNamespace>ProyectoControlCondominioController</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>ProyectoControlCondominioModel</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -113,38 +112,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Ambiente.h" />
-    <ClInclude Include="Apartamento.h" />
-    <ClInclude Include="bloqueado.h" />
-    <ClInclude Include="Edificio.h" />
-    <ClInclude Include="DatosPersonales.h" />
-    <ClInclude Include="Emergencia.h" />
-    <ClInclude Include="Familia.h" />
-    <ClInclude Include="Intruso.h" />
-    <ClInclude Include="Invitado.h" />
-    <ClInclude Include="Piso.h" />
-    <ClInclude Include="Proyecto.h" />
-    <ClInclude Include="Registro.h" />
-    <ClInclude Include="Residente.h" />
-    <ClInclude Include="Tiempo.h" />
-    <ClInclude Include="Usuario.h" />
+    <ProjectReference Include="..\ProyectoControlCondominio\ProyectoControlCondominio.vcxproj">
+      <Project>{aeaceeec-c01f-4078-ac60-e65adf5fe4b8}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Ambiente.cpp" />
-    <ClCompile Include="Apartamento.cpp" />
-    <ClCompile Include="bloqueado.cpp" />
-    <ClCompile Include="Edificio.cpp" />
-    <ClCompile Include="DatosPersonales.cpp" />
-    <ClCompile Include="Emergencia.cpp" />
-    <ClCompile Include="Familia.cpp" />
-    <ClCompile Include="Intruso.cpp" />
-    <ClCompile Include="Invitado.cpp" />
-    <ClCompile Include="Piso.cpp" />
-    <ClCompile Include="Proyecto.cpp" />
-    <ClCompile Include="Registro.cpp" />
-    <ClCompile Include="Residente.cpp" />
-    <ClCompile Include="Tiempo.cpp" />
-    <ClCompile Include="Usuario.cpp" />
+    <ClInclude Include="ProyectoController.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ProyectoController.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

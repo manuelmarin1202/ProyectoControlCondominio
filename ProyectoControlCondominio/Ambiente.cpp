@@ -1,4 +1,5 @@
 #include "Ambiente.h"
+using namespace ProyectoControlCondominioModel;
 
 Ambiente::Ambiente() {
 

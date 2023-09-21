@@ -1,5 +1,5 @@
 #include "Familia.h"
-
+using namespace ProyectoControlCondominioModel;
 Familia::Familia() {
 
 }
