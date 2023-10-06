@@ -1,5 +1,6 @@
 #pragma once
 #include "frmMantenimientoProyectos.h"
+#include "frmAdministrarUsuarios.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -39,6 +40,7 @@ namespace ProyectoControlCondominioView {
 	protected:
 	private: System::Windows::Forms::ToolStripMenuItem^ operacionesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ proyectoToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ usuariosToolStripMenuItem;
 
 	private:
 		/// <summary>
@@ -56,6 +58,7 @@ namespace ProyectoControlCondominioView {
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->operacionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->proyectoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->usuariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -71,7 +74,10 @@ namespace ProyectoControlCondominioView {
 			// 
 			// operacionesToolStripMenuItem
 			// 
-			this->operacionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->proyectoToolStripMenuItem });
+			this->operacionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->proyectoToolStripMenuItem,
+					this->usuariosToolStripMenuItem
+			});
 			this->operacionesToolStripMenuItem->Name = L"operacionesToolStripMenuItem";
 			this->operacionesToolStripMenuItem->Size = System::Drawing::Size(106, 24);
 			this->operacionesToolStripMenuItem->Text = L"Operaciones";
@@ -82,6 +88,13 @@ namespace ProyectoControlCondominioView {
 			this->proyectoToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->proyectoToolStripMenuItem->Text = L"Proyecto";
 			this->proyectoToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::proyectoToolStripMenuItem_Click);
+			// 
+			// usuariosToolStripMenuItem
+			// 
+			this->usuariosToolStripMenuItem->Name = L"usuariosToolStripMenuItem";
+			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->usuariosToolStripMenuItem->Text = L"Usuarios";
+			this->usuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::usuariosToolStripMenuItem_Click);
 			// 
 			// frmPrincipal
 			// 
@@ -105,5 +118,11 @@ namespace ProyectoControlCondominioView {
 			ventanMantProyectos->MdiParent = this;
 			ventanMantProyectos->Show(); 
 		}
-	};
+
+	private: System::Void usuariosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		frmAdministrarUsuarios^ ventanMantUsuarios = gcnew frmAdministrarUsuarios();
+		ventanMantUsuarios->MdiParent = this;
+		ventanMantUsuarios->Show();
+	}
+};
 }

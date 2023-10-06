@@ -31,6 +31,12 @@ int Proyecto::getCantEdificios() {
 void Proyecto::setCantEdificios(int cantEdificios) {
 	this->cantEdificios = cantEdificios;
 }
+String^ Proyecto::getDepartamento() {
+	return this->Departamento;
+}
+void Proyecto::setDepartamento(String^ Departamento) {
+	this->Departamento = Departamento;
+}
 String^ Proyecto::getProvincia() {
 	return this->Provincia;
 }

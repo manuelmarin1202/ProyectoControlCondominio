@@ -117,10 +117,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdminController.h" />
     <ClInclude Include="ProyectoController.h" />
+    <ClInclude Include="UsuarioController.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AdminController.cpp" />
     <ClCompile Include="ProyectoController.cpp" />
+    <ClCompile Include="UsuarioController.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

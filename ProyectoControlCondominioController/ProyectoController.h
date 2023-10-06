@@ -10,5 +10,13 @@ namespace ProyectoControlCondominioController {
 		public:
 			ProyectoController();
 			List<Proyecto^>^ buscarProyectos(String^ Departamento);
+			//métodos q son fijas
+			List<Proyecto^>^ buscarAll();
+			void escribirArchivo(List<Proyecto^>^ listaProyectos);
+			void eliminarProyectoFisico(String^ codigo);
+			void agregarProyecto(Proyecto^ objProyecto);
+			Proyecto^ buscarProyectoxCodigo(String^ codigo);
+			void actualizarProyecto(Proyecto^ objProyecto);
+			List<String^>^ obtenerDepartamentos();
 	};
 }

@@ -114,8 +114,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="frmAdministrarUsuarios.cpp" />
+    <ClCompile Include="frmEditarProyecto.cpp" />
+    <ClCompile Include="frmIngresoAdmin.cpp" />
     <ClCompile Include="frmMantenimientoProyectos.cpp" />
+    <ClCompile Include="frmNuevoProyecto.cpp" />
     <ClCompile Include="frmPrincipal.cpp" />
+    <ClCompile Include="frmRegistroAdmin.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -126,19 +131,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="frmAdministrarUsuarios.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmEditarProyecto.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmIngresoAdmin.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmMantenimientoProyectos.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmNuevoProyecto.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmPrincipal.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmRegistroAdmin.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAdministrarUsuarios.resx">
+      <DependentUpon>frmAdministrarUsuarios.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarProyecto.resx">
+      <DependentUpon>frmEditarProyecto.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIngresoAdmin.resx">
+      <DependentUpon>frmIngresoAdmin.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMantenimientoProyectos.resx">
       <DependentUpon>frmMantenimientoProyectos.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoProyecto.resx">
+      <DependentUpon>frmNuevoProyecto.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroAdmin.resx">
+      <DependentUpon>frmRegistroAdmin.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

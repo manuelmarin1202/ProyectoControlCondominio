@@ -1,5 +1,5 @@
-#include <iostream>
-#include "ProyectoController.h"
+/*#include <iostream>
+#include "UsuarioController.h"
 
 using namespace ProyectoControlCondominioController;
 using namespace System::IO;//para utilizar los archivos de texto
@@ -9,13 +9,13 @@ ProyectoController::ProyectoController() {
 }
 
 List<Proyecto^>^ ProyectoController::buscarProyectos(String^ Departamento) {
-	/*En esta lista vamos a colocar la información de los proyectos que encontremos en el archivo de texto*/
+	//En esta lista vamos a colocar la información de los proyectos que encontremos en el archivo de texto
 	List<Proyecto^>^ listaProyectosEncontrados = gcnew List<Proyecto^>();
 	array<String^>^ lineas = File::ReadAllLines("proyectos.txt");
-	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
+	String^ separadores = ";"; //Aqui defino el caracter por el cual voy a separar la informacion de cada linea
 	for each (String ^ lineaProyecto in lineas) {
 		array<String^>^ datos = lineaProyecto->Split(separadores->ToCharArray());
-		String^ codigoCondominio=datos[0];
+		String^ codigoCondominio = datos[0];
 		int cantEdificios = Convert::ToInt32(datos[1]);
 		String^ DepartamentoCondominio = datos[2];
 		String^ ProvinciaCondominio = datos[3];
@@ -31,11 +31,11 @@ List<Proyecto^>^ ProyectoController::buscarProyectos(String^ Departamento) {
 }
 
 List<Proyecto^>^ ProyectoController::buscarAll() {
-	/*En esta lista vamos a colocar la información de los proyectos que encontremos en el archivo de texto*/
+	//En esta lista vamos a colocar la información de los proyectos que encontremos en el archivo de texto
 	List<Proyecto^>^ listaProyectosEncontrados = gcnew List<Proyecto^>();
 	array<String^>^ lineas = File::ReadAllLines("proyectos.txt");
-	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
-	for each (String^ lineaProyecto in lineas) {
+	String^ separadores = ";"; //Aqui defino el caracter por el cual voy a separar la informacion de cada linea
+	for each (String ^ lineaProyecto in lineas) {
 		array<String^>^ datos = lineaProyecto->Split(separadores->ToCharArray());
 		String^ codigoCondominio = datos[0];
 		int cantEdificios = Convert::ToInt32(datos[1]);
@@ -53,7 +53,7 @@ void ProyectoController::escribirArchivo(List<Proyecto^>^ listaProyectos) {
 	array<String^>^ lineasArchivo = gcnew array<String^>(listaProyectos->Count);
 	for (int i = 0; i < listaProyectos->Count; i++) {
 		Proyecto^ objProyecto = listaProyectos[i];
-		lineasArchivo[i] = objProyecto->getCodigo() + ";" + objProyecto->getCantEdificios()+ ";" + objProyecto->getDepartamento() + ";" + objProyecto->getProvincia() + ";" + objProyecto->getDistrito() + ";" + objProyecto->getNombre() + ";" + objProyecto->getFechaCreacion();
+		lineasArchivo[i] = objProyecto->getCodigo() + ";" + objProyecto->getCantEdificios() + ";" + objProyecto->getDepartamento() + ";" + objProyecto->getProvincia() + ";" + objProyecto->getDistrito() + ";" + objProyecto->getNombre() + ";" + objProyecto->getFechaCreacion();
 	}
 	File::WriteAllLines("Proyectos.txt", lineasArchivo);
 }
@@ -105,9 +105,9 @@ List<String^>^ ProyectoController::obtenerDepartamentos() {
 	List<Proyecto^>^ listaProyectos = buscarAll();
 	List<String^>^ listaDepartamentos = gcnew List<String^>();
 	for (int i = 0; i < listaProyectos->Count; i++) {
-		/*Aqui voy a buscar cada departamento si ya se encuentra en la lista de departamentos*/
+		//Aqui voy a buscar cada departamento si ya se encuentra en la lista de departamentos
 		String^ departamento = listaProyectos[i]->getDepartamento();
-		/*Voy a buscarlo en la listaDepartamentos*/
+		//Voy a buscarlo en la listaDepartamentos
 		int existe = 0;
 		for (int j = 0; j < listaDepartamentos->Count; j++) {
 			if (listaDepartamentos[j]->Contains(departamento)) {
@@ -119,6 +119,4 @@ List<String^>^ ProyectoController::obtenerDepartamentos() {
 		}
 	}
 	return listaDepartamentos;
-}
-
-
+}*/

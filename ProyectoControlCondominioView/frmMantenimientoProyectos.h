@@ -1,4 +1,6 @@
 #pragma once
+#include "frmNuevoProyecto.h"
+#include "frmEditarProyecto.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -45,11 +47,17 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+
+
+
+
+
 
 
 
@@ -74,6 +82,7 @@ namespace ProyectoControlCondominioView {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -131,17 +140,24 @@ namespace ProyectoControlCondominioView {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
-				this->Column5,
-					this->Column2, this->Column3, this->Column4, this->Column1
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
+				this->Column6,
+					this->Column5, this->Column2, this->Column3, this->Column4, this->Column1
 			});
-			this->dataGridView1->Location = System::Drawing::Point(31, 142);
+			this->dataGridView1->Location = System::Drawing::Point(39, 142);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(685, 148);
+			this->dataGridView1->Size = System::Drawing::Size(801, 148);
 			this->dataGridView1->TabIndex = 1;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmMantenimientoProyectos::dataGridView1_CellContentClick);
+			// 
+			// Column6
+			// 
+			this->Column6->HeaderText = L"Código";
+			this->Column6->MinimumWidth = 6;
+			this->Column6->Name = L"Column6";
+			this->Column6->Width = 125;
 			// 
 			// Column5
 			// 
@@ -180,36 +196,39 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(168, 312);
+			this->button2->Location = System::Drawing::Point(215, 312);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(80, 23);
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"Nuevo";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmMantenimientoProyectos::button2_Click);
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(334, 312);
+			this->button3->Location = System::Drawing::Point(408, 312);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(80, 23);
 			this->button3->TabIndex = 3;
 			this->button3->Text = L"Editar";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &frmMantenimientoProyectos::button3_Click);
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(499, 312);
+			this->button4->Location = System::Drawing::Point(584, 312);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(80, 23);
 			this->button4->TabIndex = 4;
 			this->button4->Text = L"Eliminar";
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &frmMantenimientoProyectos::button4_Click);
 			// 
 			// frmMantenimientoProyectos
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(755, 361);
+			this->ClientSize = System::Drawing::Size(852, 417);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
@@ -217,6 +236,7 @@ namespace ProyectoControlCondominioView {
 			this->Controls->Add(this->groupBox1);
 			this->Name = L"frmMantenimientoProyectos";
 			this->Text = L"frmMantenimientoProyectos";
+			this->Load += gcnew System::EventHandler(this, &frmMantenimientoProyectos::frmMantenimientoProyectos_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
@@ -235,22 +255,50 @@ namespace ProyectoControlCondominioView {
 		this->dataGridView1->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
 		for (int i = 0; i < listaCarreras->Count; i++) {
 			Proyecto^ objProyecto = listaCarreras[i];
-			array<String^>^ filaGrilla = gcnew array<String^>(5);
+			array<String^>^ filaGrilla = gcnew array<String^>(6);
 			//filaGrilla[0] = Convert::ToString(objProyecto->getCodigo());
-			filaGrilla[0] = objProyecto->getNombre();
-			filaGrilla[1] = Convert::ToString(objProyecto->getCantEdificios());
-			filaGrilla[2] = objProyecto->getProvincia();
-			filaGrilla[3] = objProyecto->getDistrito();
-			filaGrilla[4] = objProyecto->getFechaCreacion();
+			filaGrilla[0] = objProyecto->getCodigo();
+			filaGrilla[1] = objProyecto->getNombre();
+			filaGrilla[2] = Convert::ToString(objProyecto->getCantEdificios());
+			filaGrilla[3] = objProyecto->getProvincia();
+			filaGrilla[4] = objProyecto->getDistrito();
+			filaGrilla[5] = objProyecto->getFechaCreacion();
 			this->dataGridView1->Rows->Add(filaGrilla);
 		}
 	}
 
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-}
-private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	}	
+	private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button4_Click(System::Object ^ sender, System::EventArgs ^ e) {
+		ProyectoController^ objetoProyecto;
+		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0*/
+		String^ codigoEliminar = this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString();
+		objetoProyecto->eliminarProyectoFisico(codigoEliminar);
+		MessageBox::Show("El proyecto ha sido eliminado con éxito");
+	}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		frmNuevoProyecto^ ventanaNuevoProyecto = gcnew frmNuevoProyecto();
+		ventanaNuevoProyecto->ShowDialog();
+	}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0*/
+		String^ codigoEditar = this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString();
+		ProyectoController^ objProyectoController = gcnew ProyectoController();
+		Proyecto^ objProyecto = objProyectoController->buscarProyectoxCodigo(codigoEditar);
+		frmEditarProyecto^ ventanaEditarProyecto = gcnew frmEditarProyecto(objProyecto);
+		ventanaEditarProyecto->ShowDialog();
+	}
+private: System::Void frmMantenimientoProyectos_Load(System::Object^ sender, System::EventArgs^ e) {
+	ProyectoController^ objProyectoController = gcnew ProyectoController();
+	List<String^>^ listaDepartamentos = objProyectoController->obtenerDepartamentos();
+	this->comboBox1->Items->Clear();
+	for (int i = 0; i<listaDepartamentos->Count; i++) {
+		this->comboBox1->Items->Add(listaDepartamentos[i]);
+	}
 }
 };
 }

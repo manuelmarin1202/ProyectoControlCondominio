@@ -24,6 +24,8 @@ namespace ProyectoControlCondominioModel {
 		void setNombre(String^ NombreCondominio);
 		int getCantEdificios();
 		void setCantEdificios(int cantEdificios);
+		String^ getDepartamento();
+		void setDepartamento(String^ Departamento);
 		String^ getProvincia();
 		void setProvincia(String^ Provincia);
 		String^ getDistrito();
