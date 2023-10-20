@@ -1,12 +1,12 @@
 #pragma once
 
-/*
+
 using namespace System;
 using namespace System::Collections::Generic;
 using namespace ProyectoControlCondominioModel;
 
 namespace ProyectoControlCondominioController {
-	public ref class AdminController {
+	public ref class UsuarioController {
 	public:
 		UsuarioController();
 		List<Usuario^>^ buscarUsuarios(String^ apellidoPaterno);
@@ -18,4 +18,4 @@ namespace ProyectoControlCondominioController {
 		void actualizarUsuario(Usuario^ objProyecto);
 		List<String^>^ obtenerApellidos();
 	};
-}*/
+}

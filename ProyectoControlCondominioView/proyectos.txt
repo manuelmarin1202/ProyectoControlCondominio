@@ -1,2 +1,2 @@
-7;6;Lima;Lima;San Miguel ;Los Universitarios;5/09/2019
-4;5;Cusco ;Cusco;Cusco;Los Recintos;7/10/2018
+4;5;La Libertad;Cusco;Cusco;Los Recintos;7/10/2018
+41;8;Ica;Ica;Ica;La Huacachina;7/09/2020

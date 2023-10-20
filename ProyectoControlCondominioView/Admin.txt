@@ -2,3 +2,4 @@ admin;admin
 manuel ;manuel1202
 juanito;alcachofas
 bikas;termo
+manuel;marin

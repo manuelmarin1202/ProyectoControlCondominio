@@ -1,4 +1,7 @@
 #pragma once
+#include<stdlib.h>
+#include<time.h>
+
 
 namespace ProyectoControlCondominioView {
 
@@ -156,6 +159,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->textBox1->Location = System::Drawing::Point(183, 35);
 			this->textBox1->Name = L"textBox1";
+			this->textBox1->ReadOnly = true;
 			this->textBox1->Size = System::Drawing::Size(100, 22);
 			this->textBox1->TabIndex = 9;
 			// 
@@ -267,6 +271,8 @@ namespace ProyectoControlCondominioView {
 		}
 #pragma endregion
 	private: System::Void frmNuevoProyecto_Load(System::Object^ sender, System::EventArgs^ e) {
+		String^ codigoProyecto = Convert::ToString(rand() % 100);
+		this->textBox1->Text = codigoProyecto;
 	}
 	private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
 	}

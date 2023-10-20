@@ -292,7 +292,7 @@ namespace ProyectoControlCondominioView {
 		frmEditarProyecto^ ventanaEditarProyecto = gcnew frmEditarProyecto(objProyecto);
 		ventanaEditarProyecto->ShowDialog();
 	}
-private: System::Void frmMantenimientoProyectos_Load(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void frmMantenimientoProyectos_Load(System::Object^ sender, System::EventArgs^ e) {
 	ProyectoController^ objProyectoController = gcnew ProyectoController();
 	List<String^>^ listaDepartamentos = objProyectoController->obtenerDepartamentos();
 	this->comboBox1->Items->Clear();
