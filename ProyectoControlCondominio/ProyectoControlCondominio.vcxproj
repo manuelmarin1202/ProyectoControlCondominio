@@ -116,7 +116,7 @@
     <ClInclude Include="Admin.h" />
     <ClInclude Include="Ambiente.h" />
     <ClInclude Include="Apartamento.h" />
-    <ClInclude Include="bloqueado.h" />
+    <ClInclude Include="Bloqueado.h" />
     <ClInclude Include="Edificio.h" />
     <ClInclude Include="DatosPersonales.h" />
     <ClInclude Include="Emergencia.h" />
@@ -131,10 +131,10 @@
     <ClInclude Include="Usuario.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="admin.cpp" />
+    <ClCompile Include="Admin.cpp" />
     <ClCompile Include="Ambiente.cpp" />
     <ClCompile Include="Apartamento.cpp" />
-    <ClCompile Include="bloqueado.cpp" />
+    <ClCompile Include="Bloqueado.cpp" />
     <ClCompile Include="Edificio.cpp" />
     <ClCompile Include="DatosPersonales.cpp" />
     <ClCompile Include="Emergencia.cpp" />

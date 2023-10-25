@@ -138,6 +138,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->ClientSize = System::Drawing::Size(465, 377);
 			this->Controls->Add(this->linkLabel1);
 			this->Controls->Add(this->label3);
@@ -165,6 +166,8 @@ namespace ProyectoControlCondominioView {
 		int existe = objAdminController->ConfirmarAdmin(usuarioAdmin, contraAdmin);
 		if (existe) {
 			frmPrincipal^ ventanaPrincipal = gcnew frmPrincipal();
+			MessageBox::Show("¡Bienvenido administrador!");
+			//this->Close();
 			ventanaPrincipal->Show();
 		}
 		else {

@@ -11,6 +11,7 @@ namespace ProyectoControlCondominioView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Collections::Generic;
 	using namespace ProyectoControlCondominioController;
 	using namespace ProyectoControlCondominioModel;
 
@@ -289,7 +290,8 @@ namespace ProyectoControlCondominioView {
 		String^ distrito = this->textBox5->Text;
 		String^ nombre = this->textBox6->Text;
 		String^ fechaCreacion = this->dateTimePicker1->Text;
-		Proyecto^ objetoProyecto = gcnew Proyecto(codigoProyecto, cantEdificios, departamento, provincia, distrito, nombre, fechaCreacion);
+		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
+		Proyecto^ objetoProyecto = gcnew Proyecto(codigoProyecto, cantEdificios, departamento, provincia, distrito, nombre, fechaCreacion,listaEdificios);
 		ProyectoController^ objProyectoController = gcnew ProyectoController();
 		objProyectoController->agregarProyecto(objetoProyecto);
 		MessageBox::Show("El proyecto se ha agregado con exito");

@@ -57,7 +57,7 @@
     <ClInclude Include="Intruso.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="bloqueado.h">
+    <ClInclude Include="Bloqueado.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Admin.h">
@@ -107,10 +107,10 @@
     <ClCompile Include="Intruso.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="bloqueado.cpp">
+    <ClCompile Include="Bloqueado.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="admin.cpp">
+    <ClCompile Include="Admin.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

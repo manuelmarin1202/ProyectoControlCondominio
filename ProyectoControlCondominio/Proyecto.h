@@ -17,7 +17,7 @@ namespace ProyectoControlCondominioModel {
 		List<Edificio^>^ listaEdificios;
 	public:
 		Proyecto();
-		Proyecto(String^ codigo, int cantEdificios, String^ Departamento, String^ Provincia, String^ Distrito, String^ NombreCondominio, String^ FechaCreacion);
+		Proyecto(String^ codigo, int cantEdificios, String^ Departamento, String^ Provincia, String^ Distrito, String^ NombreCondominio, String^ FechaCreacion, List<Edificio^>^ listaEdificios);
 		String^ getCodigo();
 		void setCodigo(String^ codigo);
 		String^ getNombre();

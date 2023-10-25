@@ -1,6 +1,7 @@
 #pragma once
 #include "frmMantenimientoProyectos.h"
 #include "frmAdministrarUsuarios.h"
+#include "frmReporteNroEdificiosProyecto.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -41,6 +42,8 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::ToolStripMenuItem^ operacionesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ proyectoToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ usuariosToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ reportesToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ proyectosVsNroEdificiosToolStripMenuItem;
 
 	private:
 		/// <summary>
@@ -59,13 +62,18 @@ namespace ProyectoControlCondominioView {
 			this->operacionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->proyectoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->usuariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->reportesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->proyectosVsNroEdificiosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->operacionesToolStripMenuItem });
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->operacionesToolStripMenuItem,
+					this->reportesToolStripMenuItem
+			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Size = System::Drawing::Size(616, 28);
@@ -85,16 +93,30 @@ namespace ProyectoControlCondominioView {
 			// proyectoToolStripMenuItem
 			// 
 			this->proyectoToolStripMenuItem->Name = L"proyectoToolStripMenuItem";
-			this->proyectoToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->proyectoToolStripMenuItem->Size = System::Drawing::Size(150, 26);
 			this->proyectoToolStripMenuItem->Text = L"Proyecto";
 			this->proyectoToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::proyectoToolStripMenuItem_Click);
 			// 
 			// usuariosToolStripMenuItem
 			// 
 			this->usuariosToolStripMenuItem->Name = L"usuariosToolStripMenuItem";
-			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(150, 26);
 			this->usuariosToolStripMenuItem->Text = L"Usuarios";
 			this->usuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::usuariosToolStripMenuItem_Click);
+			// 
+			// reportesToolStripMenuItem
+			// 
+			this->reportesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->proyectosVsNroEdificiosToolStripMenuItem });
+			this->reportesToolStripMenuItem->Name = L"reportesToolStripMenuItem";
+			this->reportesToolStripMenuItem->Size = System::Drawing::Size(82, 24);
+			this->reportesToolStripMenuItem->Text = L"Reportes";
+			// 
+			// proyectosVsNroEdificiosToolStripMenuItem
+			// 
+			this->proyectosVsNroEdificiosToolStripMenuItem->Name = L"proyectosVsNroEdificiosToolStripMenuItem";
+			this->proyectosVsNroEdificiosToolStripMenuItem->Size = System::Drawing::Size(262, 26);
+			this->proyectosVsNroEdificiosToolStripMenuItem->Text = L"Proyectos vs Nro Edificios";
+			this->proyectosVsNroEdificiosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::proyectosVsNroEdificiosToolStripMenuItem_Click);
 			// 
 			// frmPrincipal
 			// 
@@ -123,6 +145,11 @@ namespace ProyectoControlCondominioView {
 		frmAdministrarUsuarios^ ventanMantUsuarios = gcnew frmAdministrarUsuarios();
 		ventanMantUsuarios->MdiParent = this;
 		ventanMantUsuarios->Show();
+	}
+	private: System::Void proyectosVsNroEdificiosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		frmReporteNroEdificiosProyecto^ ventanaReporte = gcnew frmReporteNroEdificiosProyecto();
+		ventanaReporte->MdiParent = this;
+		ventanaReporte->Show();
 	}
 };
 }

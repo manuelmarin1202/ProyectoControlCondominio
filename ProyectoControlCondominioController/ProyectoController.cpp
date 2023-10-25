@@ -1,4 +1,4 @@
-#include <iostream>
+#include "iostream"
 #include "ProyectoController.h"
 
 using namespace ProyectoControlCondominioController;
@@ -22,8 +22,9 @@ List<Proyecto^>^ ProyectoController::buscarProyectos(String^ Departamento) {
 		String^ DistritoCondominio = datos[4];
 		String^ NombreCondominio = datos[5];
 		String^ FechaCreacion = datos[6];
+		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
 		if (DepartamentoCondominio->Contains(Departamento)) {
-			Proyecto^ objProyecto = gcnew Proyecto(codigoCondominio, cantEdificios, DepartamentoCondominio, ProvinciaCondominio, DistritoCondominio, NombreCondominio, FechaCreacion);
+			Proyecto^ objProyecto = gcnew Proyecto(codigoCondominio, cantEdificios, DepartamentoCondominio, ProvinciaCondominio, DistritoCondominio, NombreCondominio, FechaCreacion, listaEdificios);
 			listaProyectosEncontrados->Add(objProyecto);
 		}
 	}
@@ -44,7 +45,8 @@ List<Proyecto^>^ ProyectoController::buscarAll() {
 		String^ DistritoCondominio = datos[4];
 		String^ NombreCondominio = datos[5];
 		String^ FechaCreacion = datos[6];
-		Proyecto^ objProyecto = gcnew Proyecto(codigoCondominio, cantEdificios, DepartamentoCondominio, ProvinciaCondominio, DistritoCondominio, NombreCondominio, FechaCreacion);
+		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
+		Proyecto^ objProyecto = gcnew Proyecto(codigoCondominio, cantEdificios, DepartamentoCondominio, ProvinciaCondominio, DistritoCondominio, NombreCondominio, FechaCreacion, listaEdificios);
 		listaProyectosEncontrados->Add(objProyecto);
 	}
 	return listaProyectosEncontrados;

@@ -1,6 +1,7 @@
 #pragma once
 #include "frmNuevoUsuario.h"
 #include "frmEditarUsuario.h"
+#include "frmVerUsuario.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -59,6 +60,7 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
+	private: System::Windows::Forms::Button^ button5;
 
 	private:
 		/// <summary>
@@ -86,13 +88,14 @@ namespace ProyectoControlCondominioView {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->button5 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(564, 343);
+			this->button4->Location = System::Drawing::Point(574, 343);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(80, 23);
 			this->button4->TabIndex = 9;
@@ -102,7 +105,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(388, 343);
+			this->button3->Location = System::Drawing::Point(315, 343);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(80, 23);
 			this->button3->TabIndex = 8;
@@ -112,7 +115,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(195, 343);
+			this->button2->Location = System::Drawing::Point(154, 343);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(80, 23);
 			this->button2->TabIndex = 7;
@@ -209,11 +212,22 @@ namespace ProyectoControlCondominioView {
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Apellido Paterno";
 			// 
+			// button5
+			// 
+			this->button5->Location = System::Drawing::Point(451, 343);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(75, 23);
+			this->button5->TabIndex = 10;
+			this->button5->Text = L"Ver";
+			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &frmAdministrarUsuarios::button5_Click);
+			// 
 			// frmAdministrarUsuarios
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(839, 433);
+			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
@@ -286,6 +300,15 @@ namespace ProyectoControlCondominioView {
 			String^ codigoEliminar = this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString();
 			objetoProyecto->eliminarUsuarioFisico(codigoEliminar);
 			MessageBox::Show("El proyecto ha sido eliminado con éxito");
+		}
+		private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+			Usuario^ objetoProyecto;
+			int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0*/
+			String^ codigoVer = this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString();
+			UsuarioController^ objProyectoControl = gcnew UsuarioController();
+			Usuario^ objUsuario = objProyectoControl->buscarUsuarioxCodigo(codigoVer);
+			frmVerUsuario^ ventanaVerUsuario = gcnew frmVerUsuario(objUsuario);
+			ventanaVerUsuario->ShowDialog();
 		}
 };
 }

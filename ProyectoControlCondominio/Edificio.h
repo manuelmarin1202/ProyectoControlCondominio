@@ -14,5 +14,13 @@ namespace ProyectoControlCondominioModel {
 	public:
 		Edificio();
 		Edificio(int cantPisos,int aforo, String^ codigo, List<Piso^>^ listaPisos);
+		int getCantPisos();
+		void setCantPisos(int cantPisos);
+		int getAforo();
+		void setAforo(int aforo);
+		String^ getCodigo();
+		void setCodigo(String^ codigo);
+		List<Piso^>^ getListaPisos();
+		void setListaPisos(List<Piso^>^ listaPisos);
 	};
 }
