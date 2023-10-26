@@ -1,4 +1,5 @@
 #pragma once
+//#include "graphics.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -8,6 +9,7 @@ namespace ProyectoControlCondominioView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Drawing::Imaging;
 	using namespace System::Collections::Generic;
 	using namespace ProyectoControlCondominioController;
 	using namespace ProyectoControlCondominioModel;
@@ -43,7 +45,7 @@ namespace ProyectoControlCondominioView {
 		}
 	private: System::Windows::Forms::Label^ label1;
 	protected:
-	private: System::Windows::Forms::Panel^ panel1;
+
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::TextBox^ textBox4;
@@ -57,6 +59,10 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::Label^ label2;
 	private: Usuario^ objUsuario;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
+
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -71,7 +77,6 @@ namespace ProyectoControlCondominioView {
 		void InitializeComponent(void)
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
@@ -84,7 +89,11 @@ namespace ProyectoControlCondominioView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->groupBox1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -95,15 +104,6 @@ namespace ProyectoControlCondominioView {
 			this->label1->Size = System::Drawing::Size(109, 16);
 			this->label1->TabIndex = 5;
 			this->label1->Text = L"Foto del Usuario:";
-			// 
-			// panel1
-			// 
-			this->panel1->BackColor = System::Drawing::SystemColors::ControlLightLight;
-			this->panel1->Location = System::Drawing::Point(492, 74);
-			this->panel1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(358, 379);
-			this->panel1->TabIndex = 4;
 			// 
 			// groupBox1
 			// 
@@ -213,7 +213,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(423, 492);
+			this->button1->Location = System::Drawing::Point(222, 496);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 6;
@@ -221,20 +221,46 @@ namespace ProyectoControlCondominioView {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &frmVerUsuario::button1_Click);
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::SystemColors::AppWorkspace;
+			this->pictureBox1->Location = System::Drawing::Point(493, 85);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(371, 385);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 7;
+			this->pictureBox1->TabStop = false;
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(644, 496);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->TabIndex = 8;
+			this->button2->Text = L"Cargar";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmVerUsuario::button2_Click);
+			// 
+			// openFileDialog1
+			// 
+			this->openFileDialog1->FileName = L"openFileDialog1";
+			// 
 			// frmVerUsuario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(886, 531);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->groupBox1);
 			this->Name = L"frmVerUsuario";
 			this->Text = L"frmVerUsuario";
 			this->Load += gcnew System::EventHandler(this, &frmVerUsuario::frmVerUsuario_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -246,9 +272,20 @@ namespace ProyectoControlCondominioView {
 		this->textBox3->Text = this->objUsuario->getApellidoPaterno();
 		this->textBox4->Text = this->objUsuario->getApellidoMaterno();
 		this->textBox5->Text = this->objUsuario->getDni();
+		this->pictureBox1->Image = Image::FromFile("Alberto.jpg");
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
+}
+private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog();
+	openFileDialog1->InitialDirectory = "C:";
+	//this->openFileDialog1->InitialDirectory = "C:";
+	if (openFileDialog1->ShowDialog() == Windows::Forms::DialogResult::OK) {
+		this->pictureBox1->Image = Image::FromFile(openFileDialog1->FileName);
+	}*/
 }
 };
 }
