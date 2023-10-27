@@ -62,6 +62,9 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
+	private: System::Windows::Forms::Button^ button3;
+
+
 
 	private:
 		/// <summary>
@@ -92,6 +95,7 @@ namespace ProyectoControlCondominioView {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -131,6 +135,7 @@ namespace ProyectoControlCondominioView {
 			this->textBox5->Location = System::Drawing::Point(193, 340);
 			this->textBox5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox5->Name = L"textBox5";
+			this->textBox5->ReadOnly = true;
 			this->textBox5->Size = System::Drawing::Size(175, 22);
 			this->textBox5->TabIndex = 9;
 			// 
@@ -139,6 +144,7 @@ namespace ProyectoControlCondominioView {
 			this->textBox4->Location = System::Drawing::Point(193, 277);
 			this->textBox4->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox4->Name = L"textBox4";
+			this->textBox4->ReadOnly = true;
 			this->textBox4->Size = System::Drawing::Size(175, 22);
 			this->textBox4->TabIndex = 8;
 			// 
@@ -147,6 +153,7 @@ namespace ProyectoControlCondominioView {
 			this->textBox3->Location = System::Drawing::Point(193, 213);
 			this->textBox3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox3->Name = L"textBox3";
+			this->textBox3->ReadOnly = true;
 			this->textBox3->Size = System::Drawing::Size(175, 22);
 			this->textBox3->TabIndex = 7;
 			// 
@@ -155,6 +162,7 @@ namespace ProyectoControlCondominioView {
 			this->textBox2->Location = System::Drawing::Point(193, 151);
 			this->textBox2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox2->Name = L"textBox2";
+			this->textBox2->ReadOnly = true;
 			this->textBox2->Size = System::Drawing::Size(175, 22);
 			this->textBox2->TabIndex = 6;
 			// 
@@ -163,6 +171,7 @@ namespace ProyectoControlCondominioView {
 			this->textBox1->Location = System::Drawing::Point(193, 87);
 			this->textBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox1->Name = L"textBox1";
+			this->textBox1->ReadOnly = true;
 			this->textBox1->Size = System::Drawing::Size(175, 22);
 			this->textBox1->TabIndex = 5;
 			// 
@@ -233,7 +242,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(644, 496);
+			this->button2->Location = System::Drawing::Point(557, 496);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 8;
@@ -245,6 +254,16 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->openFileDialog1->FileName = L"openFileDialog1";
 			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(711, 496);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(75, 23);
+			this->button3->TabIndex = 9;
+			this->button3->Text = L"Guardar";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &frmVerUsuario::button3_Click);
+			// 
 			// frmVerUsuario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -255,6 +274,7 @@ namespace ProyectoControlCondominioView {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->groupBox1);
+			this->Controls->Add(this->button3);
 			this->Name = L"frmVerUsuario";
 			this->Text = L"frmVerUsuario";
 			this->Load += gcnew System::EventHandler(this, &frmVerUsuario::frmVerUsuario_Load);
@@ -272,20 +292,33 @@ namespace ProyectoControlCondominioView {
 		this->textBox3->Text = this->objUsuario->getApellidoPaterno();
 		this->textBox4->Text = this->objUsuario->getApellidoMaterno();
 		this->textBox5->Text = this->objUsuario->getDni();
-		this->pictureBox1->Image = Image::FromFile("Alberto.jpg");
+		this->pictureBox1->Image = Image::FromFile(this->objUsuario->getNombreFoto());
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }
 private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	/*OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog();
-	openFileDialog1->InitialDirectory = "C:";
-	//this->openFileDialog1->InitialDirectory = "C:";
-	if (openFileDialog1->ShowDialog() == Windows::Forms::DialogResult::OK) {
-		this->pictureBox1->Image = Image::FromFile(openFileDialog1->FileName);
-	}*/
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (this->openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+			String^ nombreArchivo = this->openFileDialog1->FileName;
+			this->pictureBox1->Image = Image::FromFile(nombreArchivo);
+			this->objUsuario->setNombreFoto(nombreArchivo);
+			String^ codigo = this->objUsuario->getCodigoUsuario();
+			String^ nombre = this->objUsuario->getNombres();
+			String^ apellidoPaterno = this->objUsuario->getApellidoPaterno();
+			String^ apellidoMaterno = this->objUsuario->getApellidoMaterno();
+			String^ dni = this->objUsuario->getDni();
+			String^ nombreFoto = nombreArchivo;
+			objUsuario = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni,codigo, nombreFoto);
+			UsuarioController^ objProyectoControl = gcnew UsuarioController();
+			objProyectoControl->actualizarUsuario(objUsuario);
+			MessageBox::Show("La imagen se ha cargado con exito");
+		}
+	}
+
+
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

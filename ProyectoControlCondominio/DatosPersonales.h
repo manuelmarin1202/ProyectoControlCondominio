@@ -9,9 +9,10 @@ namespace ProyectoControlCondominioModel {
 		String^ apellidoPaterno;
 		String^ apellidoMaterno;
 		String^ dni;
+		String^ nombreFoto;
 	public:
 		DatosPersonales();
-		DatosPersonales(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni);
+		DatosPersonales(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ nombreFoto);
 		String^ getNombres();
 		void setNombres(String^ nombre);
 		String^ getApellidoPaterno();
@@ -20,5 +21,7 @@ namespace ProyectoControlCondominioModel {
 		void setApellidoMaterno(String^ apellidoMaterno);
 		String^ getDni();
 		void setDni(String^ dni);
+		String^ getNombreFoto();
+		void setNombreFoto(String^ nombreFoto);
 	};
 }

@@ -22,8 +22,9 @@ List<Usuario^>^ UsuarioController::buscarUsuarios(String^ ApellidoPaterno) {
 		String^ apellidoPaterno = datos[2];
 		String^ apellidoMaterno = datos[3];
 		String^ dni = datos[4];
+		String^ nombreFoto = datos[5];
 		if (apellidoPaterno->Contains(ApellidoPaterno)) {
-			Usuario^ objUsuario = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni,codigo);
+			Usuario^ objUsuario = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni,codigo,nombreFoto);
 			//String^ ave = objUsuario->getNombres();
 			listaUsuariosEncontrados->Add(objUsuario);
 		}
@@ -46,7 +47,8 @@ for each (String ^ lineaProyecto in lineas) {
 	String^ apellidoPaterno = datos[2];
 	String^ apellidoMaterno = datos[3];
 	String^ dni = datos[4];
-	Usuario^ objProyecto = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni,codigo);
+	String^ nombreFoto = datos[5];
+	Usuario^ objProyecto = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni,codigo,nombreFoto);
 	listaProyectosEncontrados->Add(objProyecto);
 }
 return listaProyectosEncontrados;
@@ -57,7 +59,7 @@ void UsuarioController::EscribirArchivo_2(List<Usuario^>^ lista) {
 	for (int i = 0; i < lista->Count; i++) {
 		//Usuario^ objeto = gcnew Usuario();
 		Usuario^ objeto = lista[i];
-		lineasArchivo[i] = objeto->getCodigoUsuario() + ";" + objeto->getNombres() + ";" + objeto->getApellidoPaterno() + ";" + objeto->getApellidoMaterno() + ";" + objeto->getDni();
+		lineasArchivo[i] = objeto->getCodigoUsuario() + ";" + objeto->getNombres() + ";" + objeto->getApellidoPaterno() + ";" + objeto->getApellidoMaterno() + ";" + objeto->getDni()+";"+objeto->getNombreFoto();
 	}
 	File::WriteAllLines("usuarios.txt", lineasArchivo);
 }
@@ -97,6 +99,7 @@ void UsuarioController::actualizarUsuario(Usuario^ objProyecto) {
 		listaUsuarios[i]->setApellidoPaterno(objProyecto->getApellidoPaterno());
 		listaUsuarios[i]->setApellidoMaterno(objProyecto->getApellidoMaterno());
 		listaUsuarios[i]->setDni(objProyecto->getDni());
+		listaUsuarios[i]->setNombreFoto(objProyecto->getNombreFoto());
 		break;
 		}
 	}
@@ -122,6 +125,11 @@ List<String^>^ UsuarioController::obtenerApellidos() {
 		}
 	}
 	return listaApellidos;
+}
+
+Bitmap^ UsuarioController::leerArchivo(String^ nombreArchivo) {
+	Bitmap^ FondoTotal = gcnew Bitmap(nombreArchivo);
+	return FondoTotal;
 }
 
 

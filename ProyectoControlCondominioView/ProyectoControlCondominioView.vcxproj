@@ -124,6 +124,7 @@
     <ClCompile Include="frmPrincipal.cpp" />
     <ClCompile Include="frmRegistroAdmin.cpp" />
     <ClCompile Include="frmReporteNroEdificiosProyecto.cpp" />
+    <ClCompile Include="frmReporteNroUsuarios.cpp" />
     <ClCompile Include="frmVerProyecto.cpp" />
     <ClCompile Include="frmVerUsuario.cpp" />
     <ClCompile Include="main.cpp" />
@@ -168,6 +169,9 @@
     <ClInclude Include="frmReporteNroEdificiosProyecto.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmReporteNroUsuarios.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmVerProyecto.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -205,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteNroEdificiosProyecto.resx">
       <DependentUpon>frmReporteNroEdificiosProyecto.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteNroUsuarios.resx">
+      <DependentUpon>frmReporteNroUsuarios.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerProyecto.resx">
       <DependentUpon>frmVerProyecto.h</DependentUpon>

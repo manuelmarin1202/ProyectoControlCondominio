@@ -43,7 +43,7 @@ namespace ProyectoControlCondominioView {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Panel^ panel1;
+
 	protected:
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
@@ -63,6 +63,9 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::Label^ label2;
 	private: Proyecto^ objProyecto;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -76,7 +79,6 @@ namespace ProyectoControlCondominioView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
@@ -94,22 +96,17 @@ namespace ProyectoControlCondominioView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->groupBox1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// panel1
-			// 
-			this->panel1->BackColor = System::Drawing::SystemColors::ControlLightLight;
-			this->panel1->Location = System::Drawing::Point(452, 64);
-			this->panel1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(377, 369);
-			this->panel1->TabIndex = 5;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(448, 42);
+			this->label1->Location = System::Drawing::Point(448, 33);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(117, 16);
 			this->label1->TabIndex = 4;
@@ -262,7 +259,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(397, 451);
+			this->button1->Location = System::Drawing::Point(190, 451);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 6;
@@ -270,13 +267,39 @@ namespace ProyectoControlCondominioView {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &frmVerProyecto::button1_Click);
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::SystemColors::AppWorkspace;
+			this->pictureBox1->Location = System::Drawing::Point(451, 61);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(371, 358);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 8;
+			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &frmVerProyecto::pictureBox1_Click);
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(615, 451);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->TabIndex = 9;
+			this->button2->Text = L"Cargar";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmVerProyecto::button2_Click);
+			// 
+			// openFileDialog1
+			// 
+			this->openFileDialog1->FileName = L"openFileDialog1";
+			// 
 			// frmVerProyecto
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(840, 486);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->groupBox1);
 			this->Name = L"frmVerProyecto";
@@ -284,6 +307,7 @@ namespace ProyectoControlCondominioView {
 			this->Load += gcnew System::EventHandler(this, &frmVerProyecto::frmVerProyecto_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -297,9 +321,32 @@ namespace ProyectoControlCondominioView {
 		this->textBox5->Text = this->objProyecto->getDistrito();
 		this->textBox6->Text = this->objProyecto->getNombre();
 		this->dateTimePicker1->Text = this->objProyecto->getFechaCreacion();
+		this->pictureBox1->Image = Image::FromFile(this->objProyecto->getNombreFoto());
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
+private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+		String^ nombreArchivo = this->openFileDialog1->FileName;
+		this->pictureBox1->Image = Image::FromFile(nombreArchivo);
+		this->objProyecto->setNombreFoto(nombreArchivo);
+		String^ codigoProyecto = this->textBox1->Text;
+		int cantEdificios = Convert::ToInt32(this->textBox2->Text);
+		String^ departamento = this->textBox3->Text;
+		String^ provincia = this->textBox4->Text;
+		String^ distrito = this->textBox5->Text;
+		String^ nombre = this->textBox6->Text;
+		String^ fechaCreacion = this->dateTimePicker1->Text;
+		String^ nombreFoto = nombreArchivo;
+		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
+		objProyecto = gcnew Proyecto(codigoProyecto, cantEdificios, departamento, provincia, distrito, nombre, fechaCreacion, nombreFoto, listaEdificios);
+		ProyectoController^ objProyectoControl = gcnew ProyectoController();
+		objProyectoControl->actualizarProyecto(objProyecto);
+		MessageBox::Show("La imagen se ha cargado con exito");
+	}
+}
 };
 }

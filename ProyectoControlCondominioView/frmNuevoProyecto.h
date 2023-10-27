@@ -58,6 +58,8 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::TextBox^ textBox7;
 	protected:
 
 	protected:
@@ -92,11 +94,15 @@ namespace ProyectoControlCondominioView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->Datos->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// Datos
 			// 
+			this->Datos->Controls->Add(this->label8);
+			this->Datos->Controls->Add(this->textBox7);
 			this->Datos->Controls->Add(this->textBox6);
 			this->Datos->Controls->Add(this->textBox5);
 			this->Datos->Controls->Add(this->textBox4);
@@ -115,7 +121,7 @@ namespace ProyectoControlCondominioView {
 			this->Datos->Controls->Add(this->label1);
 			this->Datos->Location = System::Drawing::Point(29, 30);
 			this->Datos->Name = L"Datos";
-			this->Datos->Size = System::Drawing::Size(399, 305);
+			this->Datos->Size = System::Drawing::Size(399, 329);
 			this->Datos->TabIndex = 0;
 			this->Datos->TabStop = false;
 			this->Datos->Text = L"Datos del Proyecto";
@@ -174,7 +180,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(225, 264);
+			this->button2->Location = System::Drawing::Point(226, 286);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 7;
@@ -184,7 +190,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(91, 264);
+			this->button1->Location = System::Drawing::Point(87, 286);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 6;
@@ -256,6 +262,22 @@ namespace ProyectoControlCondominioView {
 			this->label1->Text = L"Código:";
 			this->label1->Click += gcnew System::EventHandler(this, &frmNuevoProyecto::label1_Click);
 			// 
+			// textBox7
+			// 
+			this->textBox7->Location = System::Drawing::Point(183, 249);
+			this->textBox7->Name = L"textBox7";
+			this->textBox7->Size = System::Drawing::Size(100, 22);
+			this->textBox7->TabIndex = 15;
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(40, 255);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(89, 16);
+			this->label8->TabIndex = 16;
+			this->label8->Text = L"Nombre Foto:";
+			// 
 			// frmNuevoProyecto
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -290,8 +312,9 @@ namespace ProyectoControlCondominioView {
 		String^ distrito = this->textBox5->Text;
 		String^ nombre = this->textBox6->Text;
 		String^ fechaCreacion = this->dateTimePicker1->Text;
+		String^ nombreFoto = this->textBox7->Text;
 		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
-		Proyecto^ objetoProyecto = gcnew Proyecto(codigoProyecto, cantEdificios, departamento, provincia, distrito, nombre, fechaCreacion,listaEdificios);
+		Proyecto^ objetoProyecto = gcnew Proyecto(codigoProyecto, cantEdificios, departamento, provincia, distrito, nombre, fechaCreacion,nombreFoto,listaEdificios);
 		ProyectoController^ objProyectoController = gcnew ProyectoController();
 		objProyectoController->agregarProyecto(objetoProyecto);
 		MessageBox::Show("El proyecto se ha agregado con exito");

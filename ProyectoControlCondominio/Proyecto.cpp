@@ -3,7 +3,7 @@ using namespace ProyectoControlCondominioModel;
 Proyecto::Proyecto() {
 
 }
-Proyecto::Proyecto(String^ codigo, int cantEdificios, String^ Departamento, String^ Provincia, String^ Distrito, String^ NombreCondominio, String^ FechaCreacion, List<Edificio^>^ listaEdificios){
+Proyecto::Proyecto(String^ codigo, int cantEdificios, String^ Departamento, String^ Provincia, String^ Distrito, String^ NombreCondominio, String^ FechaCreacion, String^ nombreFoto, List<Edificio^>^ listaEdificios){
 	this->codigo = codigo;
 	this->cantEdificios = cantEdificios;
 	this->Departamento=Departamento;
@@ -11,6 +11,7 @@ Proyecto::Proyecto(String^ codigo, int cantEdificios, String^ Departamento, Stri
 	this->Distrito=Distrito;
 	this->NombreCondominio=NombreCondominio;
 	this->FechaCreacion=FechaCreacion;
+	this->nombreFoto = nombreFoto;
 	this->listaEdificios = listaEdificios;
 }
 
@@ -55,4 +56,11 @@ String^ Proyecto::getFechaCreacion() {
 }
 void Proyecto::setFechaCreacion(String^ FechaCreacion) {
 	this->FechaCreacion = FechaCreacion;
+}
+
+String^ Proyecto::getNombreFoto() {
+	return this->nombreFoto;
+}
+void Proyecto::setNombreFoto(String^ nombreFoto) {
+	this->nombreFoto = nombreFoto;
 }

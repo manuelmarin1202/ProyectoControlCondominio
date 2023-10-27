@@ -5,11 +5,12 @@ DatosPersonales::DatosPersonales() {
 
 }
 
-DatosPersonales::DatosPersonales(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni) {
+DatosPersonales::DatosPersonales(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ nombreFoto) {
 	this->nombre = nombre;
 	this->apellidoPaterno = apellidoPaterno;
 	this->apellidoMaterno =apellidoMaterno;
 	this->dni = dni;
+	this->nombreFoto = nombreFoto;
 }
 
 String^ DatosPersonales::getNombres() {
@@ -35,4 +36,10 @@ String^ DatosPersonales::getDni() {
 }
 void DatosPersonales::setDni(String^ dni) {
 	this->dni = dni;
+}
+String^ DatosPersonales::getNombreFoto() {
+	return this->nombreFoto;
+}
+void DatosPersonales::setNombreFoto(String^ nombreFoto) {
+	this->nombreFoto = nombreFoto;
 }

@@ -62,6 +62,8 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 	private: Proyecto^ objProyecto;//este atributo se agrega para manejar la informacion de proyectos
+	private: System::Windows::Forms::TextBox^ textBox7;
+	private: System::Windows::Forms::Label^ label8;
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -92,11 +94,15 @@ namespace ProyectoControlCondominioView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->Datos->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// Datos
 			// 
+			this->Datos->Controls->Add(this->textBox7);
+			this->Datos->Controls->Add(this->label8);
 			this->Datos->Controls->Add(this->textBox6);
 			this->Datos->Controls->Add(this->textBox5);
 			this->Datos->Controls->Add(this->textBox4);
@@ -115,7 +121,7 @@ namespace ProyectoControlCondominioView {
 			this->Datos->Controls->Add(this->label1);
 			this->Datos->Location = System::Drawing::Point(30, 61);
 			this->Datos->Name = L"Datos";
-			this->Datos->Size = System::Drawing::Size(399, 305);
+			this->Datos->Size = System::Drawing::Size(399, 334);
 			this->Datos->TabIndex = 1;
 			this->Datos->TabStop = false;
 			this->Datos->Text = L"Datos del Proyecto";
@@ -173,7 +179,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(225, 264);
+			this->button2->Location = System::Drawing::Point(228, 295);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 7;
@@ -183,7 +189,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(91, 264);
+			this->button1->Location = System::Drawing::Point(89, 295);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 6;
@@ -254,6 +260,22 @@ namespace ProyectoControlCondominioView {
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Código:";
 			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(40, 261);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(89, 16);
+			this->label8->TabIndex = 15;
+			this->label8->Text = L"Nombre Foto:";
+			// 
+			// textBox7
+			// 
+			this->textBox7->Location = System::Drawing::Point(183, 258);
+			this->textBox7->Name = L"textBox7";
+			this->textBox7->Size = System::Drawing::Size(100, 22);
+			this->textBox7->TabIndex = 16;
+			// 
 			// frmEditarProyecto
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -277,6 +299,7 @@ namespace ProyectoControlCondominioView {
 		this->textBox5->Text = this->objProyecto->getDistrito();
 		this->textBox6->Text = this->objProyecto->getNombre();
 		this->dateTimePicker1->Text = this->objProyecto->getFechaCreacion();
+		this->textBox7->Text = this->objProyecto->getNombreFoto();
 		
 	}
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -290,8 +313,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	String^ distrito = this->textBox5->Text;
 	String^ nombre = this->textBox6->Text;
 	String^ fechaCreacion = this->dateTimePicker1->Text;
+	String^ nombreFoto = this->textBox7->Text;
 	List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
-	Proyecto^ objetoProyecto = gcnew Proyecto(codigoProyecto, cantEdificios, departamento, provincia, distrito, nombre, fechaCreacion, listaEdificios);
+	Proyecto^ objetoProyecto = gcnew Proyecto(codigoProyecto, cantEdificios, departamento, provincia, distrito, nombre, fechaCreacion, nombreFoto,listaEdificios);
 	ProyectoController^ objProyectoController = gcnew ProyectoController();
 	objProyectoController->actualizarProyecto(objetoProyecto);
 	MessageBox::Show("El proyecto se ha actualizado con exito");

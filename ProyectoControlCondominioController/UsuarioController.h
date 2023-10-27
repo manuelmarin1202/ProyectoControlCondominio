@@ -3,6 +3,7 @@
 
 using namespace System;
 using namespace System::Collections::Generic;
+using namespace System::Drawing;
 using namespace ProyectoControlCondominioModel;
 
 namespace ProyectoControlCondominioController {
@@ -17,5 +18,7 @@ namespace ProyectoControlCondominioController {
 		Usuario^ buscarUsuarioxCodigo(String^ codigo);
 		void actualizarUsuario(Usuario^ objProyecto);
 		List<String^>^ obtenerApellidos();
+		//void guardarArchivo(List<Figura^>^ listaFiguras, String^ nombreArchivo);
+		Bitmap^ leerArchivo(String^ nombreArchivo);
 	};
 }

@@ -1,1 +1,5 @@
-r467;Manuel Marcelo;Marin;Palomares;76218825
+r467;Manuel Marcelo;Marin;Palomares;76218825;C:\Users\cmose\Downloads\fotoManuel.jpg
+r41;Alberto;Berrocal;Tinoco;74325689;C:\Users\cmose\OneDrive\Escritorio\LPOO\ProyectoControlCondominio\ProyectoControlCondominioView\Alberto.jpg
+I41;Jose;Del Carpio;Gomez;75489865;cejo.jpg
+R467;Diego;Astete;Zuniga;74568969;diego.jpg
+I467;Juanito;Juan;Juana;46464;Alberto.jpg

@@ -13,7 +13,7 @@ namespace ProyectoControlCondominioModel {
 		//String^ dni;
 	public:
 		Usuario();
-		Usuario(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ codigo);
+		Usuario(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ codigo, String^ nombreFoto);
 		String^ getCodigoUsuario();
 		void setCodigoUsuario(String^ codigo);
 		//String^ getNombreUsuario();

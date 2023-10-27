@@ -22,9 +22,10 @@ List<Proyecto^>^ ProyectoController::buscarProyectos(String^ Departamento) {
 		String^ DistritoCondominio = datos[4];
 		String^ NombreCondominio = datos[5];
 		String^ FechaCreacion = datos[6];
+		String^ nombreFoto = datos[7];
 		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
 		if (DepartamentoCondominio->Contains(Departamento)) {
-			Proyecto^ objProyecto = gcnew Proyecto(codigoCondominio, cantEdificios, DepartamentoCondominio, ProvinciaCondominio, DistritoCondominio, NombreCondominio, FechaCreacion, listaEdificios);
+			Proyecto^ objProyecto = gcnew Proyecto(codigoCondominio, cantEdificios, DepartamentoCondominio, ProvinciaCondominio, DistritoCondominio, NombreCondominio, FechaCreacion, nombreFoto,listaEdificios);
 			listaProyectosEncontrados->Add(objProyecto);
 		}
 	}
@@ -45,8 +46,9 @@ List<Proyecto^>^ ProyectoController::buscarAll() {
 		String^ DistritoCondominio = datos[4];
 		String^ NombreCondominio = datos[5];
 		String^ FechaCreacion = datos[6];
+		String^ nombreFoto = datos[7];
 		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
-		Proyecto^ objProyecto = gcnew Proyecto(codigoCondominio, cantEdificios, DepartamentoCondominio, ProvinciaCondominio, DistritoCondominio, NombreCondominio, FechaCreacion, listaEdificios);
+		Proyecto^ objProyecto = gcnew Proyecto(codigoCondominio, cantEdificios, DepartamentoCondominio, ProvinciaCondominio, DistritoCondominio, NombreCondominio, FechaCreacion, nombreFoto,listaEdificios);
 		listaProyectosEncontrados->Add(objProyecto);
 	}
 	return listaProyectosEncontrados;
@@ -55,7 +57,7 @@ void ProyectoController::escribirArchivo(List<Proyecto^>^ listaProyectos) {
 	array<String^>^ lineasArchivo = gcnew array<String^>(listaProyectos->Count);
 	for (int i = 0; i < listaProyectos->Count; i++) {
 		Proyecto^ objProyecto = listaProyectos[i];
-		lineasArchivo[i] = objProyecto->getCodigo() + ";" + objProyecto->getCantEdificios()+ ";" + objProyecto->getDepartamento() + ";" + objProyecto->getProvincia() + ";" + objProyecto->getDistrito() + ";" + objProyecto->getNombre() + ";" + objProyecto->getFechaCreacion();
+		lineasArchivo[i] = objProyecto->getCodigo() + ";" + objProyecto->getCantEdificios()+ ";" + objProyecto->getDepartamento() + ";" + objProyecto->getProvincia() + ";" + objProyecto->getDistrito() + ";" + objProyecto->getNombre() + ";" + objProyecto->getFechaCreacion()+";"+objProyecto->getNombreFoto();
 	}
 	File::WriteAllLines("Proyectos.txt", lineasArchivo);
 }
@@ -97,6 +99,7 @@ void ProyectoController::actualizarProyecto(Proyecto^ objProyecto) {
 			listaProyectos[i]->setDistrito(objProyecto->getDistrito());
 			listaProyectos[i]->setNombre(objProyecto->getNombre());
 			listaProyectos[i]->setFechaCreacion(objProyecto->getFechaCreacion());
+			listaProyectos[i]->setNombreFoto(objProyecto->getNombreFoto());
 			break;
 		}
 	}

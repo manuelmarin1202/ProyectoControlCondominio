@@ -14,10 +14,11 @@ namespace ProyectoControlCondominioModel {
 		String^ Distrito;//
 		String^ NombreCondominio;//
 		String^ FechaCreacion;//
+		String^ nombreFoto;
 		List<Edificio^>^ listaEdificios;
 	public:
 		Proyecto();
-		Proyecto(String^ codigo, int cantEdificios, String^ Departamento, String^ Provincia, String^ Distrito, String^ NombreCondominio, String^ FechaCreacion, List<Edificio^>^ listaEdificios);
+		Proyecto(String^ codigo, int cantEdificios, String^ Departamento, String^ Provincia, String^ Distrito, String^ NombreCondominio, String^ FechaCreacion, String^ nombreFoto,List<Edificio^>^ listaEdificios);
 		String^ getCodigo();
 		void setCodigo(String^ codigo);
 		String^ getNombre();
@@ -32,5 +33,7 @@ namespace ProyectoControlCondominioModel {
 		void setDistrito(String^ Distrito);
 		String^ getFechaCreacion();
 		void setFechaCreacion(String^ FechaCreacion);
+		String^ getNombreFoto();
+		void setNombreFoto(String^ NombreCondominio);
 	};
 }
