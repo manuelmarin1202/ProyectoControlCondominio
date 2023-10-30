@@ -1,5 +1,6 @@
-r467;Manuel Marcelo;Marin;Palomares;76218825;C:\Users\cmose\Downloads\fotoManuel.jpg
+r467;Manuel Marcelo;Marin;Palomares;78596848;C:\Users\cmose\Downloads\fotoManuel.jpg
 r41;Alberto;Berrocal;Tinoco;74325689;C:\Users\cmose\OneDrive\Escritorio\LPOO\ProyectoControlCondominio\ProyectoControlCondominioView\Alberto.jpg
 I41;Jose;Del Carpio;Gomez;75489865;cejo.jpg
-R467;Diego;Astete;Zuniga;74568969;diego.jpg
+R467;Diego;Astete;Zuniga;74568969;C:\Users\cmose\Downloads\callao.jpg
 I467;Juanito;Juan;Juana;46464;Alberto.jpg
+I41;David;Perez;Castro;45515;cejo.jpg

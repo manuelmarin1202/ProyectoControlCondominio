@@ -32,6 +32,29 @@ List<Proyecto^>^ ProyectoController::buscarProyectos(String^ Departamento) {
 	return listaProyectosEncontrados;
 }
 
+List<Proyecto^>^ ProyectoController::buscarProyectos2(String^ Departamento, String^ distrito) {
+	List<Proyecto^>^ listaProyectosEncontrados = gcnew List<Proyecto^>();
+	array<String^>^ lineas = File::ReadAllLines("proyectos.txt");
+	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
+	for each (String ^ lineaProyecto in lineas) {
+		array<String^>^ datos = lineaProyecto->Split(separadores->ToCharArray());
+		String^ codigoCondominio = datos[0];
+		int cantEdificios = Convert::ToInt32(datos[1]);
+		String^ DepartamentoCondominio = datos[2];
+		String^ ProvinciaCondominio = datos[3];
+		String^ DistritoCondominio = datos[4];
+		String^ NombreCondominio = datos[5];
+		String^ FechaCreacion = datos[6];
+		String^ nombreFoto = datos[7];
+		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
+		if (DepartamentoCondominio->Contains(Departamento) && DistritoCondominio->Contains(distrito)) {
+			Proyecto^ objProyecto = gcnew Proyecto(codigoCondominio, cantEdificios, DepartamentoCondominio, ProvinciaCondominio, DistritoCondominio, NombreCondominio, FechaCreacion, nombreFoto, listaEdificios);
+			listaProyectosEncontrados->Add(objProyecto);
+		}
+	}
+	return listaProyectosEncontrados;
+}
+
 List<Proyecto^>^ ProyectoController::buscarAll() {
 	/*En esta lista vamos a colocar la información de los proyectos que encontremos en el archivo de texto*/
 	List<Proyecto^>^ listaProyectosEncontrados = gcnew List<Proyecto^>();
@@ -126,4 +149,12 @@ List<String^>^ ProyectoController::obtenerDepartamentos() {
 	return listaDepartamentos;
 }
 
+List<String^>^ ProyectoController::obtenerDistritosxDptos(String^ departamento) {
+	List<String^>^ listaDistritos = gcnew List<String^>();
+	List<Proyecto^>^ listaProyectos = buscarProyectos(departamento);
+	for (int i = 0; i < listaProyectos->Count; i++) {
+		listaDistritos->Add(listaProyectos[i]->getDistrito());
+	}
+	return listaDistritos;
+}
 

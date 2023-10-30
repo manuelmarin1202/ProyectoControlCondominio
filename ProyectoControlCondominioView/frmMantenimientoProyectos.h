@@ -55,6 +55,8 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 	private: System::Windows::Forms::Button^ button5;
+	private: System::Windows::Forms::ComboBox^ comboBox2;
+	private: System::Windows::Forms::Label^ label2;
 
 
 
@@ -80,6 +82,8 @@ namespace ProyectoControlCondominioView {
 		void InitializeComponent(void)
 		{
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -100,19 +104,38 @@ namespace ProyectoControlCondominioView {
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->Controls->Add(this->comboBox2);
+			this->groupBox1->Controls->Add(this->label2);
 			this->groupBox1->Controls->Add(this->button1);
 			this->groupBox1->Controls->Add(this->comboBox1);
 			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Location = System::Drawing::Point(139, 35);
+			this->groupBox1->Location = System::Drawing::Point(91, 35);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(377, 101);
+			this->groupBox1->Size = System::Drawing::Size(666, 101);
 			this->groupBox1->TabIndex = 0;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Criterios de Búsqueda";
 			// 
+			// comboBox2
+			// 
+			this->comboBox2->FormattingEnabled = true;
+			this->comboBox2->Location = System::Drawing::Point(387, 49);
+			this->comboBox2->Name = L"comboBox2";
+			this->comboBox2->Size = System::Drawing::Size(121, 24);
+			this->comboBox2->TabIndex = 4;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(312, 54);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(51, 16);
+			this->label2->TabIndex = 3;
+			this->label2->Text = L"Distrito:";
+			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(269, 47);
+			this->button1->Location = System::Drawing::Point(552, 49);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(88, 26);
 			this->button1->TabIndex = 2;
@@ -135,9 +158,9 @@ namespace ProyectoControlCondominioView {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(16, 52);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(93, 16);
+			this->label1->Size = System::Drawing::Size(96, 16);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Departamento";
+			this->label1->Text = L"Departamento:";
 			this->label1->Click += gcnew System::EventHandler(this, &frmMantenimientoProyectos::label1_Click);
 			// 
 			// dataGridView1
@@ -147,7 +170,7 @@ namespace ProyectoControlCondominioView {
 				this->Column6,
 					this->Column5, this->Column2, this->Column3, this->Column4, this->Column1
 			});
-			this->dataGridView1->Location = System::Drawing::Point(39, 142);
+			this->dataGridView1->Location = System::Drawing::Point(26, 142);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
@@ -241,7 +264,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(852, 417);
+			this->ClientSize = System::Drawing::Size(852, 403);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
@@ -260,9 +283,16 @@ namespace ProyectoControlCondominioView {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ Departamento = this->comboBox1 -> Text;//se obtiene el texto seleccionado
+		String^ distrito = this->comboBox2->Text;
 		ProyectoController^ objProyectoController = gcnew ProyectoController();
-		List<Proyecto^>^ listaProyectos = objProyectoController->buscarProyectos(Departamento);
-		mostrarGrilla(listaProyectos);
+		if (distrito != "") {
+			List<Proyecto^>^ listaProyectos = objProyectoController->buscarProyectos2(Departamento, distrito);
+			mostrarGrilla(listaProyectos);
+		}
+		else {
+			List<Proyecto^>^ listaProyectos = objProyectoController->buscarProyectos(Departamento);
+			mostrarGrilla(listaProyectos);
+		}
 	}
 
 	private: void mostrarGrilla(List<Proyecto^>^ listaCarreras) {
@@ -286,6 +316,13 @@ namespace ProyectoControlCondominioView {
 	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}	
 	private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		String^ departamento = this->comboBox1->Text;
+		ProyectoController^ objProyectoController = gcnew ProyectoController();
+		List<String^>^ listaDistritos = objProyectoController->obtenerDistritosxDptos(departamento);
+		this->comboBox2->Items->Clear();
+		for (int i = 0; i < listaDistritos->Count; i++) {
+			this->comboBox2->Items->Add(listaDistritos[i]);
+		}
 	}
 	private: System::Void button4_Click(System::Object ^ sender, System::EventArgs ^ e) {
 		ProyectoController^ objetoProyecto;
@@ -307,13 +344,14 @@ namespace ProyectoControlCondominioView {
 		ventanaEditarProyecto->ShowDialog();
 	}
 	private: System::Void frmMantenimientoProyectos_Load(System::Object^ sender, System::EventArgs^ e) {
-	ProyectoController^ objProyectoController = gcnew ProyectoController();
-	List<String^>^ listaDepartamentos = objProyectoController->obtenerDepartamentos();
-	this->comboBox1->Items->Clear();
-	for (int i = 0; i<listaDepartamentos->Count; i++) {
-		this->comboBox1->Items->Add(listaDepartamentos[i]);
+		ProyectoController^ objProyectoController = gcnew ProyectoController();
+		List<String^>^ listaDepartamentos = objProyectoController->obtenerDepartamentos();
+		this->comboBox1->Items->Clear();
+		for (int i = 0; i<listaDepartamentos->Count; i++) {
+			this->comboBox1->Items->Add(listaDepartamentos[i]);
+		}
+		
 	}
-}
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0*/
 		String^ codigoVer = this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString();

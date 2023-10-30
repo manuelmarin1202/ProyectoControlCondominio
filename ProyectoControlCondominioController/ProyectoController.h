@@ -10,6 +10,7 @@ namespace ProyectoControlCondominioController {
 		public:
 			ProyectoController();
 			List<Proyecto^>^ buscarProyectos(String^ Departamento);
+			List<Proyecto^>^ buscarProyectos2(String^ Departamento,String^ distrito);
 			//métodos q son fijas
 			List<Proyecto^>^ buscarAll();
 			void escribirArchivo(List<Proyecto^>^ listaProyectos);
@@ -18,5 +19,6 @@ namespace ProyectoControlCondominioController {
 			Proyecto^ buscarProyectoxCodigo(String^ codigo);
 			void actualizarProyecto(Proyecto^ objProyecto);
 			List<String^>^ obtenerDepartamentos();
+			List<String^>^ obtenerDistritosxDptos(String^ departamento);
 	};
 }
