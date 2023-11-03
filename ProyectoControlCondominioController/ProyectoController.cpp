@@ -3,6 +3,7 @@
 
 using namespace ProyectoControlCondominioController;
 using namespace System::IO;//para utilizar los archivos de texto
+using namespace System::Text;
 
 ProyectoController::ProyectoController() {
 
@@ -156,5 +157,15 @@ List<String^>^ ProyectoController::obtenerDistritosxDptos(String^ departamento) 
 		listaDistritos->Add(listaProyectos[i]->getDistrito());
 	}
 	return listaDistritos;
+}
+
+String^ ProyectoController::obtenerNombreFoto(String^ nombreFotoLargo) {
+	String^ separadores = "\\";
+	//Convert::ToString(0x5C)
+	array<String^>^ datos = nombreFotoLargo->Split(separadores->ToCharArray());
+	String^ nombreFoto;
+	int num = datos->Length;
+	nombreFoto = datos[num - 1];
+	return nombreFoto;
 }
 

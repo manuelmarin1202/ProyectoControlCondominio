@@ -20,5 +20,6 @@ namespace ProyectoControlCondominioController {
 			void actualizarProyecto(Proyecto^ objProyecto);
 			List<String^>^ obtenerDepartamentos();
 			List<String^>^ obtenerDistritosxDptos(String^ departamento);
+			String^ obtenerNombreFoto(String^ nombreFotoLargo);
 	};
 }
