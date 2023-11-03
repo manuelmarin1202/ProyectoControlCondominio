@@ -274,7 +274,6 @@ namespace ProyectoControlCondominioView {
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Allasi pagara por su insolencia
 
-
 		this->Close();
 	}
 	private: System::Void frmNuevoUsuario_Load(System::Object^ sender, System::EventArgs^ e) {
