@@ -162,6 +162,7 @@ namespace ProyectoControlCondominioView {
 	private: System::Void frmReporteNroEdificiosProyecto_Load(System::Object^ sender, System::EventArgs^ e) {
 		ProyectoController^ objProyectoController = gcnew ProyectoController();
 		List<Proyecto^>^ listaProyectos = objProyectoController->buscarAll();
+
 		for (int i = 0; i < listaProyectos->Count; i++) {
 			this->chart1->Series["Series1"]->Points->Add(listaProyectos[i]->getCantEdificios());
 			this->chart1->Series["Series1"]->Points[i]->AxisLabel = listaProyectos[i]->getNombre();
