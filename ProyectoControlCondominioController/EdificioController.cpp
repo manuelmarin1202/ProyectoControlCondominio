@@ -54,4 +54,3 @@ List<Edificio^>^ EdificioController::buscarEdificios(int codigoProyecto) {
 	}
 	return listaEdificios;
 }
-//holi boli
