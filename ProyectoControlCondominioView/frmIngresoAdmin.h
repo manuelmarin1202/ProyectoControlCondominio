@@ -1,6 +1,6 @@
 #pragma once
 #include "frmPrincipal.h"
-#include "frmRegistroAdmin.h"
+#include "frmConfirmacionAdmin.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -197,6 +197,7 @@ namespace ProyectoControlCondominioView {
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(845, 441);
 			this->Controls->Add(this->linkLabel1);
 			this->Controls->Add(this->pictureBox1);
@@ -255,8 +256,8 @@ namespace ProyectoControlCondominioView {
 		}
 	}
 	private: System::Void linkLabel1_LinkClicked_1(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
-		frmRegistroAdmin^ ventanaRegistroAdmin = gcnew frmRegistroAdmin();
-		ventanaRegistroAdmin->Show();
+		frmConfirmacionAdmin^ ventanaConfirmaAdmin = gcnew frmConfirmacionAdmin();
+		ventanaConfirmaAdmin->Show();
 	}
 };
 }

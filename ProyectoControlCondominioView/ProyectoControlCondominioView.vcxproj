@@ -115,6 +115,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="frmAdministrarUsuarios.cpp" />
+    <ClCompile Include="frmConfirmacionAdmin.cpp" />
     <ClCompile Include="frmEditarProyecto.cpp" />
     <ClCompile Include="frmEditarUsuario.cpp" />
     <ClCompile Include="frmIngresoAdmin.cpp" />
@@ -127,6 +128,10 @@
     <ClCompile Include="frmReporteNroUsuarios.cpp" />
     <ClCompile Include="frmVerProyecto.cpp" />
     <ClCompile Include="frmVerUsuario.cpp" />
+    <ClCompile Include="frmVistaUsuario.cpp" />
+    <ClCompile Include="IngresoSeguridad.cpp" />
+    <ClCompile Include="IngresoUsuario.cpp" />
+    <ClCompile Include="Inicio.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="VerListaEdificios.cpp" />
   </ItemGroup>
@@ -141,6 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmAdministrarUsuarios.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmConfirmacionAdmin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmEditarProyecto.h">
@@ -179,6 +187,18 @@
     <ClInclude Include="frmVerUsuario.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmVistaUsuario.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="IngresoSeguridad.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="IngresoUsuario.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Inicio.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="VerListaEdificios.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -186,6 +206,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmAdministrarUsuarios.resx">
       <DependentUpon>frmAdministrarUsuarios.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfirmacionAdmin.resx">
+      <DependentUpon>frmConfirmacionAdmin.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarProyecto.resx">
       <DependentUpon>frmEditarProyecto.h</DependentUpon>
@@ -222,6 +245,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerUsuario.resx">
       <DependentUpon>frmVerUsuario.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVistaUsuario.resx">
+      <DependentUpon>frmVistaUsuario.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IngresoUsuario.resx">
+      <DependentUpon>IngresoUsuario.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio.resx">
+      <DependentUpon>Inicio.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VerListaEdificios.resx">
       <DependentUpon>VerListaEdificios.h</DependentUpon>

@@ -1,4 +1,4 @@
-#include "frmIngresoAdmin.h" 
+#include "Inicio.h" 
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -9,6 +9,6 @@ void main(array <String^>^ args){
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 
-	frmIngresoAdmin ventana; /*Estoy creando el objeto ventana que va a ser del tipo frmPrincipal*/
+	Inicio ventana; /*Estoy creando el objeto ventana que va a ser del tipo frmPrincipal*/
 	Application::Run(% ventana); /*Aqui estoy ejecutando la ventana inicial*/
 }
