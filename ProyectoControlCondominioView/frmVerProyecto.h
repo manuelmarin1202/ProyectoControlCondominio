@@ -344,6 +344,9 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	if (this->openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 		String^ nombreArchivo = this->openFileDialog1->FileName;
 		this->pictureBox1->Image = Image::FromFile(nombreArchivo);
+		ProyectoController^ objProyectoControl = gcnew ProyectoController();
+		String^ nombreRealFoto = objProyectoControl->obtenerNombreFoto(nombreArchivo);
+		nombreArchivo = nombreRealFoto;
 		this->objProyecto->setNombreFoto(nombreArchivo);
 		String^ codigoProyecto = this->textBox1->Text;
 		int cantEdificios = Convert::ToInt32(this->textBox2->Text);
@@ -355,7 +358,6 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		String^ nombreFoto = nombreArchivo;
 		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
 		objProyecto = gcnew Proyecto(codigoProyecto, cantEdificios, departamento, provincia, distrito, nombre, fechaCreacion, nombreFoto, listaEdificios);
-		ProyectoController^ objProyectoControl = gcnew ProyectoController();
 		objProyectoControl->actualizarProyecto(objProyecto);
 		MessageBox::Show("La imagen se ha cargado con exito");
 	}
