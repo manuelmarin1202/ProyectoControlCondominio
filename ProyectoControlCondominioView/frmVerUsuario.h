@@ -303,6 +303,8 @@ private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Form
 		if (this->openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			String^ nombreArchivo = this->openFileDialog1->FileName;
 			this->pictureBox1->Image = Image::FromFile(nombreArchivo);
+			UsuarioController^ objProyectoControl = gcnew UsuarioController();
+			nombreArchivo = objProyectoControl->obtenerNombreFoto(nombreArchivo);
 			this->objUsuario->setNombreFoto(nombreArchivo);
 			String^ codigo = this->objUsuario->getCodigoUsuario();
 			String^ nombre = this->objUsuario->getNombres();
@@ -311,7 +313,6 @@ private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Form
 			String^ dni = this->objUsuario->getDni();
 			String^ nombreFoto = nombreArchivo;
 			objUsuario = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni,codigo, nombreFoto);
-			UsuarioController^ objProyectoControl = gcnew UsuarioController();
 			objProyectoControl->actualizarUsuario(objUsuario);
 			MessageBox::Show("La imagen se ha cargado con exito");
 		}

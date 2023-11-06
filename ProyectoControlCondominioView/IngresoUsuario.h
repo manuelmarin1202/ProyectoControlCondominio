@@ -156,9 +156,15 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	Usuario^ objetoProyecto;
 	String^ codigoVer = this->textBox1->Text;
 	UsuarioController^ objProyectoControl = gcnew UsuarioController();
-	Usuario^ objUsuario = objProyectoControl->buscarUsuarioxCodigo(codigoVer);
-	frmVistaUsuario^ ventanaVistaUsuario = gcnew frmVistaUsuario(objUsuario);
-	ventanaVistaUsuario->ShowDialog();
+	int existe = objProyectoControl->ConfirmarAdmin(codigoVer);
+	if (existe==0) {
+		MessageBox::Show("Debe ingresar un código válido");
+	}
+	else {
+		Usuario^ objUsuario = objProyectoControl->buscarUsuarioxCodigo(codigoVer);
+		frmVistaUsuario^ ventanaVistaUsuario = gcnew frmVistaUsuario(objUsuario);
+		ventanaVistaUsuario->ShowDialog();
+	}
 }
 };
 }

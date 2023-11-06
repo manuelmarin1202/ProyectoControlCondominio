@@ -132,4 +132,28 @@ Bitmap^ UsuarioController::leerArchivo(String^ nombreArchivo) {
 	return FondoTotal;
 }
 
+String^ UsuarioController::obtenerNombreFoto(String^ nombreFotoLargo) {
+	String^ separadores = "\\";
+	//Convert::ToString(0x5C)
+	array<String^>^ datos = nombreFotoLargo->Split(separadores->ToCharArray());
+	String^ nombreFoto;
+	int num = datos->Length;
+	nombreFoto = datos[num - 1];
+	return nombreFoto;
+}
+
+int UsuarioController::ConfirmarAdmin(String^ contra) {
+	array<String^>^ lineas = File::ReadAllLines("usuarios.txt");
+	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
+	int existe = 0;
+	for each (String ^ lineaProyecto in lineas) {
+		array<String^>^ datos = lineaProyecto->Split(separadores->ToCharArray());
+		String^ contraAdmin = datos[0];
+		if (contraAdmin == contra) {
+			existe = 1;
+		}
+	}
+	return existe;
+}
+
 
