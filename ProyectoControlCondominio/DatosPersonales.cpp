@@ -5,7 +5,7 @@ DatosPersonales::DatosPersonales() {
 
 }
 
-DatosPersonales::DatosPersonales(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ nombreFoto) {
+DatosPersonales::DatosPersonales(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ nombreFoto, String^ contraseña) {
 	this->nombre = nombre;
 	this->apellidoPaterno = apellidoPaterno;
 	this->apellidoMaterno =apellidoMaterno;
@@ -42,4 +42,10 @@ String^ DatosPersonales::getNombreFoto() {
 }
 void DatosPersonales::setNombreFoto(String^ nombreFoto) {
 	this->nombreFoto = nombreFoto;
+}
+String^ DatosPersonales::getContraseña() {
+	return this->contraseña;
+}
+void DatosPersonales::setContraseña(String^ contraseña) {
+	this->contraseña = contraseña;
 }

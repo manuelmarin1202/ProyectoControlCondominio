@@ -7,15 +7,20 @@ namespace ProyectoControlCondominioModel {
 	public ref class Usuario:DatosPersonales {
 	private:
 		String^ codigo;
-		//String^ nombre;
-		//String^ apellidoPaterno;
-		//String^ apellidoMaterno;
-		//String^ dni;
+		String^ nombre;
+		String^ apellidoPaterno;
+		String^ apellidoMaterno;
+		String^ dni;
+		String^ codigo;
+		String^ nombreFoto;
+		String^ contraseña;
 	public:
 		Usuario();
-		Usuario(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ codigo, String^ nombreFoto);
+		Usuario(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ codigo, String^ nombreFoto, String^ contraseña);
 		String^ getCodigoUsuario();
 		void setCodigoUsuario(String^ codigo);
+		String^ getContraseña();
+		void setContraseña(String^ contraseña);
 		//String^ getNombreUsuario();
 		//void setNombreUsuario(String^ nombre);
 		//String^ getApellidoPaterno();
