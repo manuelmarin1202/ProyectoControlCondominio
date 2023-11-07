@@ -156,6 +156,7 @@ namespace ProyectoControlCondominioView {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(184, 22);
 			this->textBox2->TabIndex = 27;
+			this->textBox2->UseSystemPasswordChar = true;
 			// 
 			// IngresoUsuario
 			// 
