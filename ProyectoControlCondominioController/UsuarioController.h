@@ -22,5 +22,6 @@ namespace ProyectoControlCondominioController {
 		Bitmap^ leerArchivo(String^ nombreArchivo);
 		String^ obtenerNombreFoto(String^ nombreFotoLargo);
 		int ConfirmarAdmin(String^ contra);
+		int ConfirmarContra(String^ contra);
 	};
 }

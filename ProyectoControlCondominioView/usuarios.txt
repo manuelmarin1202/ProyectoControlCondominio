@@ -1,6 +1,6 @@
-R41;Alberto;Berrocal;Tinoco;74325689;Alberto.jpg
-I41;Jose;Del Carpio;Gomez;75489865;cejo.jpg
-R467;Diego;Astete;Zuniga;74568969;callao.jpg
-I467;Juanito;Juan;Juana;46464;Alberto.jpg
-I41;David;Perez;Castro;45515;cejo.jpg
-R41;Manuel;Marin;Palomares;76218825;fotoManuel.jpg
+R42;Alberto;Berrocal;Tinoco;74325689;Alberto.jpg;elpepe
+I42;Jose;Del Carpio;Gomez;75489865;cejo.jpg;etesech
+R467;Diego;Astete;Zuniga;74568969;callao.jpg;esotilin
+I467;Juanito;Juan;Juana;46464;Alberto.jpg;random
+I43;David;Perez;Castro;45515;cejo.jpg;pongaveintep
+R43;Manuel;Marin;Palomares;76218825;fotoManuel.jpg;elsoplagaitas

@@ -11,7 +11,6 @@ namespace ProyectoControlCondominioModel {
 		String^ apellidoPaterno;
 		String^ apellidoMaterno;
 		String^ dni;
-		String^ codigo;
 		String^ nombreFoto;
 		String^ contraseña;
 	public:

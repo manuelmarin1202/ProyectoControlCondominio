@@ -23,8 +23,9 @@ List<Usuario^>^ UsuarioController::buscarUsuarios(String^ ApellidoPaterno) {
 		String^ apellidoMaterno = datos[3];
 		String^ dni = datos[4];
 		String^ nombreFoto = datos[5];
+		String^ contraseña = datos[6];
 		if (apellidoPaterno->Contains(ApellidoPaterno)) {
-			Usuario^ objUsuario = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni,codigo,nombreFoto);
+			Usuario^ objUsuario = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni,codigo,nombreFoto, contraseña);
 			//String^ ave = objUsuario->getNombres();
 			listaUsuariosEncontrados->Add(objUsuario);
 		}
@@ -48,7 +49,8 @@ for each (String ^ lineaProyecto in lineas) {
 	String^ apellidoMaterno = datos[3];
 	String^ dni = datos[4];
 	String^ nombreFoto = datos[5];
-	Usuario^ objProyecto = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni,codigo,nombreFoto);
+	String^ contraseña = datos[6];
+	Usuario^ objProyecto = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni,codigo,nombreFoto, contraseña);
 	listaProyectosEncontrados->Add(objProyecto);
 }
 return listaProyectosEncontrados;
@@ -156,4 +158,16 @@ int UsuarioController::ConfirmarAdmin(String^ contra) {
 	return existe;
 }
 
-
+int UsuarioController::ConfirmarContra(String^ contra) {
+	array<String^>^ lineas = File::ReadAllLines("usuarios.txt");
+	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
+	int existe = 0;
+	for each (String ^ lineaProyecto in lineas) {
+		array<String^>^ datos = lineaProyecto->Split(separadores->ToCharArray());
+		String^ contraAdmin = datos[6];
+		if (contraAdmin == contra) {
+			existe = 1;
+		}
+	}
+	return existe;
+}

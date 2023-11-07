@@ -312,7 +312,8 @@ private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Form
 			String^ apellidoMaterno = this->objUsuario->getApellidoMaterno();
 			String^ dni = this->objUsuario->getDni();
 			String^ nombreFoto = nombreArchivo;
-			objUsuario = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni,codigo, nombreFoto);
+			String^ contraseña = this->objUsuario->getContraseña();
+			objUsuario = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni,codigo, nombreFoto, contraseña);
 			objProyectoControl->actualizarUsuario(objUsuario);
 			MessageBox::Show("La imagen se ha cargado con exito");
 		}
