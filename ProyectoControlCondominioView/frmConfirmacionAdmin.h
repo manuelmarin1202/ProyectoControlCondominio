@@ -57,6 +57,7 @@ namespace ProyectoControlCondominioView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmConfirmacionAdmin::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -76,6 +77,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox1
 			// 
+			this->textBox1->BackColor = System::Drawing::SystemColors::InactiveCaption;
 			this->textBox1->Location = System::Drawing::Point(150, 88);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(166, 22);
@@ -84,28 +86,31 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(98, 172);
+			this->button1->BackColor = System::Drawing::SystemColors::AppWorkspace;
+			this->button1->Location = System::Drawing::Point(91, 224);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"Confirmar";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &frmConfirmacionAdmin::button1_Click);
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(278, 172);
+			this->button2->BackColor = System::Drawing::SystemColors::AppWorkspace;
+			this->button2->Location = System::Drawing::Point(291, 224);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 3;
 			this->button2->Text = L"Cancelar";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &frmConfirmacionAdmin::button2_Click);
 			// 
 			// frmConfirmacionAdmin
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(466, 301);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);

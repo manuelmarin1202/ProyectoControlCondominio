@@ -70,6 +70,7 @@ namespace ProyectoControlCondominioView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmNuevoUsuario::typeid));
 			this->Datos = (gcnew System::Windows::Forms::GroupBox());
 			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
@@ -90,6 +91,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// Datos
 			// 
+			this->Datos->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Datos.BackgroundImage")));
 			this->Datos->Controls->Add(this->checkBox2);
 			this->Datos->Controls->Add(this->checkBox1);
 			this->Datos->Controls->Add(this->textBox6);
@@ -104,9 +106,11 @@ namespace ProyectoControlCondominioView {
 			this->Datos->Controls->Add(this->label4);
 			this->Datos->Controls->Add(this->label3);
 			this->Datos->Controls->Add(this->label2);
-			this->Datos->Location = System::Drawing::Point(17, 43);
+			this->Datos->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Datos->Location = System::Drawing::Point(17, 12);
 			this->Datos->Name = L"Datos";
-			this->Datos->Size = System::Drawing::Size(399, 316);
+			this->Datos->Size = System::Drawing::Size(399, 347);
 			this->Datos->TabIndex = 1;
 			this->Datos->TabStop = false;
 			this->Datos->Text = L"Datos del Usuario";
@@ -114,9 +118,11 @@ namespace ProyectoControlCondominioView {
 			// checkBox2
 			// 
 			this->checkBox2->AutoSize = true;
+			this->checkBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->checkBox2->Location = System::Drawing::Point(213, 50);
 			this->checkBox2->Name = L"checkBox2";
-			this->checkBox2->Size = System::Drawing::Size(76, 20);
+			this->checkBox2->Size = System::Drawing::Size(84, 20);
 			this->checkBox2->TabIndex = 17;
 			this->checkBox2->Text = L"Invitado";
 			this->checkBox2->UseVisualStyleBackColor = true;
@@ -124,9 +130,11 @@ namespace ProyectoControlCondominioView {
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
+			this->checkBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->checkBox1->Location = System::Drawing::Point(75, 50);
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(91, 20);
+			this->checkBox1->Size = System::Drawing::Size(100, 20);
 			this->checkBox1->TabIndex = 16;
 			this->checkBox1->Text = L"Residente";
 			this->checkBox1->UseVisualStyleBackColor = true;
@@ -143,7 +151,7 @@ namespace ProyectoControlCondominioView {
 			this->label6->AutoSize = true;
 			this->label6->Location = System::Drawing::Point(72, 216);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(89, 16);
+			this->label6->Size = System::Drawing::Size(101, 16);
 			this->label6->TabIndex = 14;
 			this->label6->Text = L"Nombre Foto:";
 			// 
@@ -179,7 +187,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->button2->Location = System::Drawing::Point(228, 269);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->Size = System::Drawing::Size(85, 23);
 			this->button2->TabIndex = 7;
 			this->button2->Text = L"Cancelar";
 			this->button2->UseVisualStyleBackColor = true;
@@ -200,7 +208,7 @@ namespace ProyectoControlCondominioView {
 			this->label5->AutoSize = true;
 			this->label5->Location = System::Drawing::Point(70, 183);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(33, 16);
+			this->label5->Size = System::Drawing::Size(37, 16);
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"DNI:";
 			// 
@@ -209,7 +217,7 @@ namespace ProyectoControlCondominioView {
 			this->label4->AutoSize = true;
 			this->label4->Location = System::Drawing::Point(70, 151);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(112, 16);
+			this->label4->Size = System::Drawing::Size(129, 16);
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"Apellido Materno:";
 			// 
@@ -218,7 +226,7 @@ namespace ProyectoControlCondominioView {
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(70, 119);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(110, 16);
+			this->label3->Size = System::Drawing::Size(127, 16);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Apellido Paterno:";
 			// 
@@ -227,7 +235,7 @@ namespace ProyectoControlCondominioView {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(70, 90);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(66, 16);
+			this->label2->Size = System::Drawing::Size(74, 16);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Nombres:";
 			// 
@@ -235,6 +243,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(432, 390);
 			this->Controls->Add(this->Datos);
 			this->Name = L"frmNuevoUsuario";

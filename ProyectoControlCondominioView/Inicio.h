@@ -1,6 +1,7 @@
 #pragma once
 #include "frmIngresoAdmin.h"
 #include "IngresoUsuario.h"
+#include "IngresoSeguridad.h"
 namespace ProyectoControlCondominioView {
 
 	using namespace System;
@@ -124,6 +125,7 @@ namespace ProyectoControlCondominioView {
 			this->button3->Text = L"Seguridad";
 			this->button3->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Click += gcnew System::EventHandler(this, &Inicio::button3_Click);
 			// 
 			// Inicio
 			// 
@@ -147,6 +149,10 @@ namespace ProyectoControlCondominioView {
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmIngresoAdmin^ ventanaIngresoAdmin = gcnew frmIngresoAdmin();
 	ventanaIngresoAdmin->ShowDialog();
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	IngresoSeguridad^ ventanaIngresoSeguridad = gcnew IngresoSeguridad();
+	ventanaIngresoSeguridad->ShowDialog();
 }
 };
 }

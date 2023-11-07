@@ -63,6 +63,7 @@ namespace ProyectoControlCondominioView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(VerListaEdificios::typeid));
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -75,43 +76,50 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(324, 248);
+			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button4->Location = System::Drawing::Point(364, 248);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(80, 23);
+			this->button4->Size = System::Drawing::Size(90, 23);
 			this->button4->TabIndex = 9;
 			this->button4->Text = L"Eliminar";
 			this->button4->UseVisualStyleBackColor = true;
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(182, 248);
+			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button3->Location = System::Drawing::Point(205, 248);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(80, 23);
+			this->button3->Size = System::Drawing::Size(90, 23);
 			this->button3->TabIndex = 8;
 			this->button3->Text = L"Editar";
 			this->button3->UseVisualStyleBackColor = true;
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(39, 248);
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->Location = System::Drawing::Point(44, 248);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(80, 23);
+			this->button2->Size = System::Drawing::Size(90, 23);
 			this->button2->TabIndex = 7;
 			this->button2->Text = L"Nuevo";
 			this->button2->UseVisualStyleBackColor = true;
 			// 
 			// dataGridView1
 			// 
+			this->dataGridView1->BackgroundColor = System::Drawing::Color::SkyBlue;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
 				this->Column6,
 					this->Column5, this->Column2
 			});
-			this->dataGridView1->Location = System::Drawing::Point(25, 78);
+			this->dataGridView1->Location = System::Drawing::Point(27, 75);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(427, 148);
+			this->dataGridView1->Size = System::Drawing::Size(480, 148);
 			this->dataGridView1->TabIndex = 6;
 			// 
 			// Column6
@@ -137,13 +145,17 @@ namespace ProyectoControlCondominioView {
 			// 
 			// VerListaEdificios
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(483, 316);
+			this->BackColor = System::Drawing::Color::LightSalmon;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->ClientSize = System::Drawing::Size(568, 316);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->dataGridView1);
+			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->Name = L"VerListaEdificios";
 			this->Text = L"VerListaEdificios";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();

@@ -109,9 +109,11 @@ namespace ProyectoControlCondominioView {
 			this->groupBox1->Controls->Add(this->button1);
 			this->groupBox1->Controls->Add(this->comboBox1);
 			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Location = System::Drawing::Point(91, 35);
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Simplex_IV25", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->groupBox1->Location = System::Drawing::Point(102, 35);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(666, 101);
+			this->groupBox1->Size = System::Drawing::Size(749, 101);
 			this->groupBox1->TabIndex = 0;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Criterios de Búsqueda";
@@ -119,25 +121,25 @@ namespace ProyectoControlCondominioView {
 			// comboBox2
 			// 
 			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Location = System::Drawing::Point(387, 49);
+			this->comboBox2->Location = System::Drawing::Point(435, 49);
 			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(121, 24);
+			this->comboBox2->Size = System::Drawing::Size(136, 26);
 			this->comboBox2->TabIndex = 4;
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(312, 54);
+			this->label2->Location = System::Drawing::Point(351, 54);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(51, 16);
+			this->label2->Size = System::Drawing::Size(77, 18);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"Distrito:";
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(552, 49);
+			this->button1->Location = System::Drawing::Point(621, 49);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(88, 26);
+			this->button1->Size = System::Drawing::Size(99, 26);
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"Buscar";
 			this->button1->UseVisualStyleBackColor = true;
@@ -147,34 +149,36 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Lima", L"La Libertad", L"Cusco" });
-			this->comboBox1->Location = System::Drawing::Point(133, 49);
+			this->comboBox1->Location = System::Drawing::Point(172, 49);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(121, 24);
+			this->comboBox1->Size = System::Drawing::Size(136, 26);
 			this->comboBox1->TabIndex = 1;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &frmMantenimientoProyectos::comboBox1_SelectedIndexChanged);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(16, 52);
+			this->label1->Location = System::Drawing::Point(18, 52);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(96, 16);
+			this->label1->Size = System::Drawing::Size(131, 18);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Departamento:";
 			this->label1->Click += gcnew System::EventHandler(this, &frmMantenimientoProyectos::label1_Click);
 			// 
 			// dataGridView1
 			// 
+			this->dataGridView1->BackgroundColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
 				this->Column6,
 					this->Column5, this->Column2, this->Column3, this->Column4, this->Column1
 			});
-			this->dataGridView1->Location = System::Drawing::Point(26, 142);
+			this->dataGridView1->GridColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->dataGridView1->Location = System::Drawing::Point(29, 142);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(801, 148);
+			this->dataGridView1->Size = System::Drawing::Size(901, 148);
 			this->dataGridView1->TabIndex = 1;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &frmMantenimientoProyectos::dataGridView1_CellContentClick);
 			// 
@@ -222,9 +226,9 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(178, 312);
+			this->button2->Location = System::Drawing::Point(200, 312);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(80, 23);
+			this->button2->Size = System::Drawing::Size(90, 23);
 			this->button2->TabIndex = 2;
 			this->button2->Text = L"Nuevo";
 			this->button2->UseVisualStyleBackColor = true;
@@ -232,9 +236,9 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(331, 312);
+			this->button3->Location = System::Drawing::Point(372, 312);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(80, 23);
+			this->button3->Size = System::Drawing::Size(90, 23);
 			this->button3->TabIndex = 3;
 			this->button3->Text = L"Editar";
 			this->button3->UseVisualStyleBackColor = true;
@@ -242,9 +246,9 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(594, 312);
+			this->button4->Location = System::Drawing::Point(668, 312);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(80, 23);
+			this->button4->Size = System::Drawing::Size(90, 23);
 			this->button4->TabIndex = 4;
 			this->button4->Text = L"Eliminar";
 			this->button4->UseVisualStyleBackColor = true;
@@ -252,9 +256,9 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(466, 312);
+			this->button5->Location = System::Drawing::Point(524, 312);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(75, 23);
+			this->button5->Size = System::Drawing::Size(84, 23);
 			this->button5->TabIndex = 5;
 			this->button5->Text = L"Ver";
 			this->button5->UseVisualStyleBackColor = true;
@@ -262,15 +266,18 @@ namespace ProyectoControlCondominioView {
 			// 
 			// frmMantenimientoProyectos
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(852, 403);
+			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->ClientSize = System::Drawing::Size(958, 403);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->groupBox1);
+			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->Name = L"frmMantenimientoProyectos";
 			this->Text = L"frmMantenimientoProyectos";
 			this->Load += gcnew System::EventHandler(this, &frmMantenimientoProyectos::frmMantenimientoProyectos_Load);

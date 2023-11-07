@@ -77,7 +77,10 @@ namespace ProyectoControlCondominioView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmEditarProyecto::typeid));
 			this->Datos = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
@@ -94,13 +97,12 @@ namespace ProyectoControlCondominioView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->Datos->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// Datos
 			// 
+			this->Datos->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Datos.BackgroundImage")));
 			this->Datos->Controls->Add(this->textBox7);
 			this->Datos->Controls->Add(this->label8);
 			this->Datos->Controls->Add(this->textBox6);
@@ -119,12 +121,33 @@ namespace ProyectoControlCondominioView {
 			this->Datos->Controls->Add(this->label3);
 			this->Datos->Controls->Add(this->label2);
 			this->Datos->Controls->Add(this->label1);
-			this->Datos->Location = System::Drawing::Point(30, 61);
+			this->Datos->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Datos->Location = System::Drawing::Point(30, 27);
 			this->Datos->Name = L"Datos";
-			this->Datos->Size = System::Drawing::Size(399, 334);
+			this->Datos->Size = System::Drawing::Size(399, 368);
 			this->Datos->TabIndex = 1;
 			this->Datos->TabStop = false;
 			this->Datos->Text = L"Datos del Proyecto";
+			// 
+			// textBox7
+			// 
+			this->textBox7->Location = System::Drawing::Point(183, 258);
+			this->textBox7->Name = L"textBox7";
+			this->textBox7->Size = System::Drawing::Size(100, 22);
+			this->textBox7->TabIndex = 16;
+			this->textBox7->TextChanged += gcnew System::EventHandler(this, &frmEditarProyecto::textBox7_TextChanged);
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->Location = System::Drawing::Point(40, 261);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(101, 16);
+			this->label8->TabIndex = 15;
+			this->label8->Text = L"Nombre Foto:";
 			// 
 			// textBox6
 			// 
@@ -181,7 +204,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->button2->Location = System::Drawing::Point(228, 295);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->Size = System::Drawing::Size(82, 23);
 			this->button2->TabIndex = 7;
 			this->button2->Text = L"Cancelar";
 			this->button2->UseVisualStyleBackColor = true;
@@ -200,86 +223,85 @@ namespace ProyectoControlCondominioView {
 			// label7
 			// 
 			this->label7->AutoSize = true;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label7->Location = System::Drawing::Point(40, 226);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(102, 16);
+			this->label7->Size = System::Drawing::Size(116, 16);
 			this->label7->TabIndex = 1;
 			this->label7->Text = L"FechaCreacion:";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label6->Location = System::Drawing::Point(40, 191);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(59, 16);
+			this->label6->Size = System::Drawing::Size(66, 16);
 			this->label6->TabIndex = 5;
 			this->label6->Text = L"Nombre:";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label5->Location = System::Drawing::Point(40, 156);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(51, 16);
+			this->label5->Size = System::Drawing::Size(60, 16);
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"Distrito:";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label4->Location = System::Drawing::Point(40, 124);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(66, 16);
+			this->label4->Size = System::Drawing::Size(76, 16);
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"Provincia:";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label3->Location = System::Drawing::Point(40, 92);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(96, 16);
+			this->label3->Size = System::Drawing::Size(109, 16);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Departamento:";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(40, 63);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(88, 16);
+			this->label2->Size = System::Drawing::Size(102, 16);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"CantEdificios:";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(40, 35);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(54, 16);
+			this->label1->Size = System::Drawing::Size(61, 16);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Código:";
-			// 
-			// label8
-			// 
-			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(40, 261);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(89, 16);
-			this->label8->TabIndex = 15;
-			this->label8->Text = L"Nombre Foto:";
-			// 
-			// textBox7
-			// 
-			this->textBox7->Location = System::Drawing::Point(183, 258);
-			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(100, 22);
-			this->textBox7->TabIndex = 16;
 			// 
 			// frmEditarProyecto
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::Thistle;
 			this->ClientSize = System::Drawing::Size(469, 422);
 			this->Controls->Add(this->Datos);
 			this->Name = L"frmEditarProyecto";
@@ -320,6 +342,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	objProyectoController->actualizarProyecto(objetoProyecto);
 	MessageBox::Show("El proyecto se ha actualizado con exito");
 	this->Close();
+}
+private: System::Void textBox7_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

@@ -74,6 +74,8 @@ namespace ProyectoControlCondominioView {
 			this->groupBox1->Controls->Add(this->button1);
 			this->groupBox1->Controls->Add(this->comboBox1);
 			this->groupBox1->Controls->Add(this->label1);
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->groupBox1->Location = System::Drawing::Point(20, 35);
 			this->groupBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->groupBox1->Name = L"groupBox1";
@@ -100,7 +102,7 @@ namespace ProyectoControlCondominioView {
 			this->comboBox1->Location = System::Drawing::Point(199, 36);
 			this->comboBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(198, 24);
+			this->comboBox1->Size = System::Drawing::Size(198, 28);
 			this->comboBox1->TabIndex = 1;
 			// 
 			// label1
@@ -108,12 +110,13 @@ namespace ProyectoControlCondominioView {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(44, 38);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(96, 16);
+			this->label1->Size = System::Drawing::Size(120, 20);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Departamento:";
 			// 
 			// chart1
 			// 
+			this->chart1->BackColor = System::Drawing::Color::Thistle;
 			chartArea1->Name = L"ChartArea1";
 			this->chart1->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
@@ -132,7 +135,8 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(817, 490);
+			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->ClientSize = System::Drawing::Size(817, 564);
 			this->Controls->Add(this->chart1);
 			this->Controls->Add(this->groupBox1);
 			this->Name = L"frmReporteNroEdificiosProyecto";

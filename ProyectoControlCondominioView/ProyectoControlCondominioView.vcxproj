@@ -249,6 +249,9 @@
     <EmbeddedResource Include="frmVistaUsuario.resx">
       <DependentUpon>frmVistaUsuario.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IngresoSeguridad.resx">
+      <DependentUpon>IngresoSeguridad.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IngresoUsuario.resx">
       <DependentUpon>IngresoUsuario.h</DependentUpon>
     </EmbeddedResource>
