@@ -58,6 +58,8 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::CheckBox^ checkBox1;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::TextBox^ textBox7;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::Label^ label7;
 
 	private:
 		/// <summary>
@@ -72,7 +74,6 @@ namespace ProyectoControlCondominioView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmNuevoUsuario::typeid));
 			this->Datos = (gcnew System::Windows::Forms::GroupBox());
 			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
@@ -90,11 +91,15 @@ namespace ProyectoControlCondominioView {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->Datos->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// Datos
 			// 
+			this->Datos->Controls->Add(this->textBox1);
+			this->Datos->Controls->Add(this->label7);
 			this->Datos->Controls->Add(this->checkBox2);
 			this->Datos->Controls->Add(this->checkBox1);
 			this->Datos->Controls->Add(this->textBox6);
@@ -259,6 +264,22 @@ namespace ProyectoControlCondominioView {
 			this->textBox7->Size = System::Drawing::Size(100, 22);
 			this->textBox7->TabIndex = 19;
 			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(72, 249);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(86, 16);
+			this->label7->TabIndex = 18;
+			this->label7->Text = L"Contraseña";
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(213, 249);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(100, 22);
+			this->textBox1->TabIndex = 19;
+			// 
 			// frmNuevoUsuario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -292,7 +313,7 @@ namespace ProyectoControlCondominioView {
 		String^ apellidoMaterno = this->textBox4->Text;
 		String^ dni = this->textBox5->Text;
 		String^ nombreFoto = this->textBox6->Text;
-		String^ contraseña = this->textBox7->Text;
+		String^ contraseña = this->textBox1->Text;
 		Usuario^ objProyecto = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni, codigo, nombreFoto, contraseña);
 		UsuarioController^ objProyectoControl = gcnew UsuarioController();
 		objProyectoControl->agregarProyecto_2(objProyecto);

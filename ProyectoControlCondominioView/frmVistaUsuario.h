@@ -105,7 +105,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(394, 512);
+			this->button1->Location = System::Drawing::Point(145, 504);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(88, 29);
 			this->button1->TabIndex = 12;
@@ -242,7 +242,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(462, 504);
+			this->button2->Location = System::Drawing::Point(554, 504);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(192, 29);
 			this->button2->TabIndex = 14;
@@ -284,11 +284,13 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ codigoVer = this->textBox1->Text;
+	/*String^ codigoVer = this->textBox1->Text;
 	UsuarioController^ objProyectoControl = gcnew UsuarioController();
 	Usuario^ objUsuario = objProyectoControl->buscarUsuarioxCodigo(codigoVer);
-	SolicitudCambioDatos^ ventanaSolicitudCambioDatos = gcnew SolicitudCambioDatos();
+	
+	SolicitudCambioDatos^ ventanaSolicitudCambioDatos = gcnew SolicitudCambioDatos(objUsuario);
 	ventanaSolicitudCambioDatos->ShowDialog();
+	*/
 }
 };
 }

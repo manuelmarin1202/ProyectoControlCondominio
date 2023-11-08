@@ -81,7 +81,7 @@ namespace ProyectoControlCondominioView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(616, 25);
+			this->menuStrip1->Size = System::Drawing::Size(678, 25);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -100,14 +100,14 @@ namespace ProyectoControlCondominioView {
 			// proyectoToolStripMenuItem
 			// 
 			this->proyectoToolStripMenuItem->Name = L"proyectoToolStripMenuItem";
-			this->proyectoToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->proyectoToolStripMenuItem->Size = System::Drawing::Size(161, 26);
 			this->proyectoToolStripMenuItem->Text = L"Proyecto";
 			this->proyectoToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::proyectoToolStripMenuItem_Click);
 			// 
 			// usuariosToolStripMenuItem
 			// 
 			this->usuariosToolStripMenuItem->Name = L"usuariosToolStripMenuItem";
-			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(161, 26);
 			this->usuariosToolStripMenuItem->Text = L"Usuarios";
 			this->usuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::usuariosToolStripMenuItem_Click);
 			// 
@@ -143,7 +143,7 @@ namespace ProyectoControlCondominioView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->ClientSize = System::Drawing::Size(616, 412);
+			this->ClientSize = System::Drawing::Size(678, 444);
 			this->Controls->Add(this->menuStrip1);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
