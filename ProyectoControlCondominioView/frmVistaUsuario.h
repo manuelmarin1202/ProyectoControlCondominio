@@ -1,4 +1,5 @@
 #pragma once
+#include "SolicitudCambioDatos.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -58,6 +59,7 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: Usuario^ objUsuario;
+	private: System::Windows::Forms::Button^ button2;
 
 	private:
 		/// <summary>
@@ -86,6 +88,7 @@ namespace ProyectoControlCondominioView {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
@@ -102,9 +105,9 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(394, 512);
+			this->button1->Location = System::Drawing::Point(280, 504);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(88, 29);
 			this->button1->TabIndex = 12;
 			this->button1->Text = L"Cerrar";
 			this->button1->UseVisualStyleBackColor = true;
@@ -235,11 +238,22 @@ namespace ProyectoControlCondominioView {
 			this->label2->TabIndex = 0;
 			this->label2->Text = L"Codigo:";
 			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(462, 504);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(192, 29);
+			this->button2->TabIndex = 14;
+			this->button2->Text = L"Solicitar cambio de datos";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmVistaUsuario::button2_Click);
+			// 
 			// frmVistaUsuario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(867, 560);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
@@ -265,6 +279,13 @@ namespace ProyectoControlCondominioView {
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ codigoVer = this->textBox1->Text;
+	UsuarioController^ objProyectoControl = gcnew UsuarioController();
+	Usuario^ objUsuario = objProyectoControl->buscarUsuarioxCodigo(codigoVer);
+	SolicitudCambioDatos^ ventanaSolicitudCambioDatos = gcnew SolicitudCambioDatos();
+	ventanaSolicitudCambioDatos->ShowDialog();
 }
 };
 }

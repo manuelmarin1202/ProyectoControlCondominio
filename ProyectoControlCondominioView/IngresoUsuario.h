@@ -1,5 +1,6 @@
 #pragma once
 #include "frmVistaUsuario.h"
+
 namespace ProyectoControlCondominioView {
 
 	using namespace System;
