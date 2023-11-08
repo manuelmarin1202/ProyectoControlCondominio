@@ -102,6 +102,7 @@ void UsuarioController::actualizarUsuario(Usuario^ objProyecto) {
 		listaUsuarios[i]->setApellidoMaterno(objProyecto->getApellidoMaterno());
 		listaUsuarios[i]->setDni(objProyecto->getDni());
 		listaUsuarios[i]->setNombreFoto(objProyecto->getNombreFoto());
+		listaUsuarios[i]->setContraseña(objProyecto->getContraseña());
 		break;
 		}
 	}

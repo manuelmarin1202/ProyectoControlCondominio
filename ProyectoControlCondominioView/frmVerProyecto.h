@@ -262,6 +262,7 @@ namespace ProyectoControlCondominioView {
 			this->button3->TabIndex = 18;
 			this->button3->Text = L"Ver Lista Edificios";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &frmVerProyecto::button3_Click);
 			// 
 			// groupBox1
 			// 
@@ -364,6 +365,8 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		objProyectoControl->actualizarProyecto(objProyecto);
 		MessageBox::Show("La imagen se ha cargado con exito");
 	}
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
