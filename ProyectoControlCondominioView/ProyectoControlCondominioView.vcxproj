@@ -133,6 +133,7 @@
     <ClCompile Include="IngresoUsuario.cpp" />
     <ClCompile Include="Inicio.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SolicitudCambioDatos.cpp" />
     <ClCompile Include="VerListaEdificios.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +200,9 @@
     <ClInclude Include="Inicio.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="SolicitudCambioDatos.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="VerListaEdificios.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -257,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SolicitudCambioDatos.resx">
+      <DependentUpon>SolicitudCambioDatos.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VerListaEdificios.resx">
       <DependentUpon>VerListaEdificios.h</DependentUpon>
