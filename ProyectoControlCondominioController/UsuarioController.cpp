@@ -61,7 +61,7 @@ void UsuarioController::EscribirArchivo_2(List<Usuario^>^ lista) {
 	for (int i = 0; i < lista->Count; i++) {
 		//Usuario^ objeto = gcnew Usuario();
 		Usuario^ objeto = lista[i];
-		lineasArchivo[i] = objeto->getCodigoUsuario() + ";" + objeto->getNombres() + ";" + objeto->getApellidoPaterno() + ";" + objeto->getApellidoMaterno() + ";" + objeto->getDni()+";"+objeto->getNombreFoto();
+		lineasArchivo[i] = objeto->getCodigoUsuario() + ";" + objeto->getNombres() + ";" + objeto->getApellidoPaterno() + ";" + objeto->getApellidoMaterno() + ";" + objeto->getDni()+";"+objeto->getNombreFoto()+";"+objeto->getContraseña();
 	}
 	File::WriteAllLines("usuarios.txt", lineasArchivo);
 }
