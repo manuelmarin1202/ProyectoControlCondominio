@@ -329,7 +329,7 @@ namespace ProyectoControlCondominioView {
 	}
 	private: System::Void frmNuevoUsuario_Load(System::Object^ sender, System::EventArgs^ e) {
 		//String^ codigoProyecto = "r"+ Convert::ToString(rand() % 1000);
-		//this->textBox1->Text = codigoProyecto;
+		//this->textBox1->Text = codigoProyecto;?????????????????????????????????
 	}
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
