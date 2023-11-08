@@ -92,6 +92,7 @@ Usuario^ UsuarioController::buscarUsuarioxCodigo(String^ codigo) {
 }
 
 void UsuarioController::actualizarUsuario(Usuario^ objProyecto) {
+	//3232323
 	List<Usuario^>^ listaUsuarios = buscarAll_2();
 	for (int i = 0; i < listaUsuarios->Count; i++) {
 		if (listaUsuarios[i]->getCodigoUsuario() == objProyecto->getCodigoUsuario()) {
