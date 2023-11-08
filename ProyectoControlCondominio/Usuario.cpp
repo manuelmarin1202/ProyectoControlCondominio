@@ -10,7 +10,7 @@ Usuario::Usuario(String^ nombre, String^ apellidoPaterno, String^ apellidoMatern
 	//this->apellidoPaterno = apellidoPaterno;
 	//this->apellidoMaterno = apellidoMaterno;
 	//this->dni = dni;
-	this->contraseña = contraseña;
+	//this->contraseña = contraseña;
 }
 
 String^ Usuario::getCodigoUsuario() {
@@ -19,9 +19,9 @@ String^ Usuario::getCodigoUsuario() {
 void Usuario::setCodigoUsuario(String^ codigo) {
 	this->codigo = codigo;
 }
-String^ Usuario::getContraseña() {
+/*String^ Usuario::getContraseña() {
 	return this->contraseña;
 }
 void Usuario::setContraseña(String^ contraseña) {
 	this->codigo = contraseña;
-}
+}*/

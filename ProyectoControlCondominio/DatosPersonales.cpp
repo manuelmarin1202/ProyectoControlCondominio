@@ -11,6 +11,7 @@ DatosPersonales::DatosPersonales(String^ nombre, String^ apellidoPaterno, String
 	this->apellidoMaterno =apellidoMaterno;
 	this->dni = dni;
 	this->nombreFoto = nombreFoto;
+	this->contraseña = contraseña;
 }
 
 String^ DatosPersonales::getNombres() {

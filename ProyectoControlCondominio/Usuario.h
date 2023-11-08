@@ -18,8 +18,8 @@ namespace ProyectoControlCondominioModel {
 		Usuario(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ codigo, String^ nombreFoto, String^ contraseña);
 		String^ getCodigoUsuario();
 		void setCodigoUsuario(String^ codigo);
-		String^ getContraseña();
-		void setContraseña(String^ contraseña);
+		//String^ getContraseña();
+		//void setContraseña(String^ contraseña);
 		//String^ getNombreUsuario();
 		//void setNombreUsuario(String^ nombre);
 		//String^ getApellidoPaterno();
