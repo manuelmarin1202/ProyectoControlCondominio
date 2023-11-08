@@ -122,6 +122,7 @@
     <ClCompile Include="frmEditarProyecto.cpp" />
     <ClCompile Include="frmEditarUsuario.cpp" />
     <ClCompile Include="frmIngresoAdmin.cpp" />
+    <ClCompile Include="frmIngresoSeguridad.cpp" />
     <ClCompile Include="frmMantenimientoProyectos.cpp" />
     <ClCompile Include="frmNuevoProyecto.cpp" />
     <ClCompile Include="frmNuevoUsuario.cpp" />
@@ -136,7 +137,6 @@
     <ClCompile Include="frmVerProyecto.cpp" />
     <ClCompile Include="frmVerUsuario.cpp" />
     <ClCompile Include="frmVistaUsuario.cpp" />
-    <ClCompile Include="IngresoSeguridad.cpp" />
     <ClCompile Include="IngresoUsuario.cpp" />
     <ClCompile Include="Inicio.cpp" />
     <ClCompile Include="main.cpp" />
@@ -175,6 +175,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmIngresoAdmin.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmIngresoSeguridad.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmMantenimientoProyectos.h">
@@ -219,9 +222,6 @@
     <ClInclude Include="frmVistaUsuario.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="IngresoSeguridad.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="IngresoUsuario.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -259,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmIngresoAdmin.resx">
       <DependentUpon>frmIngresoAdmin.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIngresoSeguridad.resx">
+      <DependentUpon>frmIngresoSeguridad.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMantenimientoProyectos.resx">
       <DependentUpon>frmMantenimientoProyectos.h</DependentUpon>
@@ -301,9 +304,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVistaUsuario.resx">
       <DependentUpon>frmVistaUsuario.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IngresoSeguridad.resx">
-      <DependentUpon>IngresoSeguridad.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IngresoUsuario.resx">
       <DependentUpon>IngresoUsuario.h</DependentUpon>
