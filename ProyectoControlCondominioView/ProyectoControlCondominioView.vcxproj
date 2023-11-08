@@ -116,6 +116,9 @@
   <ItemGroup>
     <ClCompile Include="frmAdministrarUsuarios.cpp" />
     <ClCompile Include="frmConfirmacionAdmin.cpp" />
+    <ClCompile Include="frmControlSeguridad.cpp" />
+    <ClCompile Include="frmEditarEmergencia.cpp" />
+    <ClCompile Include="frmEditarIntruso.cpp" />
     <ClCompile Include="frmEditarProyecto.cpp" />
     <ClCompile Include="frmEditarUsuario.cpp" />
     <ClCompile Include="frmIngresoAdmin.cpp" />
@@ -124,8 +127,12 @@
     <ClCompile Include="frmNuevoUsuario.cpp" />
     <ClCompile Include="frmPrincipal.cpp" />
     <ClCompile Include="frmRegistroAdmin.cpp" />
+    <ClCompile Include="frmRegistroEmergencias.cpp" />
+    <ClCompile Include="frmRegistroIntrusos.cpp" />
     <ClCompile Include="frmReporteNroEdificiosProyecto.cpp" />
     <ClCompile Include="frmReporteNroUsuarios.cpp" />
+    <ClCompile Include="frmVerEmergencia.cpp" />
+    <ClCompile Include="frmVerIntruso.cpp" />
     <ClCompile Include="frmVerProyecto.cpp" />
     <ClCompile Include="frmVerUsuario.cpp" />
     <ClCompile Include="frmVistaUsuario.cpp" />
@@ -152,6 +159,15 @@
     <ClInclude Include="frmConfirmacionAdmin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmControlSeguridad.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmEditarEmergencia.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmEditarIntruso.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmEditarProyecto.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -176,10 +192,22 @@
     <ClInclude Include="frmRegistroAdmin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmRegistroEmergencias.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmRegistroIntrusos.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmReporteNroEdificiosProyecto.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmReporteNroUsuarios.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmVerEmergencia.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmVerIntruso.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmVerProyecto.h">
@@ -214,6 +242,15 @@
     <EmbeddedResource Include="frmConfirmacionAdmin.resx">
       <DependentUpon>frmConfirmacionAdmin.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmControlSeguridad.resx">
+      <DependentUpon>frmControlSeguridad.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarEmergencia.resx">
+      <DependentUpon>frmEditarEmergencia.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarIntruso.resx">
+      <DependentUpon>frmEditarIntruso.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditarProyecto.resx">
       <DependentUpon>frmEditarProyecto.h</DependentUpon>
     </EmbeddedResource>
@@ -238,11 +275,23 @@
     <EmbeddedResource Include="frmRegistroAdmin.resx">
       <DependentUpon>frmRegistroAdmin.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroEmergencias.resx">
+      <DependentUpon>frmRegistroEmergencias.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroIntrusos.resx">
+      <DependentUpon>frmRegistroIntrusos.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReporteNroEdificiosProyecto.resx">
       <DependentUpon>frmReporteNroEdificiosProyecto.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteNroUsuarios.resx">
       <DependentUpon>frmReporteNroUsuarios.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerEmergencia.resx">
+      <DependentUpon>frmVerEmergencia.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerIntruso.resx">
+      <DependentUpon>frmVerIntruso.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerProyecto.resx">
       <DependentUpon>frmVerProyecto.h</DependentUpon>

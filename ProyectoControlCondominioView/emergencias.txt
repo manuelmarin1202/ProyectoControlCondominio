@@ -1,0 +1,10 @@
+1;Robo;Sótano;12/01/23;03:12
+2;Robo;Sótano;31/04/22;22:45
+3;Robo;Cochera;07/10/23;01:54
+4;Robo;Cochera;23/04/22;03:33
+5;Accidente;Sótano;24/08/22;15:32
+6;Accidente;Apartamento;19/05/21;19:11
+7;Accidente;Apartamento;22/09/23;07:39
+8;Accidente;Terraza;16/12/22;23:59
+
+

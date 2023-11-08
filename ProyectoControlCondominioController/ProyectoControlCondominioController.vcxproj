@@ -119,12 +119,14 @@
   <ItemGroup>
     <ClInclude Include="AdminController.h" />
     <ClInclude Include="EdificioController.h" />
+    <ClInclude Include="EmergenciaController.h" />
     <ClInclude Include="ProyectoController.h" />
     <ClInclude Include="UsuarioController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdminController.cpp" />
     <ClCompile Include="EdificioController.cpp" />
+    <ClCompile Include="EmergenciaController.cpp" />
     <ClCompile Include="ProyectoController.cpp" />
     <ClCompile Include="UsuarioController.cpp" />
   </ItemGroup>
