@@ -20,5 +20,8 @@ namespace ProyectoControlCondominioController {
 		List<String^>^ obtenerApellidos();
 		//void guardarArchivo(List<Figura^>^ listaFiguras, String^ nombreArchivo);
 		Bitmap^ leerArchivo(String^ nombreArchivo);
+		String^ obtenerNombreFoto(String^ nombreFotoLargo);
+		int ConfirmarAdmin(String^ contra);
+		int ConfirmarContra(String^ contra);
 	};
 }

@@ -56,6 +56,8 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::TextBox^ textBox6;
 	private: System::Windows::Forms::CheckBox^ checkBox2;
 	private: System::Windows::Forms::CheckBox^ checkBox1;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::TextBox^ textBox7;
 
 	private:
 		/// <summary>
@@ -86,12 +88,13 @@ namespace ProyectoControlCondominioView {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->Datos->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// Datos
 			// 
-			this->Datos->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Datos.BackgroundImage")));
 			this->Datos->Controls->Add(this->checkBox2);
 			this->Datos->Controls->Add(this->checkBox1);
 			this->Datos->Controls->Add(this->textBox6);
@@ -110,7 +113,7 @@ namespace ProyectoControlCondominioView {
 				static_cast<System::Byte>(0)));
 			this->Datos->Location = System::Drawing::Point(17, 12);
 			this->Datos->Name = L"Datos";
-			this->Datos->Size = System::Drawing::Size(399, 347);
+			this->Datos->Size = System::Drawing::Size(399, 316);
 			this->Datos->TabIndex = 1;
 			this->Datos->TabStop = false;
 			this->Datos->Text = L"Datos del Usuario";
@@ -185,7 +188,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(228, 269);
+			this->button2->Location = System::Drawing::Point(228, 287);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(85, 23);
 			this->button2->TabIndex = 7;
@@ -195,7 +198,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(75, 269);
+			this->button1->Location = System::Drawing::Point(75, 287);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 6;
@@ -239,11 +242,27 @@ namespace ProyectoControlCondominioView {
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Nombres:";
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(72, 250);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(79, 16);
+			this->label1->TabIndex = 18;
+			this->label1->Text = L"Contraseña:";
+			this->label1->Click += gcnew System::EventHandler(this, &frmNuevoUsuario::label1_Click);
+			// 
+			// textBox7
+			// 
+			this->textBox7->Location = System::Drawing::Point(213, 250);
+			this->textBox7->Name = L"textBox7";
+			this->textBox7->Size = System::Drawing::Size(100, 22);
+			this->textBox7->TabIndex = 19;
+			// 
 			// frmNuevoUsuario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(432, 390);
 			this->Controls->Add(this->Datos);
 			this->Name = L"frmNuevoUsuario";
@@ -273,7 +292,8 @@ namespace ProyectoControlCondominioView {
 		String^ apellidoMaterno = this->textBox4->Text;
 		String^ dni = this->textBox5->Text;
 		String^ nombreFoto = this->textBox6->Text;
-		Usuario^ objProyecto = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni, codigo, nombreFoto);
+		String^ contraseña = this->textBox7->Text;
+		Usuario^ objProyecto = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni, codigo, nombreFoto, contraseña);
 		UsuarioController^ objProyectoControl = gcnew UsuarioController();
 		objProyectoControl->agregarProyecto_2(objProyecto);
 		MessageBox::Show("El Usuario se ha agregado con éxito");
@@ -290,5 +310,7 @@ namespace ProyectoControlCondominioView {
 		//String^ codigoProyecto = "r"+ Convert::ToString(rand() % 1000);
 		//this->textBox1->Text = codigoProyecto;
 	}
+private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

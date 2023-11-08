@@ -49,6 +49,8 @@ namespace ProyectoControlCondominioView {
 
 
 	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::TextBox^ textBox2;
 
 
 
@@ -72,6 +74,8 @@ namespace ProyectoControlCondominioView {
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -112,13 +116,13 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->label1->AutoSize = true;
 			this->label1->BackColor = System::Drawing::SystemColors::WindowText;
-			this->label1->Font = (gcnew System::Drawing::Font(L"BankGothic Lt BT", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::ControlLightLight;
 			this->label1->Location = System::Drawing::Point(66, 213);
 			this->label1->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(93, 21);
+			this->label1->Size = System::Drawing::Size(81, 25);
 			this->label1->TabIndex = 18;
 			this->label1->Text = L"Codigo:";
 			// 
@@ -130,12 +134,38 @@ namespace ProyectoControlCondominioView {
 			this->label4->Size = System::Drawing::Size(0, 16);
 			this->label4->TabIndex = 25;
 			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->BackColor = System::Drawing::SystemColors::WindowText;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->label2->Location = System::Drawing::Point(66, 268);
+			this->label2->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(120, 25);
+			this->label2->TabIndex = 26;
+			this->label2->Text = L"Contraseña:";
+			this->label2->Click += gcnew System::EventHandler(this, &IngresoUsuario::label2_Click);
+			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(317, 268);
+			this->textBox2->Margin = System::Windows::Forms::Padding(5);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(184, 22);
+			this->textBox2->TabIndex = 27;
+			this->textBox2->UseSystemPasswordChar = true;
+			// 
 			// IngresoUsuario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(883, 566);
+			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->button1);
@@ -143,6 +173,7 @@ namespace ProyectoControlCondominioView {
 			this->Controls->Add(this->label1);
 			this->Name = L"IngresoUsuario";
 			this->Text = L"IngresoUsuario";
+			this->Load += gcnew System::EventHandler(this, &IngresoUsuario::IngresoUsuario_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -155,10 +186,22 @@ namespace ProyectoControlCondominioView {
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	Usuario^ objetoProyecto;
 	String^ codigoVer = this->textBox1->Text;
+	String^ contraseñaVer = this->textBox2->Text;
 	UsuarioController^ objProyectoControl = gcnew UsuarioController();
-	Usuario^ objUsuario = objProyectoControl->buscarUsuarioxCodigo(codigoVer);
-	frmVistaUsuario^ ventanaVistaUsuario = gcnew frmVistaUsuario(objUsuario);
-	ventanaVistaUsuario->ShowDialog();
+	int existe1 = objProyectoControl->ConfirmarAdmin(codigoVer);
+	int existe2 = objProyectoControl->ConfirmarContra(contraseñaVer);
+	if (existe1==1 && existe2==1) {
+		Usuario^ objUsuario = objProyectoControl->buscarUsuarioxCodigo(codigoVer);
+		frmVistaUsuario^ ventanaVistaUsuario = gcnew frmVistaUsuario(objUsuario);
+		ventanaVistaUsuario->ShowDialog();
+	}
+	else {
+		MessageBox::Show("El usuario o la contraseña ingresados no son correctos");
+	}
+}
+private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void IngresoUsuario_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
