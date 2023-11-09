@@ -140,7 +140,8 @@
     <ClCompile Include="IngresoUsuario.cpp" />
     <ClCompile Include="Inicio.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SolicitudCambioDatos.cpp" />
+    <ClCompile Include="SolicitudCambioDato.cpp" />
+    <ClCompile Include="ventanaDeCambios.cpp" />
     <ClCompile Include="VerListaEdificios.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +149,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
@@ -228,7 +230,10 @@
     <ClInclude Include="Inicio.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="SolicitudCambioDatos.h">
+    <ClInclude Include="SolicitudCambioDato.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ventanaDeCambios.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="VerListaEdificios.h">
@@ -311,8 +316,11 @@
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SolicitudCambioDatos.resx">
-      <DependentUpon>SolicitudCambioDatos.h</DependentUpon>
+    <EmbeddedResource Include="SolicitudCambioDato.resx">
+      <DependentUpon>SolicitudCambioDato.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventanaDeCambios.resx">
+      <DependentUpon>ventanaDeCambios.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VerListaEdificios.resx">
       <DependentUpon>VerListaEdificios.h</DependentUpon>

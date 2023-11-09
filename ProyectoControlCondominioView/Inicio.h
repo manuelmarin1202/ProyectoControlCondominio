@@ -22,10 +22,12 @@ namespace ProyectoControlCondominioView {
 		Inicio(void)
 		{
 			InitializeComponent();
+
 			//
 			//TODO: agregar código de constructor aquí
 			//
 		}
+
 
 	protected:
 		/// <summary>
@@ -68,7 +70,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->label1->BackColor = System::Drawing::SystemColors::Desktop;
 			this->label1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Swis721 BlkCn BT", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::Black;
 			this->label1->Location = System::Drawing::Point(-4, 0);
@@ -142,6 +144,7 @@ namespace ProyectoControlCondominioView {
 			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Name = L"Inicio";
 			this->Text = L"Inicio";
+			this->Load += gcnew System::EventHandler(this, &Inicio::Inicio_Load);
 			this->ResumeLayout(false);
 
 		}
@@ -157,6 +160,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button3_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	frmIngresoSeguridad^ ventanaIngresoSeguridad = gcnew frmIngresoSeguridad();
 	ventanaIngresoSeguridad->ShowDialog();
+}
+private: System::Void Inicio_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

@@ -1,5 +1,5 @@
 #pragma once
-#include "SolicitudCambioDatos.h"
+#include "SolicitudCambioDato.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -27,9 +27,10 @@ namespace ProyectoControlCondominioView {
 			//TODO: agregar código de constructor aquí
 			//
 		}
-		frmVistaUsuario(Usuario^ objUsuario) {
+		frmVistaUsuario(Usuario^ objUsuario, int request) {
 			InitializeComponent();
 			this->objUsuario = objUsuario;
+			this->request = request;
 		}
 
 	protected:
@@ -59,6 +60,7 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: Usuario^ objUsuario;
+	private: int request;
 	private: System::Windows::Forms::Button^ button2;
 
 	private:
@@ -284,13 +286,12 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	/*String^ codigoVer = this->textBox1->Text;
+	String^ codigoVer = this->textBox1->Text;
 	UsuarioController^ objProyectoControl = gcnew UsuarioController();
 	Usuario^ objUsuario = objProyectoControl->buscarUsuarioxCodigo(codigoVer);
 	
-	SolicitudCambioDatos^ ventanaSolicitudCambioDatos = gcnew SolicitudCambioDatos(objUsuario);
-	ventanaSolicitudCambioDatos->ShowDialog();
-	*/
+	SolicitudCambioDato^ ventanaSolicitudCambioDato = gcnew SolicitudCambioDato(objUsuario, request);
+	ventanaSolicitudCambioDato->ShowDialog();
 }
 };
 }

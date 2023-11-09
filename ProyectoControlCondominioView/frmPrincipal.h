@@ -3,6 +3,7 @@
 #include "frmAdministrarUsuarios.h"
 #include "frmReporteNroEdificiosProyecto.h"
 #include "frmReporteNroUsuarios.h"
+#include "ventanaDeCambios.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -27,6 +28,7 @@ namespace ProyectoControlCondominioView {
 			//
 		}
 
+
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
@@ -46,6 +48,8 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::ToolStripMenuItem^ reportesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ proyectosVsNroEdificiosToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ nroDeUsuariosToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ notificacionesToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ solicitudesDeCambioDeDatosToolStripMenuItem;
 
 	private:
 		/// <summary>
@@ -68,6 +72,8 @@ namespace ProyectoControlCondominioView {
 			this->reportesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->proyectosVsNroEdificiosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->nroDeUsuariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->notificacionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->solicitudesDeCambioDeDatosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -75,13 +81,13 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->menuStrip1->BackColor = System::Drawing::SystemColors::ControlLight;
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->operacionesToolStripMenuItem,
-					this->reportesToolStripMenuItem
+					this->reportesToolStripMenuItem, this->notificacionesToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(678, 25);
+			this->menuStrip1->Size = System::Drawing::Size(1144, 25);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -137,18 +143,34 @@ namespace ProyectoControlCondominioView {
 			this->nroDeUsuariosToolStripMenuItem->Text = L"Nro de Usuarios";
 			this->nroDeUsuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::nroDeUsuariosToolStripMenuItem_Click);
 			// 
+			// notificacionesToolStripMenuItem
+			// 
+			this->notificacionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->solicitudesDeCambioDeDatosToolStripMenuItem });
+			this->notificacionesToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 7.8F));
+			this->notificacionesToolStripMenuItem->Name = L"notificacionesToolStripMenuItem";
+			this->notificacionesToolStripMenuItem->Size = System::Drawing::Size(129, 21);
+			this->notificacionesToolStripMenuItem->Text = L"Notificaciones";
+			// 
+			// solicitudesDeCambioDeDatosToolStripMenuItem
+			// 
+			this->solicitudesDeCambioDeDatosToolStripMenuItem->Name = L"solicitudesDeCambioDeDatosToolStripMenuItem";
+			this->solicitudesDeCambioDeDatosToolStripMenuItem->Size = System::Drawing::Size(316, 26);
+			this->solicitudesDeCambioDeDatosToolStripMenuItem->Text = L"Solicitudes de cambio de datos";
+			this->solicitudesDeCambioDeDatosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::solicitudesDeCambioDeDatosToolStripMenuItem_Click);
+			// 
 			// frmPrincipal
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->ClientSize = System::Drawing::Size(678, 444);
+			this->ClientSize = System::Drawing::Size(1144, 639);
 			this->Controls->Add(this->menuStrip1);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"frmPrincipal";
 			this->Text = L"frmPrincipal";
+			this->Load += gcnew System::EventHandler(this, &frmPrincipal::frmPrincipal_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
@@ -177,5 +199,20 @@ namespace ProyectoControlCondominioView {
 		ventanaReporte->MdiParent = this;
 		ventanaReporte->Show();
 	}
+private: System::Void solicitudesDeCambioDeDatosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	UsuarioController^ objProyectoControl = gcnew UsuarioController();
+	int request = objProyectoControl->requestsTotales();
+	if (request == 0) {
+		MessageBox::Show("No hay solicitudes de cambio activas");
+		}
+	else {
+		MessageBox::Show("Tiene " + request + " solicitudes activas");
+		ventanaDeCambios^ ventanaCambios = gcnew ventanaDeCambios();
+		ventanaCambios->MdiParent = this;
+		ventanaCambios->Show();
+	}
+}
+private: System::Void frmPrincipal_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

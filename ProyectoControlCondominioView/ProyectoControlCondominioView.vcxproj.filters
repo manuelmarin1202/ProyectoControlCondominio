@@ -72,7 +72,10 @@
     <ClCompile Include="frmVistaUsuario.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
-    <ClCompile Include="SolicitudCambioDatos.cpp">
+    <ClCompile Include="SolicitudCambioDato.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
+    <ClCompile Include="ventanaDeCambios.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
     <ClCompile Include="frmControlSeguridad.cpp">
@@ -155,7 +158,10 @@
     <ClInclude Include="frmVistaUsuario.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="SolicitudCambioDatos.h">
+    <ClInclude Include="SolicitudCambioDato.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ventanaDeCambios.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="frmControlSeguridad.h">

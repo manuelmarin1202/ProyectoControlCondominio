@@ -27,6 +27,14 @@ namespace ProyectoControlCondominioView {
 			//TODO: agregar código de constructor aquí
 			//
 		}
+		IngresoUsuario(int request)
+		{
+			InitializeComponent();
+			this->request = request;
+			//
+			//TODO: agregar código de constructor aquí
+			//
+		}
 
 	protected:
 		/// <summary>
@@ -52,7 +60,7 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::TextBox^ textBox2;
-
+	private: int request;
 
 
 
@@ -190,10 +198,10 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	String^ contraseñaVer = this->textBox2->Text;
 	UsuarioController^ objProyectoControl = gcnew UsuarioController();
 	int existe1 = objProyectoControl->ConfirmarAdmin(codigoVer);
-	int existe2 = objProyectoControl->ConfirmarContra(contraseñaVer);
+	int existe2 = objProyectoControl->ConfirmarContra(codigoVer, contraseñaVer);
 	if (existe1==1 && existe2==1) {
 		Usuario^ objUsuario = objProyectoControl->buscarUsuarioxCodigo(codigoVer);
-		frmVistaUsuario^ ventanaVistaUsuario = gcnew frmVistaUsuario(objUsuario);
+		frmVistaUsuario^ ventanaVistaUsuario = gcnew frmVistaUsuario(objUsuario, request);
 		ventanaVistaUsuario->ShowDialog();
 	}
 	else {

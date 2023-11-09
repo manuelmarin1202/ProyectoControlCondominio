@@ -1,6 +1,5 @@
 #pragma once
 
-
 using namespace System;
 using namespace System::Collections::Generic;
 using namespace System::Drawing;
@@ -22,6 +21,14 @@ namespace ProyectoControlCondominioController {
 		Bitmap^ leerArchivo(String^ nombreArchivo);
 		String^ obtenerNombreFoto(String^ nombreFotoLargo);
 		int ConfirmarAdmin(String^ contra);
-		int ConfirmarContra(String^ contra);
+		int ConfirmarContra(String^ codigover, String^ contra);
+		void EscribirCambioDatos(List<Usuario^>^ lista);
+		int actualizarCambioDatos(Usuario^ objProyecto);
+		List<Usuario^>^ buscarCambioDatos();
+		List<String^>^ buscarRequests();
+		void EscribirPedidos(List<String^>^ lista);
+		void cambioPedidos(int fila);
+		int requestsTotales();
+		List<Usuario^>^ buscarLineasPedidos();
 	};
 }
