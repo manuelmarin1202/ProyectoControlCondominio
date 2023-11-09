@@ -10,5 +10,5 @@ namespace ProyectoControlCondominioModel {
 	public:
 		Apartamento();
 		Apartamento(String^ numeroApartamento, bool disponible);
-	};
+	};//
 }
