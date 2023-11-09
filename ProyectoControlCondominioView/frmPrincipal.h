@@ -3,6 +3,7 @@
 #include "frmAdministrarUsuarios.h"
 #include "frmReporteNroEdificiosProyecto.h"
 #include "frmReporteNroUsuarios.h"
+#include "ventanaDeCambios.h"
 #include "frmMantGuardias.h"
 
 namespace ProyectoControlCondominioView {
@@ -170,7 +171,7 @@ namespace ProyectoControlCondominioView {
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"frmPrincipal";
 			this->Text = L"frmPrincipal";
-			this->Load += gcnew System::EventHandler(this, &frmPrincipal::frmPrincipal_Load);
+			//this->Load += gcnew System::EventHandler(this, &frmPrincipal::frmPrincipal_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
