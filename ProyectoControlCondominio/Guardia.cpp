@@ -4,7 +4,7 @@ using namespace ProyectoControlCondominioModel;
 Guardia::Guardia() {
 
 }
-Guardia::Guardia(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ nombreFoto, String^ contraseña, int codigo, String^ categoria, Double sueldo) : DatosPersonales(nombre, apellidoPaterno, apellidoMaterno, dni, nombreFoto, contraseña) {
+Guardia::Guardia(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ nombreFoto, String^ contraseña, int codigo, String^ categoria, double sueldo) : DatosPersonales(nombre, apellidoPaterno, apellidoMaterno, dni, nombreFoto, contraseña) {
 	this->codigo = codigo;
 	this->categoria = categoria;
 	this->sueldo = sueldo;
@@ -21,9 +21,9 @@ String^ Guardia::getCategoria() {
 void Guardia::setCategoria(String^ categoria) {
 	this->categoria = categoria;
 }
-Double^ Guardia::getSueldo() {
+double Guardia::getSueldo() {
 	return this->sueldo;
 }
-void Guardia::setSueldo(Double^ sueldo) {
+void Guardia::setSueldo(double sueldo) {
 	this->sueldo = sueldo;
 }

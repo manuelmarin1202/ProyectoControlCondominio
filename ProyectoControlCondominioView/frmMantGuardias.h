@@ -1,4 +1,6 @@
 #pragma once
+#include "frmNuevoGuardia.h"
+#include "frmEditarGuardia.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -8,6 +10,9 @@ namespace ProyectoControlCondominioView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace ProyectoControlCondominioModel;
+	using namespace ProyectoControlCondominioController;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Resumen de frmMantGuardias
@@ -40,15 +45,23 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
+
+
+
+
+
+	private: System::Windows::Forms::GroupBox^ groupBox1;
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
-	private: System::Windows::Forms::GroupBox^ groupBox1;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
-	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column7;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column8;
 
 	private:
 		/// <summary>
@@ -73,6 +86,9 @@ namespace ProyectoControlCondominioView {
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
@@ -88,7 +104,7 @@ namespace ProyectoControlCondominioView {
 				static_cast<System::Byte>(0)));
 			this->button5->Location = System::Drawing::Point(498, 352);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(84, 23);
+			this->button5->Size = System::Drawing::Size(84, 31);
 			this->button5->TabIndex = 16;
 			this->button5->Text = L"Ver";
 			this->button5->UseVisualStyleBackColor = false;
@@ -100,22 +116,24 @@ namespace ProyectoControlCondominioView {
 				static_cast<System::Byte>(0)));
 			this->button4->Location = System::Drawing::Point(637, 352);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(99, 23);
+			this->button4->Size = System::Drawing::Size(99, 31);
 			this->button4->TabIndex = 15;
 			this->button4->Text = L"Eliminar";
 			this->button4->UseVisualStyleBackColor = false;
+			this->button4->Click += gcnew System::EventHandler(this, &frmMantGuardias::button4_Click);
 			// 
 			// button3
 			// 
 			this->button3->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->button3->Font = (gcnew System::Drawing::Font(L"RomanC", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button3->Location = System::Drawing::Point(345, 352);
+			this->button3->Location = System::Drawing::Point(325, 352);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(90, 23);
+			this->button3->Size = System::Drawing::Size(90, 31);
 			this->button3->TabIndex = 14;
 			this->button3->Text = L"Editar";
 			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Click += gcnew System::EventHandler(this, &frmMantGuardias::button3_Click);
 			// 
 			// button2
 			// 
@@ -124,18 +142,19 @@ namespace ProyectoControlCondominioView {
 				static_cast<System::Byte>(0)));
 			this->button2->Location = System::Drawing::Point(164, 352);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(90, 23);
+			this->button2->Size = System::Drawing::Size(90, 31);
 			this->button2->TabIndex = 13;
 			this->button2->Text = L"Nuevo";
 			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &frmMantGuardias::button2_Click);
 			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->BackgroundColor = System::Drawing::Color::PeachPuff;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
 				this->Column6,
-					this->Column5, this->Column2, this->Column3, this->Column4
+					this->Column5, this->Column2, this->Column3, this->Column4, this->Column1, this->Column7, this->Column8
 			});
 			this->dataGridView1->Cursor = System::Windows::Forms::Cursors::Default;
 			this->dataGridView1->GridColor = System::Drawing::SystemColors::ActiveCaptionText;
@@ -181,6 +200,27 @@ namespace ProyectoControlCondominioView {
 			this->Column4->Name = L"Column4";
 			this->Column4->Width = 125;
 			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"Categoria";
+			this->Column1->MinimumWidth = 6;
+			this->Column1->Name = L"Column1";
+			this->Column1->Width = 125;
+			// 
+			// Column7
+			// 
+			this->Column7->HeaderText = L"Sueldo";
+			this->Column7->MinimumWidth = 6;
+			this->Column7->Name = L"Column7";
+			this->Column7->Width = 125;
+			// 
+			// Column8
+			// 
+			this->Column8->HeaderText = L"NumeroPiso";
+			this->Column8->MinimumWidth = 6;
+			this->Column8->Name = L"Column8";
+			this->Column8->Width = 125;
+			// 
 			// groupBox1
 			// 
 			this->groupBox1->BackColor = System::Drawing::Color::LightGray;
@@ -204,6 +244,7 @@ namespace ProyectoControlCondominioView {
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"Buscar";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &frmMantGuardias::button1_Click);
 			// 
 			// comboBox1
 			// 
@@ -243,5 +284,48 @@ namespace ProyectoControlCondominioView {
 
 		}
 #pragma endregion
-	};
+
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		GuardiaController^ objGuardia = gcnew GuardiaController();
+		String^ apellidoPaterno = this->comboBox1->Text;
+		List<Guardia^>^ listaGuardias = objGuardia->buscarGuardiaApPat(apellidoPaterno);
+		mostrarGrilla(listaGuardias);
+	}
+
+	private: void mostrarGrilla(List<Guardia^>^ listaCarreras) {
+		this->dataGridView1->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
+		for (int i = 0; i < listaCarreras->Count; i++) {
+			Guardia^ objProyecto = listaCarreras[i];
+			array<String^>^ filaGrilla = gcnew array<String^>(7);
+			//filaGrilla[0] = Convert::ToString(objProyecto->getCodigo());
+			filaGrilla[0] = Convert::ToString(objProyecto->getCodigoGuardia());
+			filaGrilla[1] = objProyecto->getNombres();
+			filaGrilla[2] = objProyecto->getApellidoPaterno();
+			filaGrilla[3] = objProyecto->getApellidoMaterno();
+			filaGrilla[4] = objProyecto->getDni();
+			filaGrilla[5] = objProyecto->getCategoria();
+			filaGrilla[6] = Convert::ToString(objProyecto->getSueldo());
+			this->dataGridView1->Rows->Add(filaGrilla);
+		}
+	}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		frmNuevoGuardia^ ventanaNuevoGuardia = gcnew frmNuevoGuardia();
+		ventanaNuevoGuardia->ShowDialog();
+	}
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0*/
+		int codigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+		GuardiaController^ objGuardia = gcnew GuardiaController();
+		objGuardia->eliminarGuardia(codigoEliminar);
+		MessageBox::Show("Se ha eliminado la informacion del guardia");
+	}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0*/
+		int codigoEliminar = Convert::ToInt32(this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString());
+		GuardiaController^ objGuardiaController = gcnew GuardiaController();
+		Guardia^ objGuardia = objGuardiaController->buscarGuardiaxCodigo(codigoEliminar);
+		frmEditarGuardia^ ventanaEditarGuardia = gcnew frmEditarGuardia(objGuardia);
+		ventanaEditarGuardia->ShowDialog();
+	}
+};
 }

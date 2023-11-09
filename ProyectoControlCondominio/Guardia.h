@@ -8,7 +8,7 @@ namespace ProyectoControlCondominioModel {
 	private:
 		int codigo;
 		String^ categoria;
-		Double^ sueldo;
+		double sueldo;
 		String^ nombre;
 		String^ apellidoPaterno;
 		String^ apellidoMaterno;
@@ -17,13 +17,13 @@ namespace ProyectoControlCondominioModel {
 		String^ contraseña;
 	public:
 		Guardia();
-		Guardia(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ nombreFoto, String^ contraseña,int codigo, String^ categoria, Double sueldo);
+		Guardia(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ nombreFoto, String^ contraseña,int codigo, String^ categoria, double sueldo);
 		int getCodigoGuardia();
 		void setCodigoGuardia(int codigo);
 		String^ getCategoria();
 		void setCategoria(String^ categoria);
-		Double^ getSueldo();
-		void setSueldo(Double^ sueldo);
+		double getSueldo();
+		void setSueldo(double sueldo);
 
 	};
 }

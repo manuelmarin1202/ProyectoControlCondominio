@@ -118,6 +118,7 @@
     <ClCompile Include="frmConfirmacionAdmin.cpp" />
     <ClCompile Include="frmControlSeguridad.cpp" />
     <ClCompile Include="frmEditarEmergencia.cpp" />
+    <ClCompile Include="frmEditarGuardia.cpp" />
     <ClCompile Include="frmEditarIntruso.cpp" />
     <ClCompile Include="frmEditarProyecto.cpp" />
     <ClCompile Include="frmEditarUsuario.cpp" />
@@ -125,6 +126,7 @@
     <ClCompile Include="frmIngresoSeguridad.cpp" />
     <ClCompile Include="frmMantenimientoProyectos.cpp" />
     <ClCompile Include="frmMantGuardias.cpp" />
+    <ClCompile Include="frmNuevoGuardia.cpp" />
     <ClCompile Include="frmNuevoProyecto.cpp" />
     <ClCompile Include="frmNuevoUsuario.cpp" />
     <ClCompile Include="frmPrincipal.cpp" />
@@ -168,6 +170,9 @@
     <ClInclude Include="frmEditarEmergencia.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmEditarGuardia.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmEditarIntruso.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -187,6 +192,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmMantGuardias.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmNuevoGuardia.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmNuevoProyecto.h">
@@ -257,6 +265,9 @@
     <EmbeddedResource Include="frmEditarEmergencia.resx">
       <DependentUpon>frmEditarEmergencia.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarGuardia.resx">
+      <DependentUpon>frmEditarGuardia.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditarIntruso.resx">
       <DependentUpon>frmEditarIntruso.h</DependentUpon>
     </EmbeddedResource>
@@ -277,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMantGuardias.resx">
       <DependentUpon>frmMantGuardias.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoGuardia.resx">
+      <DependentUpon>frmNuevoGuardia.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoProyecto.resx">
       <DependentUpon>frmNuevoProyecto.h</DependentUpon>
