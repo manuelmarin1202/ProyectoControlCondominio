@@ -121,6 +121,7 @@
     <ClInclude Include="DatosPersonales.h" />
     <ClInclude Include="Emergencia.h" />
     <ClInclude Include="Familia.h" />
+    <ClInclude Include="Guardia.h" />
     <ClInclude Include="Intruso.h" />
     <ClInclude Include="Invitado.h" />
     <ClInclude Include="Piso.h" />
@@ -139,6 +140,7 @@
     <ClCompile Include="DatosPersonales.cpp" />
     <ClCompile Include="Emergencia.cpp" />
     <ClCompile Include="Familia.cpp" />
+    <ClCompile Include="Guardia.cpp" />
     <ClCompile Include="Intruso.cpp" />
     <ClCompile Include="Invitado.cpp" />
     <ClCompile Include="Piso.cpp" />

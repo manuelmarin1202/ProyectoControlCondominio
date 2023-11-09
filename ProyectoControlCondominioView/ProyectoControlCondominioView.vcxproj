@@ -124,6 +124,7 @@
     <ClCompile Include="frmIngresoAdmin.cpp" />
     <ClCompile Include="frmIngresoSeguridad.cpp" />
     <ClCompile Include="frmMantenimientoProyectos.cpp" />
+    <ClCompile Include="frmMantGuardias.cpp" />
     <ClCompile Include="frmNuevoProyecto.cpp" />
     <ClCompile Include="frmNuevoUsuario.cpp" />
     <ClCompile Include="frmPrincipal.cpp" />
@@ -183,6 +184,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmMantenimientoProyectos.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmMantGuardias.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmNuevoProyecto.h">
@@ -270,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMantenimientoProyectos.resx">
       <DependentUpon>frmMantenimientoProyectos.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMantGuardias.resx">
+      <DependentUpon>frmMantGuardias.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoProyecto.resx">
       <DependentUpon>frmNuevoProyecto.h</DependentUpon>

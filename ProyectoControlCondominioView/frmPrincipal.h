@@ -3,7 +3,7 @@
 #include "frmAdministrarUsuarios.h"
 #include "frmReporteNroEdificiosProyecto.h"
 #include "frmReporteNroUsuarios.h"
-#include "ventanaDeCambios.h"
+#include "frmMantGuardias.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -48,8 +48,8 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::ToolStripMenuItem^ reportesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ proyectosVsNroEdificiosToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ nroDeUsuariosToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ notificacionesToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ solicitudesDeCambioDeDatosToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ empleadosToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ guardiasToolStripMenuItem;
 
 	private:
 		/// <summary>
@@ -72,8 +72,8 @@ namespace ProyectoControlCondominioView {
 			this->reportesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->proyectosVsNroEdificiosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->nroDeUsuariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->notificacionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->solicitudesDeCambioDeDatosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->empleadosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->guardiasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -83,11 +83,11 @@ namespace ProyectoControlCondominioView {
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->operacionesToolStripMenuItem,
-					this->reportesToolStripMenuItem, this->notificacionesToolStripMenuItem
+					this->reportesToolStripMenuItem, this->empleadosToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1337, 25);
+			this->menuStrip1->Size = System::Drawing::Size(678, 28);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -100,7 +100,7 @@ namespace ProyectoControlCondominioView {
 			this->operacionesToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 7.8F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->operacionesToolStripMenuItem->Name = L"operacionesToolStripMenuItem";
-			this->operacionesToolStripMenuItem->Size = System::Drawing::Size(111, 21);
+			this->operacionesToolStripMenuItem->Size = System::Drawing::Size(111, 24);
 			this->operacionesToolStripMenuItem->Text = L"Operaciones";
 			// 
 			// proyectoToolStripMenuItem
@@ -126,7 +126,7 @@ namespace ProyectoControlCondominioView {
 			this->reportesToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 7.8F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->reportesToolStripMenuItem->Name = L"reportesToolStripMenuItem";
-			this->reportesToolStripMenuItem->Size = System::Drawing::Size(89, 21);
+			this->reportesToolStripMenuItem->Size = System::Drawing::Size(89, 24);
 			this->reportesToolStripMenuItem->Text = L"Reportes";
 			// 
 			// proyectosVsNroEdificiosToolStripMenuItem
@@ -143,20 +143,20 @@ namespace ProyectoControlCondominioView {
 			this->nroDeUsuariosToolStripMenuItem->Text = L"Nro de Usuarios";
 			this->nroDeUsuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::nroDeUsuariosToolStripMenuItem_Click);
 			// 
-			// notificacionesToolStripMenuItem
+			// empleadosToolStripMenuItem
 			// 
-			this->notificacionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->solicitudesDeCambioDeDatosToolStripMenuItem });
-			this->notificacionesToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 7.8F));
-			this->notificacionesToolStripMenuItem->Name = L"notificacionesToolStripMenuItem";
-			this->notificacionesToolStripMenuItem->Size = System::Drawing::Size(129, 21);
-			this->notificacionesToolStripMenuItem->Text = L"Notificaciones";
+			this->empleadosToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->guardiasToolStripMenuItem });
+			this->empleadosToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 7.8F));
+			this->empleadosToolStripMenuItem->Name = L"empleadosToolStripMenuItem";
+			this->empleadosToolStripMenuItem->Size = System::Drawing::Size(98, 24);
+			this->empleadosToolStripMenuItem->Text = L"Empleados";
 			// 
-			// solicitudesDeCambioDeDatosToolStripMenuItem
+			// guardiasToolStripMenuItem
 			// 
-			this->solicitudesDeCambioDeDatosToolStripMenuItem->Name = L"solicitudesDeCambioDeDatosToolStripMenuItem";
-			this->solicitudesDeCambioDeDatosToolStripMenuItem->Size = System::Drawing::Size(316, 26);
-			this->solicitudesDeCambioDeDatosToolStripMenuItem->Text = L"Solicitudes de cambio de datos";
-			this->solicitudesDeCambioDeDatosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::solicitudesDeCambioDeDatosToolStripMenuItem_Click);
+			this->guardiasToolStripMenuItem->Name = L"guardiasToolStripMenuItem";
+			this->guardiasToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->guardiasToolStripMenuItem->Text = L"Guardias";
+			this->guardiasToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::guardiasToolStripMenuItem_Click);
 			// 
 			// frmPrincipal
 			// 
@@ -199,20 +199,10 @@ namespace ProyectoControlCondominioView {
 		ventanaReporte->MdiParent = this;
 		ventanaReporte->Show();
 	}
-private: System::Void solicitudesDeCambioDeDatosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	UsuarioController^ objProyectoControl = gcnew UsuarioController();
-	int request = objProyectoControl->requestsTotales();
-	if (request == 0) {
-		MessageBox::Show("No hay solicitudes de cambio activas");
-		}
-	else {
-		MessageBox::Show("Tiene " + request + " solicitudes activas");
-		ventanaDeCambios^ ventanaCambios = gcnew ventanaDeCambios();
-		ventanaCambios->MdiParent = this;
-		ventanaCambios->Show();
+	private: System::Void guardiasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		frmMantGuardias^ ventanaMantGuardias = gcnew frmMantGuardias();
+		ventanaMantGuardias->MdiParent = this;
+		ventanaMantGuardias->Show();
 	}
-}
-private: System::Void frmPrincipal_Load(System::Object^ sender, System::EventArgs^ e) {
-}
 };
 }

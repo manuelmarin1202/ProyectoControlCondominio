@@ -1,4 +1,4 @@
 4;5;La Libertad;Trujillo;Trujillo;Los Recintos;8/10/2018;Alberto.jpg
 41;8;Ica;Ica;Ica;La Huacachina;7/09/2020;HuacachinaFoto.jpg
-67;9;Lima;Lima;San Miguel ;Los Universitarios;16/08/2014;pucp.jpg
+67;9;Lima;Lima;San Miguel ;Los Universitarios;16/08/2014;Alberto.jpg
 34;5;Lima;Lima;Callao;Los Chalacos;10/07/2018;callao.jpg

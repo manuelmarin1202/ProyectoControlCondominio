@@ -120,6 +120,7 @@
     <ClInclude Include="AdminController.h" />
     <ClInclude Include="EdificioController.h" />
     <ClInclude Include="EmergenciaController.h" />
+    <ClInclude Include="GuardiaController.h" />
     <ClInclude Include="ProyectoController.h" />
     <ClInclude Include="UsuarioController.h" />
   </ItemGroup>
@@ -127,10 +128,13 @@
     <ClCompile Include="AdminController.cpp" />
     <ClCompile Include="EdificioController.cpp" />
     <ClCompile Include="EmergenciaController.cpp" />
+    <ClCompile Include="GuardiaController.cpp" />
     <ClCompile Include="ProyectoController.cpp" />
     <ClCompile Include="UsuarioController.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
