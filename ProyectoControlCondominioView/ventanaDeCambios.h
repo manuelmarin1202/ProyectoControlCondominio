@@ -218,10 +218,8 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void ventanaDeCambios_Load(System::Object^ sender, System::EventArgs^ e) {
 	
-	
 	UsuarioController^ objUsuarioController = gcnew UsuarioController();
 	List<Usuario^>^ listaUsuarios = objUsuarioController->buscarLineasPedidos();
-
 	mostrarGrilla(listaUsuarios);
 }
 };

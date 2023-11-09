@@ -51,6 +51,7 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::ToolStripMenuItem^ nroDeUsuariosToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ empleadosToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ guardiasToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ sOLICITUDESDECAMBIOToolStripMenuItem;
 
 	private:
 		/// <summary>
@@ -75,6 +76,7 @@ namespace ProyectoControlCondominioView {
 			this->nroDeUsuariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->empleadosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->guardiasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->sOLICITUDESDECAMBIOToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -82,13 +84,13 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->menuStrip1->BackColor = System::Drawing::SystemColors::ControlLight;
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->operacionesToolStripMenuItem,
-					this->reportesToolStripMenuItem, this->empleadosToolStripMenuItem
+					this->reportesToolStripMenuItem, this->empleadosToolStripMenuItem, this->sOLICITUDESDECAMBIOToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(678, 28);
+			this->menuStrip1->Size = System::Drawing::Size(1337, 28);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -159,6 +161,14 @@ namespace ProyectoControlCondominioView {
 			this->guardiasToolStripMenuItem->Text = L"Guardias";
 			this->guardiasToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::guardiasToolStripMenuItem_Click);
 			// 
+			// sOLICITUDESDECAMBIOToolStripMenuItem
+			// 
+			this->sOLICITUDESDECAMBIOToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 7.8F));
+			this->sOLICITUDESDECAMBIOToolStripMenuItem->Name = L"sOLICITUDESDECAMBIOToolStripMenuItem";
+			this->sOLICITUDESDECAMBIOToolStripMenuItem->Size = System::Drawing::Size(181, 24);
+			this->sOLICITUDESDECAMBIOToolStripMenuItem->Text = L"SOLICITUDES DE CAMBIO";
+			this->sOLICITUDESDECAMBIOToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::sOLICITUDESDECAMBIOToolStripMenuItem_Click);
+			// 
 			// frmPrincipal
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -171,7 +181,6 @@ namespace ProyectoControlCondominioView {
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"frmPrincipal";
 			this->Text = L"frmPrincipal";
-			//this->Load += gcnew System::EventHandler(this, &frmPrincipal::frmPrincipal_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
@@ -204,6 +213,19 @@ namespace ProyectoControlCondominioView {
 		frmMantGuardias^ ventanaMantGuardias = gcnew frmMantGuardias();
 		ventanaMantGuardias->MdiParent = this;
 		ventanaMantGuardias->Show();
+	}
+	private: System::Void sOLICITUDESDECAMBIOToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		ventanaDeCambios^ ventanaCambios = gcnew ventanaDeCambios();
+		ventanaCambios->MdiParent = this;
+		UsuarioController^ objUsuarioController = gcnew UsuarioController();
+		int cantPedidos = objUsuarioController->requestsTotales();
+		if (cantPedidos == 0) {
+			MessageBox::Show("No tiene solicitudes disponibles");
+		}
+		else {
+			MessageBox::Show("Tiene "+cantPedidos+" solicitudes disponibles");
+		}
+		ventanaCambios->Show();
 	}
 };
 }
