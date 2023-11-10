@@ -1,4 +1,4 @@
-#include "iostream"
+//#include "iostream"
 #include "ProyectoController.h"
 
 using namespace ProyectoControlCondominioController;
@@ -6,14 +6,23 @@ using namespace System::IO;//para utilizar los archivos de texto
 using namespace System::Text;
 
 ProyectoController::ProyectoController() {
+	this->objConexion = gcnew SqlConnection();
+}
 
+void ProyectoController::AbrirConexionBD() {
+	/*Cadena de conexion: Servidor de BD, usuario de BD, password BD, nombre de la BD*/
+	this->objConexion->ConnectionString = "Server=200.16.7.140;DataBase=a20213802;User Id=a20213802;Password=33F7voDy";
+	this->objConexion->Open(); /*Apertura de la conexion a BD*/
+}
+void ProyectoController::CerrarConexionBD() {
+	this->objConexion->Close();
 }
 
 List<Proyecto^>^ ProyectoController::buscarProyectos(String^ Departamento) {
-	/*En esta lista vamos a colocar la información de los proyectos que encontremos en el archivo de texto*/
+	/*En esta lista vamos a colocar la información de los proyectos que encontremos en el archivo de texto
 	List<Proyecto^>^ listaProyectosEncontrados = gcnew List<Proyecto^>();
 	array<String^>^ lineas = File::ReadAllLines("proyectos.txt");
-	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
+	String^ separadores = ";"; //Aqui defino el caracter por el cual voy a separar la informacion de cada linea//
 	for each (String ^ lineaProyecto in lineas) {
 		array<String^>^ datos = lineaProyecto->Split(separadores->ToCharArray());
 		String^ codigoCondominio=datos[0];
@@ -30,13 +39,37 @@ List<Proyecto^>^ ProyectoController::buscarProyectos(String^ Departamento) {
 			listaProyectosEncontrados->Add(objProyecto);
 		}
 	}
-	return listaProyectosEncontrados;
+	return listaProyectosEncontrados;*/
+
+	List<Proyecto^>^ listaProyectos = gcnew List<Proyecto^>();
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT*FROM Proyecto where Departamento like '%" + Departamento + "%'";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		String^ codigo = safe_cast<String^>(objData[0]);
+		int cantEdificios = safe_cast<int>(objData[1]);
+		String^ departamento= safe_cast<String^>(objData[2]);
+		String^ provincia = safe_cast<String^>(objData[3]);
+		String^ distrito = safe_cast<String^>(objData[4]);
+		String^ nombreCondominio = safe_cast<String^>(objData[5]);
+		String^ fechaCreacion = safe_cast<String^>(objData[6]);
+		//String^ nombreFoto = safe_cast<String^>(objData[7]);
+		//int codigoPiso = safe_cast<int>(objData[8]);
+		String^ nombreFoto = "Alberto.jpg";
+		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
+		Proyecto^ objProyecto = gcnew Proyecto(codigo, cantEdificios, departamento, provincia, distrito, nombreCondominio, fechaCreacion, nombreFoto, listaEdificios);
+		listaProyectos->Add(objProyecto);
+	}
+	CerrarConexionBD();
+	return listaProyectos;
 }
 
 List<Proyecto^>^ ProyectoController::buscarProyectos2(String^ Departamento, String^ distrito) {
-	List<Proyecto^>^ listaProyectosEncontrados = gcnew List<Proyecto^>();
+	/*List<Proyecto^>^ listaProyectosEncontrados = gcnew List<Proyecto^>();
 	array<String^>^ lineas = File::ReadAllLines("proyectos.txt");
-	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
+	String^ separadores = ";"; //Aqui defino el caracter por el cual voy a separar la informacion de cada linea
 	for each (String ^ lineaProyecto in lineas) {
 		array<String^>^ datos = lineaProyecto->Split(separadores->ToCharArray());
 		String^ codigoCondominio = datos[0];
@@ -53,7 +86,31 @@ List<Proyecto^>^ ProyectoController::buscarProyectos2(String^ Departamento, Stri
 			listaProyectosEncontrados->Add(objProyecto);
 		}
 	}
-	return listaProyectosEncontrados;
+	return listaProyectosEncontrados;*/
+
+	List<Proyecto^>^ listaProyectos = gcnew List<Proyecto^>();
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT*FROM Proyecto where Departamento like '%"+Departamento+"%' and Distrito='"+distrito+"'";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		String^ codigo = safe_cast<String^>(objData[0]);
+		int cantEdificios = safe_cast<int>(objData[1]);
+		String^ departamento = safe_cast<String^>(objData[2]);
+		String^ provincia = safe_cast<String^>(objData[3]);
+		String^ distrito = safe_cast<String^>(objData[4]);
+		String^ nombreCondominio = safe_cast<String^>(objData[5]);
+		String^ fechaCreacion = safe_cast<String^>(objData[6]);
+		//String^ nombreFoto = safe_cast<String^>(objData[7]);
+		//int codigoPiso = safe_cast<int>(objData[8]);
+		String^ nombreFoto = "Alberto.jpg";
+		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
+		Proyecto^ objProyecto = gcnew Proyecto(codigo, cantEdificios, departamento, provincia, distrito, nombreCondominio, fechaCreacion, nombreFoto, listaEdificios);
+		listaProyectos->Add(objProyecto);
+	}
+	CerrarConexionBD();
+	return listaProyectos;
 }
 
 List<Proyecto^>^ ProyectoController::buscarAll() {
@@ -87,32 +144,74 @@ void ProyectoController::escribirArchivo(List<Proyecto^>^ listaProyectos) {
 }
 
 void ProyectoController::eliminarProyectoFisico(String^ codigo) {
-	List<Proyecto^>^ listaProyectos = buscarAll();
-	for (int i = 0; i < listaProyectos->Count; i++) {
-		if (listaProyectos[i]->getCodigo() == codigo) {
-			listaProyectos->RemoveAt(i);
-		}
-	}
-	escribirArchivo(listaProyectos);
+	//List<Proyecto^>^ listaProyectos = buscarAll();
+	//for (int i = 0; i < listaProyectos->Count; i++) {
+		//if (listaProyectos[i]->getCodigo() == codigo) {
+			//listaProyectos->RemoveAt(i);
+		//}
+	//}
+	//escribirArchivo(listaProyectos);
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->CommandText = "DELETE FROM Proyecto WHERE Codigo="+codigo+"";
+	objSentencia->Connection = this->objConexion;
+	objSentencia->ExecuteNonQuery();
+	CerrarConexionBD();
 }
 
 void ProyectoController::agregarProyecto(Proyecto^ objProyecto) {
-	List<Proyecto^>^ listaProyectos = buscarAll();
-	listaProyectos->Add(objProyecto);
-	escribirArchivo(listaProyectos);
+	//List<Proyecto^>^ listaProyectos = buscarAll();
+	//listaProyectos->Add(objProyecto);
+	//escribirArchivo(listaProyectos);
+	AbrirConexionBD();
+	String^ codigo = objProyecto->getCodigo();
+	int cantEdificios = objProyecto->getCantEdificios();
+	String^ dpto = objProyecto->getDepartamento();
+	String^ provincia = objProyecto->getProvincia();
+	String^ distrito = objProyecto->getDistrito();
+	String^ nombre = objProyecto->getNombre();
+	String^ fechaCreacion = objProyecto->getFechaCreacion();
+	String^ nombreFoto = objProyecto->getNombreFoto();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->CommandText = "Insert into Proyecto(Codigo,CantidadEdificios,Departamento,Provincia,Distrito,NombreCondominio,FechaCreacion,NombreFoto)values('"+codigo+"',"+cantEdificios+",'"+dpto+"','" + provincia+ "','"+distrito+"','"+nombre+"','"+fechaCreacion+"','"+nombreFoto+"')";
+	objSentencia->Connection = this->objConexion;
+	objSentencia->ExecuteNonQuery();
+	CerrarConexionBD();
 }
 
 Proyecto^ ProyectoController::buscarProyectoxCodigo(String^ codigo) {
-	List<Proyecto^>^ listaProyectos = buscarAll();
+	/*List<Proyecto^>^ listaProyectos = buscarAll();
 	for (int i = 0; i < listaProyectos->Count; i++) {
 		if (listaProyectos[i]->getCodigo() == codigo) {
 			return listaProyectos[i];
 		}
+	}*/
+	Proyecto^ objProyecto;
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT*FROM Proyecto where Codigo like '%"+codigo+"%'";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		String^ codigo = safe_cast<String^>(objData[0]);
+		int cantEdificios = safe_cast<int>(objData[1]);
+		String^ departamento = safe_cast<String^>(objData[2]);
+		String^ provincia = safe_cast<String^>(objData[3]);
+		String^ distrito = safe_cast<String^>(objData[4]);
+		String^ nombreCondominio = safe_cast<String^>(objData[5]);
+		String^ fechaCreacion = safe_cast<String^>(objData[6]);
+		//String^ nombreFoto = safe_cast<String^>(objData[7]);
+		//int codigoPiso = safe_cast<int>(objData[8]);
+		String^ nombreFoto = "Alberto.jpg";
+		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
+		objProyecto = gcnew Proyecto(codigo, cantEdificios, departamento, provincia, distrito, nombreCondominio, fechaCreacion, nombreFoto, listaEdificios);
 	}
+	CerrarConexionBD();
+	return objProyecto;
 }
 
 void ProyectoController::actualizarProyecto(Proyecto^ objProyecto) {
-	List<Proyecto^>^ listaProyectos = buscarAll();
+	/*List<Proyecto^>^ listaProyectos = buscarAll();
 	for (int i = 0; i < listaProyectos->Count; i++) {
 		if (listaProyectos[i]->getCodigo() == objProyecto->getCodigo()) {
 			//voy a actualizarlo
@@ -127,7 +226,21 @@ void ProyectoController::actualizarProyecto(Proyecto^ objProyecto) {
 			break;
 		}
 	}
-	escribirArchivo(listaProyectos);
+	escribirArchivo(listaProyectos);*/
+	String^ codigo = objProyecto->getCodigo();
+	int cantEdificios = objProyecto->getCantEdificios();
+	String^ dpto = objProyecto->getDepartamento();
+	String^ provincia = objProyecto->getProvincia();
+	String^ distrito = objProyecto->getDistrito();
+	String^ nombre = objProyecto->getNombre();
+	String^ fechaCreacion = objProyecto->getFechaCreacion();
+	String^ nombreFoto = objProyecto->getNombreFoto();
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->CommandText = "UPDATE Proyecto SET Codigo='"+codigo+"',CantidadEdificios='"+cantEdificios+"',Departamento='"+dpto+"',Provincia='"+provincia+"',Distrito='"+distrito+"',NombreCondominio='"+nombre+"',FechaCreacion='"+fechaCreacion+"',NombreFoto='"+nombreFoto+"' WHERE Codigo='"+codigo+"'";
+	objSentencia->Connection = this->objConexion;
+	objSentencia->ExecuteNonQuery();
+	CerrarConexionBD();
 }
 
 List<String^>^ ProyectoController::obtenerDepartamentos() {
