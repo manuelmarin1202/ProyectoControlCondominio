@@ -299,7 +299,16 @@ namespace ProyectoControlCondominioView {
 		}
 #pragma endregion
 	private: System::Void frmNuevoProyecto_Load(System::Object^ sender, System::EventArgs^ e) {
-		String^ codigoProyecto = Convert::ToString(rand() % 100);
+		int centinela = 1;
+		String^ codigoProyecto;
+		while (centinela) {
+			codigoProyecto = Convert::ToString(rand() % 100);
+			ProyectoController^ objProyectoController = gcnew ProyectoController();
+			int existe = objProyectoController->existeCodigo(codigoProyecto);
+			if (existe==0) {
+				centinela = 0;
+			}
+		}
 		this->textBox1->Text = codigoProyecto;
 	}
 	private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {

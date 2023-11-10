@@ -55,9 +55,9 @@ List<Proyecto^>^ ProyectoController::buscarProyectos(String^ Departamento) {
 		String^ distrito = safe_cast<String^>(objData[4]);
 		String^ nombreCondominio = safe_cast<String^>(objData[5]);
 		String^ fechaCreacion = safe_cast<String^>(objData[6]);
-		//String^ nombreFoto = safe_cast<String^>(objData[7]);
+		String^ nombreFoto = safe_cast<String^>(objData[7]);
 		//int codigoPiso = safe_cast<int>(objData[8]);
-		String^ nombreFoto = "Alberto.jpg";
+		//String^ nombreFoto = "Alberto.jpg";
 		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
 		Proyecto^ objProyecto = gcnew Proyecto(codigo, cantEdificios, departamento, provincia, distrito, nombreCondominio, fechaCreacion, nombreFoto, listaEdificios);
 		listaProyectos->Add(objProyecto);
@@ -102,9 +102,9 @@ List<Proyecto^>^ ProyectoController::buscarProyectos2(String^ Departamento, Stri
 		String^ distrito = safe_cast<String^>(objData[4]);
 		String^ nombreCondominio = safe_cast<String^>(objData[5]);
 		String^ fechaCreacion = safe_cast<String^>(objData[6]);
-		//String^ nombreFoto = safe_cast<String^>(objData[7]);
+		String^ nombreFoto = safe_cast<String^>(objData[7]);
 		//int codigoPiso = safe_cast<int>(objData[8]);
-		String^ nombreFoto = "Alberto.jpg";
+		//String^ nombreFoto = "Alberto.jpg";
 		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
 		Proyecto^ objProyecto = gcnew Proyecto(codigo, cantEdificios, departamento, provincia, distrito, nombreCondominio, fechaCreacion, nombreFoto, listaEdificios);
 		listaProyectos->Add(objProyecto);
@@ -159,6 +159,39 @@ void ProyectoController::eliminarProyectoFisico(String^ codigo) {
 	CerrarConexionBD();
 }
 
+int ProyectoController::existeCodigo(String^ codigo) {
+	List<Proyecto^>^ listaProyectos = gcnew List<Proyecto^>();
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT*FROM Proyecto where codigo='"+codigo+"'";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	int cant = 0;
+	while (objData->Read()) {
+		String^ codigo = safe_cast<String^>(objData[0]);
+		int cantEdificios = safe_cast<int>(objData[1]);
+		String^ departamento = safe_cast<String^>(objData[2]);
+		String^ provincia = safe_cast<String^>(objData[3]);
+		String^ distrito = safe_cast<String^>(objData[4]);
+		String^ nombreCondominio = safe_cast<String^>(objData[5]);
+		String^ fechaCreacion = safe_cast<String^>(objData[6]);
+		String^ nombreFoto = safe_cast<String^>(objData[7]);
+		//int codigoPiso = safe_cast<int>(objData[8]);
+		//String^ nombreFoto = "Alberto.jpg";
+		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
+		Proyecto^ objProyecto = gcnew Proyecto(codigo, cantEdificios, departamento, provincia, distrito, nombreCondominio, fechaCreacion, nombreFoto, listaEdificios);
+		listaProyectos->Add(objProyecto);
+		cant++;
+	}
+	if (cant > 0) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+	CerrarConexionBD();
+}
+
 void ProyectoController::agregarProyecto(Proyecto^ objProyecto) {
 	//List<Proyecto^>^ listaProyectos = buscarAll();
 	//listaProyectos->Add(objProyecto);
@@ -200,9 +233,9 @@ Proyecto^ ProyectoController::buscarProyectoxCodigo(String^ codigo) {
 		String^ distrito = safe_cast<String^>(objData[4]);
 		String^ nombreCondominio = safe_cast<String^>(objData[5]);
 		String^ fechaCreacion = safe_cast<String^>(objData[6]);
-		//String^ nombreFoto = safe_cast<String^>(objData[7]);
+		String^ nombreFoto = safe_cast<String^>(objData[7]);
 		//int codigoPiso = safe_cast<int>(objData[8]);
-		String^ nombreFoto = "Alberto.jpg";
+		//String^ nombreFoto = "Alberto.jpg";
 		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
 		objProyecto = gcnew Proyecto(codigo, cantEdificios, departamento, provincia, distrito, nombreCondominio, fechaCreacion, nombreFoto, listaEdificios);
 	}

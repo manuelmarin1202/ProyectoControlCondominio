@@ -11,6 +11,7 @@ namespace ProyectoControlCondominioController {
 		private: SqlConnection^ objConexion;
 		public:
 			ProyectoController();
+			int existeCodigo(String^ codigo);
 			void AbrirConexionBD();
 			void CerrarConexionBD();
 			List<Proyecto^>^ buscarProyectos(String^ Departamento);
@@ -25,5 +26,6 @@ namespace ProyectoControlCondominioController {
 			List<String^>^ obtenerDepartamentos();
 			List<String^>^ obtenerDistritosxDptos(String^ departamento);
 			String^ obtenerNombreFoto(String^ nombreFotoLargo);
+
 	};
 }
