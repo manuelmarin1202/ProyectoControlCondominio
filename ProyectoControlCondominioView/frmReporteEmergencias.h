@@ -133,6 +133,8 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->ClientSize = System::Drawing::Size(789, 517);
 			this->Controls->Add(this->chart1);
 			this->Controls->Add(this->groupBox1);

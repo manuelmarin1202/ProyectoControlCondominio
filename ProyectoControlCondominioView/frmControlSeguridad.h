@@ -59,6 +59,7 @@ namespace ProyectoControlCondominioView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmControlSeguridad::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->incidentesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->emergenciasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -71,7 +72,6 @@ namespace ProyectoControlCondominioView {
 			// 
 			// menuStrip1
 			// 
-			this->menuStrip1->GripMargin = System::Windows::Forms::Padding(2, 2, 0, 2);
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(24, 24);
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
 				this->incidentesToolStripMenuItem,
@@ -79,7 +79,8 @@ namespace ProyectoControlCondominioView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(976, 33);
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(868, 28);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -90,20 +91,20 @@ namespace ProyectoControlCondominioView {
 					this->intrusosToolStripMenuItem
 			});
 			this->incidentesToolStripMenuItem->Name = L"incidentesToolStripMenuItem";
-			this->incidentesToolStripMenuItem->Size = System::Drawing::Size(108, 29);
+			this->incidentesToolStripMenuItem->Size = System::Drawing::Size(90, 24);
 			this->incidentesToolStripMenuItem->Text = L"Incidentes";
 			// 
 			// emergenciasToolStripMenuItem
 			// 
 			this->emergenciasToolStripMenuItem->Name = L"emergenciasToolStripMenuItem";
-			this->emergenciasToolStripMenuItem->Size = System::Drawing::Size(270, 34);
+			this->emergenciasToolStripMenuItem->Size = System::Drawing::Size(176, 26);
 			this->emergenciasToolStripMenuItem->Text = L"Emergencias";
 			this->emergenciasToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmControlSeguridad::emergenciasToolStripMenuItem_Click);
 			// 
 			// intrusosToolStripMenuItem
 			// 
 			this->intrusosToolStripMenuItem->Name = L"intrusosToolStripMenuItem";
-			this->intrusosToolStripMenuItem->Size = System::Drawing::Size(270, 34);
+			this->intrusosToolStripMenuItem->Size = System::Drawing::Size(176, 26);
 			this->intrusosToolStripMenuItem->Text = L"Intrusos";
 			this->intrusosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmControlSeguridad::intrusosToolStripMenuItem_Click);
 			// 
@@ -114,28 +115,30 @@ namespace ProyectoControlCondominioView {
 					this->intrusosPorFechasToolStripMenuItem
 			});
 			this->reportesToolStripMenuItem->Name = L"reportesToolStripMenuItem";
-			this->reportesToolStripMenuItem->Size = System::Drawing::Size(98, 29);
+			this->reportesToolStripMenuItem->Size = System::Drawing::Size(82, 24);
 			this->reportesToolStripMenuItem->Text = L"Reportes";
 			// 
 			// emergenciasPorFechasToolStripMenuItem
 			// 
 			this->emergenciasPorFechasToolStripMenuItem->Name = L"emergenciasPorFechasToolStripMenuItem";
-			this->emergenciasPorFechasToolStripMenuItem->Size = System::Drawing::Size(304, 34);
+			this->emergenciasPorFechasToolStripMenuItem->Size = System::Drawing::Size(251, 26);
 			this->emergenciasPorFechasToolStripMenuItem->Text = L"Emergencias por Fechas";
 			// 
 			// intrusosPorFechasToolStripMenuItem
 			// 
 			this->intrusosPorFechasToolStripMenuItem->Name = L"intrusosPorFechasToolStripMenuItem";
-			this->intrusosPorFechasToolStripMenuItem->Size = System::Drawing::Size(304, 34);
+			this->intrusosPorFechasToolStripMenuItem->Size = System::Drawing::Size(251, 26);
 			this->intrusosPorFechasToolStripMenuItem->Text = L"Intrusos por Fechas";
 			// 
 			// frmControlSeguridad
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(976, 623);
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->ClientSize = System::Drawing::Size(868, 498);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"frmControlSeguridad";
 			this->Text = L"frmControlSeguridad";
 			this->menuStrip1->ResumeLayout(false);

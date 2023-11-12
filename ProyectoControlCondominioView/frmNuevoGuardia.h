@@ -199,7 +199,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->button2->Location = System::Drawing::Point(223, 292);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(85, 23);
+			this->button2->Size = System::Drawing::Size(94, 36);
 			this->button2->TabIndex = 7;
 			this->button2->Text = L"Cancelar";
 			this->button2->UseVisualStyleBackColor = true;
@@ -209,7 +209,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->button1->Location = System::Drawing::Point(68, 292);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(89, 36);
 			this->button1->TabIndex = 6;
 			this->button1->Text = L"Grabar";
 			this->button1->UseVisualStyleBackColor = true;
@@ -255,6 +255,8 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->ClientSize = System::Drawing::Size(441, 429);
 			this->Controls->Add(this->Datos);
 			this->Name = L"frmNuevoGuardia";

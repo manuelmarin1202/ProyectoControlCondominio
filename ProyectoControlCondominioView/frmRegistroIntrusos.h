@@ -80,11 +80,12 @@ namespace ProyectoControlCondominioView {
 				this->Column1,
 					this->Column2, this->Column3, this->Column4
 			});
-			this->dataGridView1->Location = System::Drawing::Point(30, 53);
+			this->dataGridView1->Location = System::Drawing::Point(34, 47);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 2, 4, 2);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 62;
 			this->dataGridView1->RowTemplate->Height = 28;
-			this->dataGridView1->Size = System::Drawing::Size(826, 342);
+			this->dataGridView1->Size = System::Drawing::Size(918, 308);
 			this->dataGridView1->TabIndex = 0;
 			// 
 			// Column1
@@ -117,10 +118,10 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(407, 435);
-			this->button5->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
+			this->button5->Location = System::Drawing::Point(452, 392);
+			this->button5->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(84, 29);
+			this->button5->Size = System::Drawing::Size(94, 26);
 			this->button5->TabIndex = 11;
 			this->button5->Text = L"Ver";
 			this->button5->UseVisualStyleBackColor = true;
@@ -128,10 +129,10 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(551, 435);
-			this->button4->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
+			this->button4->Location = System::Drawing::Point(612, 392);
+			this->button4->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(90, 29);
+			this->button4->Size = System::Drawing::Size(100, 26);
 			this->button4->TabIndex = 10;
 			this->button4->Text = L"Eliminar";
 			this->button4->UseVisualStyleBackColor = true;
@@ -139,10 +140,10 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(255, 435);
-			this->button3->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
+			this->button3->Location = System::Drawing::Point(284, 392);
+			this->button3->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(90, 29);
+			this->button3->Size = System::Drawing::Size(100, 26);
 			this->button3->TabIndex = 9;
 			this->button3->Text = L"Editar";
 			this->button3->UseVisualStyleBackColor = true;
@@ -150,13 +151,18 @@ namespace ProyectoControlCondominioView {
 			// 
 			// frmRegistroIntrusos
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
+			this->AutoScaleDimensions = System::Drawing::SizeF(10, 18);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(885, 536);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			this->ClientSize = System::Drawing::Size(984, 483);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->dataGridView1);
+			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Margin = System::Windows::Forms::Padding(4, 2, 4, 2);
 			this->Name = L"frmRegistroIntrusos";
 			this->Text = L"frmRegistroIntrusos";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();

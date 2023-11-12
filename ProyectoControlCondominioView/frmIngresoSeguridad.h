@@ -40,10 +40,10 @@ namespace ProyectoControlCondominioView {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::LinkLabel^ linkLabel1;
+
 	protected:
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::Label^ label3;
+
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label2;
@@ -67,9 +67,7 @@ namespace ProyectoControlCondominioView {
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmIngresoSeguridad::typeid));
-			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -78,21 +76,6 @@ namespace ProyectoControlCondominioView {
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// linkLabel1
-			// 
-			this->linkLabel1->AutoSize = true;
-			this->linkLabel1->BackColor = System::Drawing::SystemColors::WindowText;
-			this->linkLabel1->Font = (gcnew System::Drawing::Font(L"BankGothic Lt BT", 10, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->linkLabel1->Location = System::Drawing::Point(330, 347);
-			this->linkLabel1->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
-			this->linkLabel1->Name = L"linkLabel1";
-			this->linkLabel1->Size = System::Drawing::Size(107, 18);
-			this->linkLabel1->TabIndex = 23;
-			this->linkLabel1->TabStop = true;
-			this->linkLabel1->Text = L"Regístrate";
-			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &frmIngresoSeguridad::linkLabel1_LinkClicked);
 			// 
 			// pictureBox1
 			// 
@@ -105,20 +88,6 @@ namespace ProyectoControlCondominioView {
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 24;
 			this->pictureBox1->TabStop = false;
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->BackColor = System::Drawing::SystemColors::WindowText;
-			this->label3->Font = (gcnew System::Drawing::Font(L"BankGothic Lt BT", 11, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->label3->Location = System::Drawing::Point(12, 345);
-			this->label3->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(254, 19);
-			this->label3->TabIndex = 22;
-			this->label3->Text = L"¿No tienes una cuenta\?";
 			// 
 			// button1
 			// 
@@ -186,10 +155,9 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(839, 454);
-			this->Controls->Add(this->linkLabel1);
 			this->Controls->Add(this->pictureBox1);
-			this->Controls->Add(this->label3);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label2);
@@ -212,7 +180,7 @@ namespace ProyectoControlCondominioView {
 		int existe = objAdminController->ConfirmarAdmin(usuarioAdmin, contraAdmin);
 		if (existe) {
 			frmControlSeguridad^ ventanaPrincipal = gcnew frmControlSeguridad();
-			MessageBox::Show("¡Bienvenido administrador!");
+			MessageBox::Show("¡Bienvenido guardia!");
 			//this->Close();
 			ventanaPrincipal->Show();
 		}

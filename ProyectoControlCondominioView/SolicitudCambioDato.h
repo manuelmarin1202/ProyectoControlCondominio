@@ -59,7 +59,7 @@ namespace ProyectoControlCondominioView {
 	//private: int request;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::TextBox^ textBox4;
@@ -82,19 +82,18 @@ namespace ProyectoControlCondominioView {
 		void InitializeComponent(void)
 		{
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -110,7 +109,6 @@ namespace ProyectoControlCondominioView {
 			this->groupBox1->Controls->Add(this->label5);
 			this->groupBox1->Controls->Add(this->label4);
 			this->groupBox1->Controls->Add(this->label3);
-			this->groupBox1->Controls->Add(this->menuStrip1);
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->groupBox1->Location = System::Drawing::Point(12, 11);
@@ -121,6 +119,41 @@ namespace ProyectoControlCondominioView {
 			this->groupBox1->TabIndex = 11;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Modifique los datos que desea cambiar:";
+			// 
+			// textBox5
+			// 
+			this->textBox5->Location = System::Drawing::Point(215, 297);
+			this->textBox5->Name = L"textBox5";
+			this->textBox5->Size = System::Drawing::Size(150, 27);
+			this->textBox5->TabIndex = 16;
+			// 
+			// textBox4
+			// 
+			this->textBox4->Location = System::Drawing::Point(215, 229);
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->Size = System::Drawing::Size(150, 27);
+			this->textBox4->TabIndex = 15;
+			// 
+			// textBox3
+			// 
+			this->textBox3->Location = System::Drawing::Point(215, 168);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(150, 27);
+			this->textBox3->TabIndex = 14;
+			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(215, 105);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(150, 27);
+			this->textBox2->TabIndex = 13;
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(215, 48);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(150, 27);
+			this->textBox1->TabIndex = 12;
 			// 
 			// label1
 			// 
@@ -168,20 +201,13 @@ namespace ProyectoControlCondominioView {
 			this->label3->TabIndex = 1;
 			this->label3->Text = L"Nombre:";
 			// 
-			// menuStrip1
-			// 
-			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Location = System::Drawing::Point(3, 22);
-			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(397, 24);
-			this->menuStrip1->TabIndex = 11;
-			this->menuStrip1->Text = L"menuStrip1";
-			// 
 			// button1
 			// 
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button1->Location = System::Drawing::Point(54, 379);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(127, 23);
+			this->button1->Size = System::Drawing::Size(131, 23);
 			this->button1->TabIndex = 12;
 			this->button1->Text = L"Enviar cambios";
 			this->button1->UseVisualStyleBackColor = true;
@@ -189,58 +215,26 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button2
 			// 
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button2->Location = System::Drawing::Point(266, 379);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->Size = System::Drawing::Size(93, 23);
 			this->button2->TabIndex = 13;
 			this->button2->Text = L"Cancelar";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &SolicitudCambioDato::button2_Click);
 			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(215, 48);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(150, 27);
-			this->textBox1->TabIndex = 12;
-			// 
-			// textBox2
-			// 
-			this->textBox2->Location = System::Drawing::Point(215, 105);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(150, 27);
-			this->textBox2->TabIndex = 13;
-			// 
-			// textBox3
-			// 
-			this->textBox3->Location = System::Drawing::Point(215, 168);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(150, 27);
-			this->textBox3->TabIndex = 14;
-			// 
-			// textBox4
-			// 
-			this->textBox4->Location = System::Drawing::Point(215, 229);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(150, 27);
-			this->textBox4->TabIndex = 15;
-			// 
-			// textBox5
-			// 
-			this->textBox5->Location = System::Drawing::Point(215, 297);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(150, 27);
-			this->textBox5->TabIndex = 16;
-			// 
 			// SolicitudCambioDato
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->ClientSize = System::Drawing::Size(428, 424);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox1);
-			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"SolicitudCambioDato";
 			this->Text = L"SolicitudCambioDato";
 			this->Load += gcnew System::EventHandler(this, &SolicitudCambioDato::SolicitudCambioDato_Load);

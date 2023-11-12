@@ -77,6 +77,7 @@ namespace ProyectoControlCondominioView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmEditarGuardia::typeid));
 			this->Datos = (gcnew System::Windows::Forms::GroupBox());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -206,7 +207,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->button2->Location = System::Drawing::Point(223, 292);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(85, 23);
+			this->button2->Size = System::Drawing::Size(93, 23);
 			this->button2->TabIndex = 7;
 			this->button2->Text = L"Cancelar";
 			this->button2->UseVisualStyleBackColor = true;
@@ -216,7 +217,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->button1->Location = System::Drawing::Point(68, 292);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(89, 23);
 			this->button1->TabIndex = 6;
 			this->button1->Text = L"Grabar";
 			this->button1->UseVisualStyleBackColor = true;
@@ -262,6 +263,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(450, 440);
 			this->Controls->Add(this->Datos);
 			this->Name = L"frmEditarGuardia";

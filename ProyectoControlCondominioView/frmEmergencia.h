@@ -85,6 +85,8 @@ namespace ProyectoControlCondominioView {
 			this->groupBox1->Controls->Add(this->label2);
 			this->groupBox1->Controls->Add(this->comboBox1);
 			this->groupBox1->Controls->Add(this->label1);
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"RomanC", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->groupBox1->Location = System::Drawing::Point(29, 28);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(450, 280);
@@ -94,7 +96,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(229, 222);
+			this->button2->Location = System::Drawing::Point(258, 222);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(110, 34);
 			this->button2->TabIndex = 7;
@@ -104,7 +106,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(75, 222);
+			this->button1->Location = System::Drawing::Point(94, 222);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(97, 34);
 			this->button1->TabIndex = 6;
@@ -115,9 +117,9 @@ namespace ProyectoControlCondominioView {
 			// comboBox3
 			// 
 			this->comboBox3->FormattingEnabled = true;
-			this->comboBox3->Location = System::Drawing::Point(218, 165);
+			this->comboBox3->Location = System::Drawing::Point(276, 160);
 			this->comboBox3->Name = L"comboBox3";
-			this->comboBox3->Size = System::Drawing::Size(121, 24);
+			this->comboBox3->Size = System::Drawing::Size(121, 27);
 			this->comboBox3->TabIndex = 5;
 			// 
 			// label3
@@ -125,16 +127,16 @@ namespace ProyectoControlCondominioView {
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(53, 168);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(120, 16);
+			this->label3->Size = System::Drawing::Size(183, 19);
 			this->label3->TabIndex = 4;
 			this->label3->Text = L"Codigo de Edificio:";
 			// 
 			// comboBox2
 			// 
 			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Location = System::Drawing::Point(218, 109);
+			this->comboBox2->Location = System::Drawing::Point(276, 104);
 			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(121, 24);
+			this->comboBox2->Size = System::Drawing::Size(121, 27);
 			this->comboBox2->TabIndex = 3;
 			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &frmEmergencia::comboBox2_SelectedIndexChanged);
 			// 
@@ -143,7 +145,7 @@ namespace ProyectoControlCondominioView {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(53, 112);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(134, 16);
+			this->label2->Size = System::Drawing::Size(196, 19);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Nombre Condominio:";
 			// 
@@ -151,9 +153,9 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Policía", L"Bomberos", L"Ambulancia" });
-			this->comboBox1->Location = System::Drawing::Point(218, 59);
+			this->comboBox1->Location = System::Drawing::Point(276, 59);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(121, 24);
+			this->comboBox1->Size = System::Drawing::Size(121, 27);
 			this->comboBox1->TabIndex = 1;
 			// 
 			// label1
@@ -161,7 +163,7 @@ namespace ProyectoControlCondominioView {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(53, 62);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(38, 16);
+			this->label1->Size = System::Drawing::Size(52, 19);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Tipo:";
 			// 
@@ -169,6 +171,8 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->ClientSize = System::Drawing::Size(517, 344);
 			this->Controls->Add(this->groupBox1);
 			this->Name = L"frmEmergencia";

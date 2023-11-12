@@ -118,7 +118,7 @@ namespace ProyectoControlCondominioView {
 				static_cast<System::Byte>(0)));
 			this->Datos->Location = System::Drawing::Point(24, 30);
 			this->Datos->Name = L"Datos";
-			this->Datos->Size = System::Drawing::Size(399, 305);
+			this->Datos->Size = System::Drawing::Size(399, 327);
 			this->Datos->TabIndex = 2;
 			this->Datos->TabStop = false;
 			this->Datos->Text = L"Datos del Usuario";
@@ -195,7 +195,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->button2->Location = System::Drawing::Point(231, 276);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(86, 23);
+			this->button2->Size = System::Drawing::Size(84, 35);
 			this->button2->TabIndex = 7;
 			this->button2->Text = L"Cancelar";
 			this->button2->UseVisualStyleBackColor = true;
@@ -205,7 +205,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->button1->Location = System::Drawing::Point(77, 276);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(83, 35);
 			this->button1->TabIndex = 6;
 			this->button1->Text = L"Grabar";
 			this->button1->UseVisualStyleBackColor = true;

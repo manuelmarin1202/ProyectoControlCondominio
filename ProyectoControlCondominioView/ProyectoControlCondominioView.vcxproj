@@ -174,9 +174,6 @@
     <ClInclude Include="frmControlSeguridad.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="frmEditarEmergencia.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="frmEditarGuardia.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -280,9 +277,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmControlSeguridad.resx">
       <DependentUpon>frmControlSeguridad.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmEditarEmergencia.resx">
-      <DependentUpon>frmEditarEmergencia.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarGuardia.resx">
       <DependentUpon>frmEditarGuardia.h</DependentUpon>

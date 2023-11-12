@@ -145,6 +145,8 @@ namespace ProyectoControlCondominioView {
 			// groupBox1
 			// 
 			this->groupBox1->Controls->Add(this->dataGridView1);
+			this->groupBox1->Font = (gcnew System::Drawing::Font(L"RomanT", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->groupBox1->Location = System::Drawing::Point(12, 12);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(695, 204);
@@ -155,6 +157,8 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button1
 			// 
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button1->Location = System::Drawing::Point(180, 242);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(76, 27);
@@ -165,6 +169,8 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button2
 			// 
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button2->Location = System::Drawing::Point(446, 242);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(76, 27);
@@ -177,6 +183,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::Silver;
 			this->ClientSize = System::Drawing::Size(719, 285);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
