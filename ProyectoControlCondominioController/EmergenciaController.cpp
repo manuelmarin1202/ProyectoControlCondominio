@@ -48,15 +48,32 @@ List<Emergencia^>^ EmergenciaController::buscarAll() {
 	CerrarConexionBD();
 	return listaProyectos;
 }
+List<Emergencia^>^ EmergenciaController::buscarEmergenciaTipoUbicacion(String^ tipo, String^ ubicacion) {
+	List<Emergencia^>^ listaProyectos = gcnew List<Emergencia^>();
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT*FROM Emergencia where Tipo like '%"+tipo+"%' and Ubicacion like'%"+ubicacion+"%'";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		int codigo = safe_cast<int>(objData[0]);
+		String^ tipo = safe_cast<String^>(objData[1]);
+		String^ ubicacion = safe_cast<String^>(objData[2]);
+		String^ fecha = safe_cast<String^>(objData[3]);
+		String^ hora = safe_cast<String^>(objData[4]);
+		Emergencia^ objEmergencia = gcnew Emergencia(codigo, tipo, ubicacion, fecha, hora);
+		listaProyectos->Add(objEmergencia);
+	}
+	CerrarConexionBD();
+	return listaProyectos;
+}
 /*
 
 
 List<Emergencia^>^ EmergenciaController::buscarEmergenciaTipo(String^ tipo) {
 
 }
-List<Emergencia^>^ EmergenciaController::buscarEmergenciaTipoUbicacion(String^ tipo, String^ ubicacion) {
 
-}
 void EmergenciaController::eliminarEmergencia(String^ id) {
 
 }

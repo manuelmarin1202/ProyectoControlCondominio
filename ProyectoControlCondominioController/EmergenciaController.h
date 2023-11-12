@@ -21,5 +21,6 @@ namespace ProyectoControlCondominioController {
 		void CerrarConexionBD();
 		void agregarEmergencia(Emergencia^ objEmergencia);
 		List<Emergencia^>^ buscarAll();
+		List<Emergencia^>^ buscarEmergenciaTipoUbicacion(String^ tipo, String^ ubicacion);
 	};
 }

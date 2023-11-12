@@ -120,6 +120,9 @@
     <ClCompile Include="frmEmergencia.cpp">
       <Filter>Archivos de encabezado</Filter>
     </ClCompile>
+    <ClCompile Include="frmReporteEmergencias.cpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="frmPrincipal.h">
@@ -222,6 +225,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="frmEmergencia.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="frmReporteEmergencias.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
