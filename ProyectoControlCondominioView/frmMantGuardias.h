@@ -39,7 +39,7 @@ namespace ProyectoControlCondominioView {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^ button5;
+
 	protected:
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ button3;
@@ -76,7 +76,6 @@ namespace ProyectoControlCondominioView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -97,24 +96,12 @@ namespace ProyectoControlCondominioView {
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
-			// button5
-			// 
-			this->button5->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->button5->Font = (gcnew System::Drawing::Font(L"RomanC", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button5->Location = System::Drawing::Point(498, 352);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(84, 31);
-			this->button5->TabIndex = 16;
-			this->button5->Text = L"Ver";
-			this->button5->UseVisualStyleBackColor = false;
-			// 
 			// button4
 			// 
 			this->button4->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->button4->Font = (gcnew System::Drawing::Font(L"RomanC", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button4->Location = System::Drawing::Point(637, 352);
+			this->button4->Location = System::Drawing::Point(574, 352);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(99, 31);
 			this->button4->TabIndex = 15;
@@ -127,7 +114,7 @@ namespace ProyectoControlCondominioView {
 			this->button3->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->button3->Font = (gcnew System::Drawing::Font(L"RomanC", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button3->Location = System::Drawing::Point(325, 352);
+			this->button3->Location = System::Drawing::Point(357, 352);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(90, 31);
 			this->button3->TabIndex = 14;
@@ -249,7 +236,6 @@ namespace ProyectoControlCondominioView {
 			// comboBox1
 			// 
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Lima", L"La Libertad", L"Cusco" });
 			this->comboBox1->Location = System::Drawing::Point(150, 49);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(136, 25);
@@ -269,7 +255,6 @@ namespace ProyectoControlCondominioView {
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(901, 434);
-			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);

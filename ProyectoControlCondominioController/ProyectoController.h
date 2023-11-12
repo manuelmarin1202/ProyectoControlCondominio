@@ -4,11 +4,16 @@
 using namespace System;
 using namespace System::Collections::Generic;
 using namespace ProyectoControlCondominioModel;
+using namespace System::Data::SqlClient;
 
 namespace ProyectoControlCondominioController {
 	public ref class ProyectoController {
+		private: SqlConnection^ objConexion;
 		public:
 			ProyectoController();
+			int existeCodigo(String^ codigo);
+			void AbrirConexionBD();
+			void CerrarConexionBD();
 			List<Proyecto^>^ buscarProyectos(String^ Departamento);
 			List<Proyecto^>^ buscarProyectos2(String^ Departamento,String^ distrito);
 			//métodos q son fijas
@@ -21,5 +26,6 @@ namespace ProyectoControlCondominioController {
 			List<String^>^ obtenerDepartamentos();
 			List<String^>^ obtenerDistritosxDptos(String^ departamento);
 			String^ obtenerNombreFoto(String^ nombreFotoLargo);
+
 	};
 }

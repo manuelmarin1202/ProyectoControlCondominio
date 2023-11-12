@@ -269,6 +269,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	String^ contraseña = this->textBox5->Text;
 	Usuario^ objProyecto = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni, codigo, nombreFoto, contraseña);
 	UsuarioController^ objProyectoControl = gcnew UsuarioController();
+	//objProyectoControl->actualizarUsuario(objProyecto);
 	int fila = objProyectoControl->actualizarCambioDatos(objProyecto);
 	objProyectoControl->cambioPedidos(fila);
 	MessageBox::Show("Los cambios se han enviado a revisión");

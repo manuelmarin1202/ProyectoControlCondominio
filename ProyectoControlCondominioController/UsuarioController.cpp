@@ -56,6 +56,28 @@ for each (String ^ lineaProyecto in lineas) {
 return listaProyectosEncontrados;
 }
 
+List<Usuario^>^ UsuarioController::buscarAll_3() {
+	//En esta lista vamos a colocar la información de los proyectos que encontremos en el archivo de texto
+	List<Usuario^>^ listaProyectosEncontrados = gcnew List<Usuario^>();
+	array<String^>^ lineas = File::ReadAllLines("PedidosCambioDatos.txt");
+	String^ separadores = ";"; //Aqui defino el caracter por el cual voy a separar la informacion de cada linea
+	//Esta instruccion for each nos permite ir elemento por elemento de un array
+	for each (String ^ lineaProyecto in lineas) {
+		//Voy a separar cada elemento del String por ; con el split
+		array<String^>^ datos = lineaProyecto->Split(separadores->ToCharArray());
+		String^ codigo = datos[0];
+		String^ nombre = datos[1];
+		String^ apellidoPaterno = datos[2];
+		String^ apellidoMaterno = datos[3];
+		String^ dni = datos[4];
+		String^ nombreFoto = datos[5];
+		String^ contraseña = datos[6];
+		Usuario^ objProyecto = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni, codigo, nombreFoto, contraseña);
+		listaProyectosEncontrados->Add(objProyecto);
+	}
+	return listaProyectosEncontrados;
+}
+
 void UsuarioController::EscribirArchivo_2(List<Usuario^>^ lista) {
 	array<String^>^ lineasArchivo = gcnew array<String^>(lista->Count);
 	for (int i = 0; i < lista->Count; i++) {
@@ -90,6 +112,15 @@ void UsuarioController::eliminarUsuarioFisico(String^ codigo) {
 
 Usuario^ UsuarioController::buscarUsuarioxCodigo(String^ codigo) {
 	List<Usuario^>^ listaUsuarios = buscarAll_2();
+	for (int i = 0; i < listaUsuarios->Count; i++) {
+		if (listaUsuarios[i]->getCodigoUsuario() == codigo) {
+			return listaUsuarios[i];
+		}
+	}
+}
+
+Usuario^ UsuarioController::buscarUsuarioCambioxCodigo(String^ codigo) {
+	List<Usuario^>^ listaUsuarios = buscarAll_3();
 	for (int i = 0; i < listaUsuarios->Count; i++) {
 		if (listaUsuarios[i]->getCodigoUsuario() == codigo) {
 			return listaUsuarios[i];
@@ -261,6 +292,16 @@ void UsuarioController::cambioPedidos(int fila) {
 	for (int i = 0; i < listaPedidos->Count; i++) {
 		if (i == fila) {
 			listaPedidos[i] = "1";
+		}
+	};
+	EscribirPedidos(listaPedidos);
+}
+
+void UsuarioController::cancelaPedidos(int fila) {
+	List<String^>^ listaPedidos = buscarRequests();
+	for (int i = 0; i < listaPedidos->Count; i++) {
+		if (i == fila) {
+			listaPedidos[i] = "0";
 		}
 	};
 	EscribirPedidos(listaPedidos);

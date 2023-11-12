@@ -18,5 +18,6 @@ namespace ProyectoControlCondominioController {
 		void eliminarGuardia(int codigo);
 		void actualizarGuardia(int codigo, String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, double sueldo, String^ contraseña, String^ categoria);
 		Guardia^ buscarGuardiaxCodigo(int codigo);
+
 	};
 }

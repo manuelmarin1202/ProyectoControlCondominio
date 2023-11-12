@@ -114,6 +114,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="frmAceptarCambios.cpp" />
     <ClCompile Include="frmAdministrarUsuarios.cpp" />
     <ClCompile Include="frmConfirmacionAdmin.cpp" />
     <ClCompile Include="frmControlSeguridad.cpp" />
@@ -158,6 +159,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="frmAceptarCambios.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmAdministrarUsuarios.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -253,6 +257,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAceptarCambios.resx">
+      <DependentUpon>frmAceptarCambios.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdministrarUsuarios.resx">
       <DependentUpon>frmAdministrarUsuarios.h</DependentUpon>
     </EmbeddedResource>

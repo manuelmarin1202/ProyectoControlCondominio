@@ -11,13 +11,14 @@ namespace ProyectoControlCondominioController {
 		UsuarioController();
 		List<Usuario^>^ buscarUsuarios(String^ apellidoPaterno);
 		List<Usuario^>^ buscarAll_2();
+		List<Usuario^>^ buscarAll_3();
 		void EscribirArchivo_2(List<Usuario^>^ lista);
 		void eliminarUsuarioFisico(String^ codigo);
 		void agregarProyecto_2(Usuario^ objProyecto);
 		Usuario^ buscarUsuarioxCodigo(String^ codigo);
+		Usuario^ buscarUsuarioCambioxCodigo(String^ codigo);
 		void actualizarUsuario(Usuario^ objProyecto);
 		List<String^>^ obtenerApellidos();
-		//void guardarArchivo(List<Figura^>^ listaFiguras, String^ nombreArchivo);
 		Bitmap^ leerArchivo(String^ nombreArchivo);
 		String^ obtenerNombreFoto(String^ nombreFotoLargo);
 		int ConfirmarAdmin(String^ contra);
@@ -28,6 +29,7 @@ namespace ProyectoControlCondominioController {
 		List<String^>^ buscarRequests();
 		void EscribirPedidos(List<String^>^ lista);
 		void cambioPedidos(int fila);
+		void cancelaPedidos(int fila);
 		int requestsTotales();
 		List<Usuario^>^ buscarLineasPedidos();
 	};
