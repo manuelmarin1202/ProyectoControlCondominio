@@ -45,6 +45,31 @@ List<Guardia^>^ GuardiaController::buscarGuardiaApPat(String^ apellidoPaterno) {
 	return listaGuardias;
 }
 
+List<Guardia^>^ GuardiaController::buscarGuardias() {
+	List<Guardia^>^ listaGuardias = gcnew List<Guardia^>();
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT*FROM Guardias";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		int codigo = safe_cast<int>(objData[0]);
+		String^ categoria = safe_cast<String^>(objData[1]);
+		double sueldo = safe_cast<double>(objData[2]);
+		String^ Nombre = safe_cast<String^>(objData[3]);
+		String^ ApellidoPaterno = safe_cast<String^>(objData[4]);
+		String^ ApellidoMaterno = safe_cast<String^>(objData[5]);
+		String^ Dni = safe_cast<String^>(objData[6]);
+		String^ contraseña = safe_cast<String^>(objData[7]);
+		//int codigoPiso = safe_cast<int>(objData[8]);
+		String^ nombreFoto = "Alberto.jpg";
+		Guardia^ objGuardia = gcnew Guardia(Nombre, ApellidoPaterno, ApellidoMaterno, Dni, nombreFoto, contraseña, codigo, categoria, sueldo);
+		listaGuardias->Add(objGuardia);
+	}
+	CerrarConexionBD();
+	return listaGuardias;
+}
+
 void GuardiaController::agregarGuardia(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, double sueldo, String^ contraseña, String^ categoria) {
 	AbrirConexionBD();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
@@ -101,3 +126,24 @@ Guardia^ GuardiaController::buscarGuardiaxCodigo(int codigo) {
 	CerrarConexionBD();
 	return objGuardia;
 }
+
+List<String^>^ GuardiaController::obtenerApPaterno() {
+	List<Guardia^>^ listaProyectos = buscarGuardias();
+	List<String^>^ listaDepartamentos = gcnew List<String^>();
+	for (int i = 0; i < listaProyectos->Count; i++) {
+		/*Aqui voy a buscar cada departamento si ya se encuentra en la lista de departamentos*/
+		String^ departamento = listaProyectos[i]->getApellidoPaterno();
+		/*Voy a buscarlo en la listaDepartamentos*/
+		int existe = 0;
+		for (int j = 0; j < listaDepartamentos->Count; j++) {
+			if (listaDepartamentos[j]->Contains(departamento)) {
+				existe = 1;
+			}
+		}
+		if (existe == 0) {
+			listaDepartamentos->Add(departamento);
+		}
+	}
+	return listaDepartamentos;
+}
+

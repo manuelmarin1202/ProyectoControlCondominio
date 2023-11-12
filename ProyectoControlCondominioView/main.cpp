@@ -1,5 +1,6 @@
 #include "Inicio.h" 
 
+
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace ProyectoControlCondominioView;

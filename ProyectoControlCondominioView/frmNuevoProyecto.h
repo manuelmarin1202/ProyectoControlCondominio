@@ -1,6 +1,7 @@
 #pragma once
 #include<stdlib.h>
 #include<time.h>
+#include "frmNuevoEdificio.h"
 
 
 namespace ProyectoControlCondominioView {
@@ -60,6 +61,7 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::TextBox^ textBox7;
+	private: System::Windows::Forms::Button^ button3;
 	protected:
 
 	protected:
@@ -79,6 +81,7 @@ namespace ProyectoControlCondominioView {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmNuevoProyecto::typeid));
 			this->Datos = (gcnew System::Windows::Forms::GroupBox());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
@@ -103,6 +106,7 @@ namespace ProyectoControlCondominioView {
 			// Datos
 			// 
 			this->Datos->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Datos.BackgroundImage")));
+			this->Datos->Controls->Add(this->button3);
 			this->Datos->Controls->Add(this->label8);
 			this->Datos->Controls->Add(this->textBox7);
 			this->Datos->Controls->Add(this->textBox6);
@@ -125,11 +129,21 @@ namespace ProyectoControlCondominioView {
 				static_cast<System::Byte>(0)));
 			this->Datos->Location = System::Drawing::Point(29, 12);
 			this->Datos->Name = L"Datos";
-			this->Datos->Size = System::Drawing::Size(399, 347);
+			this->Datos->Size = System::Drawing::Size(399, 371);
 			this->Datos->TabIndex = 0;
 			this->Datos->TabStop = false;
 			this->Datos->Text = L"Datos del Proyecto";
 			this->Datos->Enter += gcnew System::EventHandler(this, &frmNuevoProyecto::groupBox1_Enter);
+			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(153, 292);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(96, 53);
+			this->button3->TabIndex = 17;
+			this->button3->Text = L"Agregar Edificio";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &frmNuevoProyecto::button3_Click);
 			// 
 			// label8
 			// 
@@ -200,7 +214,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(226, 286);
+			this->button2->Location = System::Drawing::Point(272, 309);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(78, 23);
 			this->button2->TabIndex = 7;
@@ -210,7 +224,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(87, 286);
+			this->button1->Location = System::Drawing::Point(56, 309);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 6;
@@ -287,7 +301,7 @@ namespace ProyectoControlCondominioView {
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->ClientSize = System::Drawing::Size(467, 371);
+			this->ClientSize = System::Drawing::Size(467, 395);
 			this->Controls->Add(this->Datos);
 			this->Name = L"frmNuevoProyecto";
 			this->Text = L"Nuevo Proyecto";
@@ -302,7 +316,7 @@ namespace ProyectoControlCondominioView {
 		int centinela = 1;
 		String^ codigoProyecto;
 		while (centinela) {
-			codigoProyecto = Convert::ToString(rand() % 100);
+			codigoProyecto = Convert::ToString((rand() % 100)+1);
 			ProyectoController^ objProyectoController = gcnew ProyectoController();
 			int existe = objProyectoController->existeCodigo(codigoProyecto);
 			if (existe==0) {
@@ -328,11 +342,33 @@ namespace ProyectoControlCondominioView {
 		String^ fechaCreacion = this->dateTimePicker1->Text;
 		String^ nombreFoto = this->textBox7->Text;
 		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
-		Proyecto^ objetoProyecto = gcnew Proyecto(codigoProyecto, cantEdificios, departamento, provincia, distrito, nombre, fechaCreacion,nombreFoto,listaEdificios);
 		ProyectoController^ objProyectoController = gcnew ProyectoController();
-		objProyectoController->agregarProyecto(objetoProyecto);
-		MessageBox::Show("El proyecto se ha agregado con exito");
-		this->Close();
+		EdificioController^ objEdificioController = gcnew EdificioController();
+		listaEdificios = objEdificioController->buscarEdificios(codigoProyecto);
+		cantEdificios = listaEdificios->Count;
+		Proyecto^ objetoProyecto = gcnew Proyecto(codigoProyecto, cantEdificios, departamento, provincia, distrito, nombre, fechaCreacion, nombreFoto, listaEdificios);
+		if (cantEdificios > 0) {
+			objProyectoController->actualizarProyecto(objetoProyecto);
+			MessageBox::Show("El proyecto se ha agregado con exito");
+			this->Close();
+		}
+		else {
+			MessageBox::Show("Debe agregar al menos un edificio");
+		}
 	}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ codigoProyecto = this->textBox1->Text;
+	int cantEdificios = Convert::ToInt32(this->textBox2->Text);
+	String^ departamento = this->textBox3->Text;
+	String^ provincia = this->textBox4->Text;
+	String^ distrito = this->textBox5->Text;
+	String^ nombre = this->textBox6->Text;
+	String^ fechaCreacion = this->dateTimePicker1->Text;
+	String^ nombreFoto = this->textBox7->Text;
+	List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
+	Proyecto^ objetoProyecto = gcnew Proyecto(codigoProyecto, cantEdificios, departamento, provincia, distrito, nombre, fechaCreacion, nombreFoto, listaEdificios);
+	frmNuevoEdificio^ ventanaEdificio = gcnew frmNuevoEdificio(objetoProyecto);
+	ventanaEdificio->ShowDialog();
+}
 };
 }

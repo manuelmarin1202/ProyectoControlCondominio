@@ -123,10 +123,12 @@
     <ClCompile Include="frmEditarIntruso.cpp" />
     <ClCompile Include="frmEditarProyecto.cpp" />
     <ClCompile Include="frmEditarUsuario.cpp" />
+    <ClCompile Include="frmEmergencia.cpp" />
     <ClCompile Include="frmIngresoAdmin.cpp" />
     <ClCompile Include="frmIngresoSeguridad.cpp" />
     <ClCompile Include="frmMantenimientoProyectos.cpp" />
     <ClCompile Include="frmMantGuardias.cpp" />
+    <ClCompile Include="frmNuevoEdificio.cpp" />
     <ClCompile Include="frmNuevoGuardia.cpp" />
     <ClCompile Include="frmNuevoProyecto.cpp" />
     <ClCompile Include="frmNuevoUsuario.cpp" />
@@ -134,6 +136,7 @@
     <ClCompile Include="frmRegistroAdmin.cpp" />
     <ClCompile Include="frmRegistroEmergencias.cpp" />
     <ClCompile Include="frmRegistroIntrusos.cpp" />
+    <ClCompile Include="frmReporteEmergencias.cpp" />
     <ClCompile Include="frmReporteNroEdificiosProyecto.cpp" />
     <ClCompile Include="frmReporteNroUsuarios.cpp" />
     <ClCompile Include="frmVerEmergencia.cpp" />
@@ -186,6 +189,9 @@
     <ClInclude Include="frmEditarUsuario.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmEmergencia.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmIngresoAdmin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -196,6 +202,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmMantGuardias.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmNuevoEdificio.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmNuevoGuardia.h">
@@ -217,6 +226,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmRegistroIntrusos.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmReporteEmergencias.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmReporteNroEdificiosProyecto.h">
@@ -284,6 +296,9 @@
     <EmbeddedResource Include="frmEditarUsuario.resx">
       <DependentUpon>frmEditarUsuario.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEmergencia.resx">
+      <DependentUpon>frmEmergencia.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmIngresoAdmin.resx">
       <DependentUpon>frmIngresoAdmin.h</DependentUpon>
     </EmbeddedResource>
@@ -295,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMantGuardias.resx">
       <DependentUpon>frmMantGuardias.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoEdificio.resx">
+      <DependentUpon>frmNuevoEdificio.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoGuardia.resx">
       <DependentUpon>frmNuevoGuardia.h</DependentUpon>
@@ -316,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistroIntrusos.resx">
       <DependentUpon>frmRegistroIntrusos.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteEmergencias.resx">
+      <DependentUpon>frmReporteEmergencias.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteNroEdificiosProyecto.resx">
       <DependentUpon>frmReporteNroEdificiosProyecto.h</DependentUpon>

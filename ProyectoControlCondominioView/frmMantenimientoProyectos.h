@@ -333,9 +333,11 @@ namespace ProyectoControlCondominioView {
 		}*/
 	}
 	private: System::Void button4_Click(System::Object ^ sender, System::EventArgs ^ e) {
-		ProyectoController^ objetoProyecto;
+		ProyectoController^ objetoProyecto = gcnew ProyectoController();
 		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0*/
 		String^ codigoEliminar = this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString();
+		EdificioController^ objEdificioController = gcnew EdificioController();
+		objEdificioController->eliminarEdificios(codigoEliminar);
 		objetoProyecto->eliminarProyectoFisico(codigoEliminar);
 		MessageBox::Show("El proyecto ha sido eliminado con éxito");
 	}

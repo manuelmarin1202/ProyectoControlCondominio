@@ -1,4 +1,5 @@
 #pragma once
+#include "VerListaEdificios.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -367,6 +368,8 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	}
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	VerListaEdificios^ ventanaEdificios = gcnew VerListaEdificios(objProyecto);
+	ventanaEdificios->ShowDialog();
 }
 };
 }

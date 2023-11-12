@@ -8,6 +8,9 @@ namespace ProyectoControlCondominioView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace ProyectoControlCondominioModel;
+	using namespace ProyectoControlCondominioController;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Resumen de VerListaEdificios
@@ -19,6 +22,13 @@ namespace ProyectoControlCondominioView {
 		{
 			InitializeComponent();
 			//
+			//TODO: agregar código de constructor aquí
+			//
+		}
+		VerListaEdificios(Proyecto^ objProyecto)
+		{
+			InitializeComponent();
+			this->objProyecto = objProyecto;
 			//TODO: agregar código de constructor aquí
 			//
 		}
@@ -49,7 +59,7 @@ namespace ProyectoControlCondominioView {
 
 
 
-
+	private: Proyecto^ objProyecto;
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -158,10 +168,28 @@ namespace ProyectoControlCondominioView {
 				static_cast<System::Byte>(0)));
 			this->Name = L"VerListaEdificios";
 			this->Text = L"VerListaEdificios";
+			this->Load += gcnew System::EventHandler(this, &VerListaEdificios::VerListaEdificios_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	};
+		private: void mostrarGrilla(List<Edificio^>^ listaCarreras) {
+			this->dataGridView1->Rows->Clear(); /*Elimino toda la informacion del datagrid*/
+			for (int i = 0; i < listaCarreras->Count; i++) {
+				Edificio^ objProyecto = listaCarreras[i];
+				array<String^>^ filaGrilla = gcnew array<String^>(3);
+				//filaGrilla[0] = Convert::ToString(objProyecto->getCodigo());
+				filaGrilla[0] = Convert::ToString(objProyecto->getCodigo());
+				filaGrilla[1] = Convert::ToString(objProyecto->getAforo());
+				filaGrilla[2] = Convert::ToString(objProyecto->getCantPisos());
+				this->dataGridView1->Rows->Add(filaGrilla);
+			}
+		}
+	private: System::Void VerListaEdificios_Load(System::Object^ sender, System::EventArgs^ e) {
+		EdificioController^ objEdificioController = gcnew EdificioController();
+		List<Edificio^>^ listaEdificios = objEdificioController->buscarEdificios(objProyecto->getCodigo());
+		mostrarGrilla(listaEdificios);
+	}
+};
 }

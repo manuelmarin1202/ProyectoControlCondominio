@@ -4,11 +4,11 @@ using namespace ProyectoControlCondominioModel;
 Edificio::Edificio() {
 
 }
-Edificio::Edificio(int cantPisos, int aforo, String^ codigo, List<Piso^>^ listaPisos) {
+Edificio::Edificio(int cantPisos, int aforo, int codigo, String^ codigoProyecto) {
 	this->cantPisos = cantPisos;
 	this->aforo = aforo;
 	this->codigo = codigo;
-	this->listaPisos = listaPisos;
+	this->codigoProyecto=codigoProyecto;
 }
 int Edificio::getCantPisos() {
 	return this->cantPisos;
@@ -22,15 +22,15 @@ int Edificio::getAforo() {
 void Edificio::setAforo(int aforo) {
 	this->aforo = aforo;
 }
-String^ Edificio::getCodigo() {
+int Edificio::getCodigo() {
 	return this->codigo;
 }
-void Edificio::setCodigo(String^ codigo) {
+void Edificio::setCodigo(int codigo) {
 	this->codigo = codigo;
 }
-List<Piso^>^ Edificio::getListaPisos() {
-	return this->listaPisos;
+String^ Edificio::getCodigoProyecto() {
+	return this->codigoProyecto;
 }
-void Edificio::setListaPisos(List<Piso^>^ listaPisos) {
-	this->listaPisos = listaPisos;
+void Edificio::setCodigoProyecto(String^ codigoProyecto) {
+	this->codigoProyecto = codigoProyecto;
 }

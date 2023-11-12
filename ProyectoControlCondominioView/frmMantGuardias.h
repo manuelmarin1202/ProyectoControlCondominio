@@ -313,7 +313,13 @@ namespace ProyectoControlCondominioView {
 		frmEditarGuardia^ ventanaEditarGuardia = gcnew frmEditarGuardia(objGuardia);
 		ventanaEditarGuardia->ShowDialog();
 	}
-private: System::Void frmMantGuardias_Load(System::Object^ sender, System::EventArgs^ e) {
-}
+	private: System::Void frmMantGuardias_Load(System::Object^ sender, System::EventArgs^ e) {
+		GuardiaController^ objGuardiaController = gcnew GuardiaController();
+		List<String^>^ listaApellidos = objGuardiaController->obtenerApPaterno();
+		this->comboBox1->Items->Clear();
+		for (int i = 0; i < listaApellidos->Count; i++) {
+			this->comboBox1->Items->Add(listaApellidos[i]);
+		}
+	}
 };
 }

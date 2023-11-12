@@ -172,9 +172,10 @@ void ProyectoController::eliminarProyectoFisico(String^ codigo) {
 		//}
 	//}
 	//escribirArchivo(listaProyectos);
+
 	AbrirConexionBD();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
-	objSentencia->CommandText = "DELETE FROM Proyecto WHERE Codigo='"+codigo+"'";
+	objSentencia->CommandText = "DELETE FROM Proyecto WHERE Codigo="+codigo+"";
 	objSentencia->Connection = this->objConexion;
 	objSentencia->ExecuteNonQuery();
 	CerrarConexionBD();
@@ -245,6 +246,31 @@ Proyecto^ ProyectoController::buscarProyectoxCodigo(String^ codigo) {
 	SqlCommand^ objSentencia = gcnew SqlCommand();
 	objSentencia->Connection = this->objConexion;
 	objSentencia->CommandText = "SELECT*FROM Proyecto where Codigo like '%"+codigo+"%'";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		String^ codigo = safe_cast<String^>(objData[0]);
+		int cantEdificios = safe_cast<int>(objData[1]);
+		String^ departamento = safe_cast<String^>(objData[2]);
+		String^ provincia = safe_cast<String^>(objData[3]);
+		String^ distrito = safe_cast<String^>(objData[4]);
+		String^ nombreCondominio = safe_cast<String^>(objData[5]);
+		String^ fechaCreacion = safe_cast<String^>(objData[6]);
+		String^ nombreFoto = safe_cast<String^>(objData[7]);
+		//int codigoPiso = safe_cast<int>(objData[8]);
+		//String^ nombreFoto = "Alberto.jpg";
+		List<Edificio^>^ listaEdificios = gcnew List<Edificio^>();
+		objProyecto = gcnew Proyecto(codigo, cantEdificios, departamento, provincia, distrito, nombreCondominio, fechaCreacion, nombreFoto, listaEdificios);
+	}
+	CerrarConexionBD();
+	return objProyecto;
+}
+
+Proyecto^ ProyectoController::buscarProyectoxNombre(String^ nombre) {
+	Proyecto^ objProyecto;
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT*FROM Proyecto where NombreCondominio = '" + nombre+ "'";
 	SqlDataReader^ objData = objSentencia->ExecuteReader();
 	while (objData->Read()) {
 		String^ codigo = safe_cast<String^>(objData[0]);

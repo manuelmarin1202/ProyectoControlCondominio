@@ -22,6 +22,7 @@ namespace ProyectoControlCondominioController {
 			void eliminarProyectoFisico(String^ codigo);
 			void agregarProyecto(Proyecto^ objProyecto);
 			Proyecto^ buscarProyectoxCodigo(String^ codigo);
+			Proyecto^ buscarProyectoxNombre(String^ nombre);
 			void actualizarProyecto(Proyecto^ objProyecto);
 			List<String^>^ obtenerDepartamentos();
 			List<String^>^ obtenerDistritosxDptos(String^ departamento);
