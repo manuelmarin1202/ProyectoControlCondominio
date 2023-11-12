@@ -1,14 +1,25 @@
-#include <iostream>
+//#include <iostream>
 #include "UsuarioController.h"
 
 using namespace ProyectoControlCondominioController;
-using namespace System::IO;//para utilizar los archivos de texto
+//using namespace System::IO;//para utilizar los archivos de texto
+using namespace System::Text;
 
 UsuarioController::UsuarioController() {
-
+	this->objConexion = gcnew SqlConnection();
 }
 
-List<Usuario^>^ UsuarioController::buscarUsuarios(String^ ApellidoPaterno) {
+void UsuarioController::AbrirConexionBD() {
+	/*Cadena de conexion: Servidor de BD, usuario de BD, password BD, nombre de la BD*/
+	this->objConexion->ConnectionString = "Server=200.16.7.140;DataBase=a20213802;User Id=a20213802;Password=33F7voDy";
+	this->objConexion->Open(); /*Apertura de la conexion a BD*/
+}
+void UsuarioController::CerrarConexionBD() {
+	this->objConexion->Close();
+}
+
+List<Usuario^>^ UsuarioController::buscarUsuarios(String^ ApellidoPaterno) { //SQL
+	/*
 	//En esta lista vamos a colocar la información de los proyectos que encontremos en el archivo de texto
 	List<Usuario^>^ listaUsuariosEncontrados = gcnew List<Usuario^>();
 	array<String^>^ lineas = File::ReadAllLines("usuarios.txt");
@@ -30,12 +41,32 @@ List<Usuario^>^ UsuarioController::buscarUsuarios(String^ ApellidoPaterno) {
 			listaUsuariosEncontrados->Add(objUsuario);
 		}
 	}
-	return listaUsuariosEncontrados;
+	return listaUsuariosEncontrados;*/
+	List<Usuario^>^ listaUsuarios = gcnew List<Usuario^>();
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT*FROM Usuario where ApellidoPaterno like '%" + ApellidoPaterno + "%'";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		String^ codigo = safe_cast<String^>(objData[0]); 
+		String^ nombre = safe_cast<String^>(objData[1]); 
+		String^ apellidoPaterno = safe_cast<String^>(objData[2]); 
+		String^ apellidoMaterno = safe_cast<String^>(objData[3]); 
+		String^ dni = safe_cast<String^>(objData[4]);  
+		String^ contraseña = safe_cast<String^>(objData[5]); 
+		String^ nombreFoto = safe_cast<String^>(objData[6]); 
+
+		Usuario^ objUsuario = gcnew Usuario(codigo, nombre, apellidoPaterno, apellidoMaterno, dni, nombreFoto, contraseña);
+		listaUsuarios->Add(objUsuario);
+	}
+	CerrarConexionBD();
+	return listaUsuarios;
 }
 
-List<Usuario^>^ UsuarioController::buscarAll_2() {
+List<Usuario^>^ UsuarioController::buscarAll() { //SQL
 	//En esta lista vamos a colocar la información de los proyectos que encontremos en el archivo de texto
-List<Usuario^>^ listaProyectosEncontrados = gcnew List<Usuario^>();
+/* List<Usuario^>^ listaProyectosEncontrados = gcnew List<Usuario^>();
 array<String^>^ lineas = File::ReadAllLines("usuarios.txt");
 
 String^ separadores = ";"; //Aqui defino el caracter por el cual voy a separar la informacion de cada linea
@@ -53,10 +84,31 @@ for each (String ^ lineaProyecto in lineas) {
 	Usuario^ objProyecto = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni,codigo,nombreFoto, contraseña);
 	listaProyectosEncontrados->Add(objProyecto);
 }
-return listaProyectosEncontrados;
+return listaProyectosEncontrados; */
+
+List<Usuario^>^ listaUsuarios = gcnew List<Usuario^>();
+AbrirConexionBD();
+SqlCommand^ objSentencia = gcnew SqlCommand();
+objSentencia->Connection = this->objConexion;
+objSentencia->CommandText = "SELECT*FROM Usuario";
+SqlDataReader^ objData = objSentencia->ExecuteReader();
+while (objData->Read()) {
+	String^ codigo = safe_cast<String^>(objData[0]);
+	String^ nombre = safe_cast<String^>(objData[1]);
+	String^ apellidoPaterno = safe_cast<String^>(objData[2]);
+	String^ apellidoMaterno = safe_cast<String^>(objData[3]);
+	String^ dni = safe_cast<String^>(objData[4]);
+	String^ contraseña  = safe_cast<String^>(objData[5]);  
+	String^ nombreFoto = safe_cast<String^>(objData[6]);
+
+	Usuario^ objUsuario = gcnew Usuario(codigo, nombre, apellidoPaterno, apellidoMaterno, dni, nombreFoto, contraseña); 
+	listaUsuarios->Add(objUsuario);
+}
+CerrarConexionBD();
+return listaUsuarios;
 }
 
-List<Usuario^>^ UsuarioController::buscarAll_3() {
+/*List<Usuario^>^ UsuarioController::buscarAll_3() {
 	//En esta lista vamos a colocar la información de los proyectos que encontremos en el archivo de texto
 	List<Usuario^>^ listaProyectosEncontrados = gcnew List<Usuario^>();
 	array<String^>^ lineas = File::ReadAllLines("PedidosCambioDatos.txt");
@@ -76,9 +128,9 @@ List<Usuario^>^ UsuarioController::buscarAll_3() {
 		listaProyectosEncontrados->Add(objProyecto);
 	}
 	return listaProyectosEncontrados;
-}
+*/
 
-void UsuarioController::EscribirArchivo_2(List<Usuario^>^ lista) {
+/*void UsuarioController::EscribirArchivo_2(List<Usuario^>^ lista) {
 	array<String^>^ lineasArchivo = gcnew array<String^>(lista->Count);
 	for (int i = 0; i < lista->Count; i++) {
 		//Usuario^ objeto = gcnew Usuario();
@@ -87,70 +139,126 @@ void UsuarioController::EscribirArchivo_2(List<Usuario^>^ lista) {
 	}
 	File::WriteAllLines("usuarios.txt", lineasArchivo);
 }
+*/
 
-void UsuarioController::agregarProyecto_2(Usuario^ objProyecto) {
-	List<Usuario^>^ listaUsuarios = buscarAll_2();
+void UsuarioController::agregarUsuario(Usuario^ objUsuario) { //SQL
+	/*List<Usuario^>^ listaUsuarios = buscarAll_2();
 	List<Usuario^>^ listaCambios = buscarCambioDatos();
 	List<String^>^ listaRequests = buscarRequests();
-	listaUsuarios->Add(objProyecto);
-	listaCambios->Add(objProyecto);
+	listaUsuarios->Add(objUsuario);
+	listaCambios->Add(objUsuario);
 	listaRequests->Add("0");
 	EscribirArchivo_2(listaUsuarios);
 	EscribirCambioDatos(listaCambios);
 	EscribirPedidos(listaRequests);
+	*/
+	AbrirConexionBD();
+	String^ codigo = objUsuario->getCodigoUsuario(); 	
+	String^ nombre = objUsuario->getNombres(); 
+	String^ apellidoPaterno = objUsuario->getApellidoPaterno();
+	String^ apellidoMaterno = objUsuario->getApellidoMaterno(); 
+	String^ dni = objUsuario->getDni(); 
+	String^ nombreFoto = objUsuario->getNombreFoto(); 
+	String^ contraseña = objUsuario->getContraseña();  
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->CommandText = "Insert into Usuario(Codigo,Nombre,ApellidoPaterno,ApellidoMaterno,Dni,NombreFoto,Contraseña)values('" + codigo + "','" + nombre + "','" + apellidoPaterno + "','" + apellidoMaterno + "','" + dni + "','" + nombreFoto + "','" + contraseña + "')";
+	objSentencia->Connection = this->objConexion;
+	objSentencia->ExecuteNonQuery();
+	CerrarConexionBD();
 }
 
 void UsuarioController::eliminarUsuarioFisico(String^ codigo) {
-	List<Usuario^>^ listaUsuarios = buscarAll_2();
+	/* List<Usuario^>^ listaUsuarios = buscarAll_2();
 	for (int i = 0; i < listaUsuarios->Count; i++) {
 		if (listaUsuarios[i]->getCodigoUsuario() == codigo) {
 			listaUsuarios->RemoveAt(i);
 		}
 	}
 	EscribirArchivo_2(listaUsuarios);
+	*/
+	AbrirConexionBD(); 
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->CommandText = "DELETE FROM Usuario WHERE Codigo='" + codigo + "'";
+	objSentencia->Connection = this->objConexion;
+	objSentencia->ExecuteNonQuery();
+	CerrarConexionBD();
 }
 
-Usuario^ UsuarioController::buscarUsuarioxCodigo(String^ codigo) {
-	List<Usuario^>^ listaUsuarios = buscarAll_2();
+Usuario^ UsuarioController::buscarUsuarioxCodigo(String^ codigo) { //SQL
+	/* List<Usuario^>^ listaUsuarios = buscarAll_2();
 	for (int i = 0; i < listaUsuarios->Count; i++) {
 		if (listaUsuarios[i]->getCodigoUsuario() == codigo) {
 			return listaUsuarios[i];
 		}
 	}
+	*/
+	Usuario^ objUsuario; 
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT*FROM Usuario where Codigo= '"+ codigo +"'";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		String^ codigo = safe_cast<String^>(objData[0]); 
+		String^ nombre = safe_cast<String^>(objData[1]); 
+		String^ apellidoPaterno = safe_cast<String^>(objData[2]); 
+		String^ apellidoMaterno = safe_cast<String^>(objData[3]); 
+		String^ dni = safe_cast<String^>(objData[4]); 
+		String^ contraseña = safe_cast<String^>(objData[5]); 
+		String^ nombreFoto = safe_cast<String^>(objData[6]); 
+
+		//List<Usuario^>^ listaUsuarios = gcnew List<Usuario^>(); 
+		objUsuario = gcnew Usuario(codigo, nombre, apellidoPaterno, apellidoMaterno, dni, nombreFoto, contraseña); 
+	}
+	CerrarConexionBD();
+	return objUsuario;
 }
 
-Usuario^ UsuarioController::buscarUsuarioCambioxCodigo(String^ codigo) {
+/*Usuario^ UsuarioController::buscarUsuarioCambioxCodigo(String^ codigo) {
 	List<Usuario^>^ listaUsuarios = buscarAll_3();
 	for (int i = 0; i < listaUsuarios->Count; i++) {
 		if (listaUsuarios[i]->getCodigoUsuario() == codigo) {
 			return listaUsuarios[i];
 		}
 	}
-}
+*/
 
-void UsuarioController::actualizarUsuario(Usuario^ objProyecto) {
-	//3232323
-	List<Usuario^>^ listaUsuarios = buscarAll_2();
+void UsuarioController::actualizarUsuario(Usuario^ objUsuario) {
+	/* List<Usuario^>^ listaUsuarios = buscarAll_2();
 	for (int i = 0; i < listaUsuarios->Count; i++) {
-		if (listaUsuarios[i]->getCodigoUsuario() == objProyecto->getCodigoUsuario()) {
+		if (listaUsuarios[i]->getCodigoUsuario() == objUsuario->getCodigoUsuario()) {
 			//Voy a actualizar cada dato de ese proyecto en la lista
-		listaUsuarios[i]->setCodigoUsuario(objProyecto->getCodigoUsuario());
-		listaUsuarios[i]->setNombres(objProyecto->getNombres());
-		listaUsuarios[i]->setApellidoPaterno(objProyecto->getApellidoPaterno());
-		listaUsuarios[i]->setApellidoMaterno(objProyecto->getApellidoMaterno());
-		listaUsuarios[i]->setDni(objProyecto->getDni());
-		listaUsuarios[i]->setNombreFoto(objProyecto->getNombreFoto());
-		listaUsuarios[i]->setContraseña(objProyecto->getContraseña());
+		listaUsuarios[i]->setCodigoUsuario(objUsuario->getCodigoUsuario());
+		listaUsuarios[i]->setNombres(objUsuario->getNombres());
+		listaUsuarios[i]->setApellidoPaterno(objUsuario->getApellidoPaterno());
+		listaUsuarios[i]->setApellidoMaterno(objUsuario->getApellidoMaterno());
+		listaUsuarios[i]->setDni(objUsuario->getDni());
+		listaUsuarios[i]->setNombreFoto(objUsuario->getNombreFoto());
+		listaUsuarios[i]->setContraseña(objUsuario->getContraseña());
 		break;
 		}
 	}
 	EscribirArchivo_2(listaUsuarios);
 	EscribirCambioDatos(listaUsuarios);
+	*/
+	String^ codigo = objUsuario->getCodigoUsuario(); 
+	String^ nombre = objUsuario->getNombres(); 
+	String^ apellidoPaterno = objUsuario->getApellidoPaterno(); 
+	String^ apellidoMaterno = objUsuario->getApellidoMaterno(); 
+	String^ dni = objUsuario->getDni(); 
+	String^ nombreFoto = objUsuario->getNombreFoto(); 
+	String^ contraseña = objUsuario->getContraseña();
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->CommandText = "UPDATE Usuario SET Codigo='" + codigo + "',Nombre='" + nombre + "',ApellidoPaterno='" + apellidoPaterno + "',ApellidoMaterno='" + apellidoMaterno + "',Dni='" + dni + "',NombreFoto='" + nombreFoto + "',Contraseña='" + contraseña + "' WHERE Codigo='" + codigo + "'";
+	objSentencia->Connection = this->objConexion;
+	objSentencia->ExecuteNonQuery();
+	CerrarConexionBD();
 }
 
 
 List<String^>^ UsuarioController::obtenerApellidos() {
-	List<Usuario^>^ listaUsuarios = buscarAll_2();
+	List<Usuario^>^ listaUsuarios = buscarAll();
 	List<String^>^ listaApellidos = gcnew List<String^>();
 	for (int i = 0; i < listaUsuarios->Count; i++) {
 		//Aqui voy a buscar cada departamento si ya se encuentra en la lista de departamentos
@@ -169,10 +277,11 @@ List<String^>^ UsuarioController::obtenerApellidos() {
 	return listaApellidos;
 }
 
-Bitmap^ UsuarioController::leerArchivo(String^ nombreArchivo) {
+/* Bitmap^ UsuarioController::leerArchivo(String^ nombreArchivo) {
 	Bitmap^ FondoTotal = gcnew Bitmap(nombreArchivo);
 	return FondoTotal;
 }
+*/
 
 String^ UsuarioController::obtenerNombreFoto(String^ nombreFotoLargo) {
 	String^ separadores = "\\";
@@ -184,9 +293,10 @@ String^ UsuarioController::obtenerNombreFoto(String^ nombreFotoLargo) {
 	return nombreFoto;
 }
 
-int UsuarioController::ConfirmarAdmin(String^ contra) {
-	array<String^>^ lineas = File::ReadAllLines("usuarios.txt");
-	String^ separadores = ";"; /*Aqui defino el caracter por el cual voy a separar la informacion de cada linea*/
+int UsuarioController::ConfirmarUsuario(String^ codigousuario,String^ contra) {
+	/*array<String^>^ lineas = File::ReadAllLines("usuarios.txt");
+	String^ separadores = ";"; // Aqui defino el caracter por el cual voy a separar la informacion de cada linea
+
 	int existe = 0;
 	for each (String ^ lineaProyecto in lineas) {
 		array<String^>^ datos = lineaProyecto->Split(separadores->ToCharArray());
@@ -195,10 +305,37 @@ int UsuarioController::ConfirmarAdmin(String^ contra) {
 			existe = 1;
 		}
 	}
-	return existe;
+	return existe; */
+	int confirmar=0;
+	List<Usuario^>^ listaUsuarios = gcnew List<Usuario^>();
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT*FROM Usuario";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		String^ codigo = safe_cast<String^>(objData[0]); 
+		String^ nombre = safe_cast<String^>(objData[1]); 
+		String^ apellidoPaterno = safe_cast<String^>(objData[2]);
+		String^ apellidoMaterno = safe_cast<String^>(objData[3]);
+		String^ dni = safe_cast<String^>(objData[4]); 
+		String^ contraseña = safe_cast<String^>(objData[5]); 
+		String^ nombreFoto = safe_cast<String^>(objData[6]); 
+		List<Usuario^>^ listaUsuarios = gcnew List<Usuario^>();
+		Usuario^ objUsuario = gcnew Usuario(codigo, nombre, apellidoPaterno, apellidoMaterno, dni, nombreFoto, contraseña);
+		listaUsuarios->Add(objUsuario); 
+		if (codigo == codigousuario) {
+			if (contraseña == contra) {
+				confirmar = 1;
+			}
+		}
+	}
+	CerrarConexionBD();
+	return confirmar;
+
 }
 
-int UsuarioController::ConfirmarContra(String^ codigover, String^ contra) {
+/* int UsuarioController::ConfirmarContra(String^ codigover, String^ contra) {
 	int existe = 0;
 	Usuario^ objUsuario = buscarUsuarioxCodigo(codigover);
 	String^ contraseña = objUsuario->getContraseña();
@@ -207,8 +344,9 @@ int UsuarioController::ConfirmarContra(String^ codigover, String^ contra) {
 	}
 	return existe;
 }
+*/
 
-void UsuarioController::EscribirCambioDatos(List<Usuario^>^ lista) {
+/*void UsuarioController::EscribirCambioDatos(List<Usuario^>^ lista) {
 	array<String^>^ lineasArchivo = gcnew array<String^>(lista->Count);
 	for (int i = 0; i < lista->Count; i++) {
 		Usuario^ objeto = lista[i];
@@ -216,9 +354,10 @@ void UsuarioController::EscribirCambioDatos(List<Usuario^>^ lista) {
 	}
 	File::WriteAllLines("PedidosCambioDatos.txt", lineasArchivo);
 }
+*/
 
 
-int UsuarioController::actualizarCambioDatos(Usuario^ objProyecto) {
+/*int UsuarioController::actualizarCambioDatos(Usuario^ objProyecto) {
 	List<Usuario^>^ listaUsuarios = buscarCambioDatos();
 	int fila = 0;
 	for (int i = 0; i < listaUsuarios->Count; i++) {
@@ -238,9 +377,10 @@ int UsuarioController::actualizarCambioDatos(Usuario^ objProyecto) {
 	EscribirCambioDatos(listaUsuarios);
 	return fila;
 }
+*/
 
-List<Usuario^>^ UsuarioController::buscarCambioDatos() {
-	//En esta lista vamos a colocar la información de los proyectos que encontremos en el archivo de texto
+/*List<Usuario^>^ UsuarioController::buscarCambioDatos() {
+	En esta lista vamos a colocar la información de los proyectos que encontremos en el archivo de texto
 	List<Usuario^>^ listaProyectosEncontrados = gcnew List<Usuario^>();
 	array<String^>^ lineas = File::ReadAllLines("PedidosCambioDatos.txt");
 
@@ -260,9 +400,11 @@ List<Usuario^>^ UsuarioController::buscarCambioDatos() {
 		listaProyectosEncontrados->Add(objProyecto);
 	}
 	return listaProyectosEncontrados;
-}
+	
 
-List<String^>^ UsuarioController::buscarRequests() {
+}*/ 
+
+/* List<String^>^ UsuarioController::buscarRequests() {
 	//En esta lista vamos a colocar la información de los proyectos que encontremos en el archivo de texto
 	List<String^>^ listaPedidosEncontrados = gcnew List<String^>();
 	array<String^>^ lineas = File::ReadAllLines("Pedidos.txt");
@@ -277,7 +419,8 @@ List<String^>^ UsuarioController::buscarRequests() {
 	}
 	return listaPedidosEncontrados;
 }
-
+*/
+/*
 void UsuarioController::EscribirPedidos(List<String^>^ lista) {
 	array<String^>^ lineasArchivo = gcnew array<String^>(lista->Count);
 	for (int i = 0; i < lista->Count; i++) {
@@ -286,7 +429,9 @@ void UsuarioController::EscribirPedidos(List<String^>^ lista) {
 	}
 	File::WriteAllLines("Pedidos.txt", lineasArchivo);
 }
+*/
 
+/*
 void UsuarioController::cambioPedidos(int fila) {
 	List<String^>^ listaPedidos = buscarRequests();
 	for (int i = 0; i < listaPedidos->Count; i++) {
@@ -296,7 +441,9 @@ void UsuarioController::cambioPedidos(int fila) {
 	};
 	EscribirPedidos(listaPedidos);
 }
+*/
 
+/*
 void UsuarioController::cancelaPedidos(int fila) {
 	List<String^>^ listaPedidos = buscarRequests();
 	for (int i = 0; i < listaPedidos->Count; i++) {
@@ -306,9 +453,12 @@ void UsuarioController::cancelaPedidos(int fila) {
 	};
 	EscribirPedidos(listaPedidos);
 }
+*/
+
 
 int UsuarioController::requestsTotales() {
 	//En esta lista vamos a colocar la información de los proyectos que encontremos en el archivo de texto
+	/*
 	int listaPedidosEncontrados = 0;
 	array<String^>^ lineas = File::ReadAllLines("Pedidos.txt");
 
@@ -321,8 +471,93 @@ int UsuarioController::requestsTotales() {
 		listaPedidosEncontrados = listaPedidosEncontrados + Convert::ToInt32(cantPedidos);
 	}
 	return listaPedidosEncontrados;
+	*/
+	int cuenta = 0;
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT*FROM PedidoCambio";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		cuenta++;
+	}
+	CerrarConexionBD();
+	return cuenta;
 }
 
+
+void UsuarioController::agregarSolicitud(Usuario^ objUsuario) { //SQL
+
+	AbrirConexionBD();
+	String^ codigo = objUsuario->getCodigoUsuario();
+	String^ nombre = objUsuario->getNombres();
+	String^ apellidoPaterno = objUsuario->getApellidoPaterno();
+	String^ apellidoMaterno = objUsuario->getApellidoMaterno();
+	String^ dni = objUsuario->getDni();
+	String^ nombreFoto = objUsuario->getNombreFoto();
+	String^ contraseña = objUsuario->getContraseña();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->CommandText = "Insert into PedidoCambio(Codigo,Nombre,ApellidoPaterno,ApellidoMaterno,Dni,NombreFoto,Contraseña)values('" + codigo + "','" + nombre + "','" + apellidoPaterno + "','" + apellidoMaterno + "','" + dni + "','" + nombreFoto + "','" + contraseña + "')";
+	objSentencia->Connection = this->objConexion;
+	objSentencia->ExecuteNonQuery();
+	CerrarConexionBD();
+}
+
+void UsuarioController::eliminarSolicitud(String^ codigo) {
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->CommandText = "DELETE FROM PedidoCambio WHERE Codigo='" + codigo + "'";
+	objSentencia->Connection = this->objConexion;
+	objSentencia->ExecuteNonQuery();
+	CerrarConexionBD();
+}
+
+List<Usuario^>^ UsuarioController::buscarAllPedidos() { //SQL
+
+	List<Usuario^>^ listaUsuarios = gcnew List<Usuario^>(); 
+	AbrirConexionBD(); 
+	SqlCommand^ objSentencia = gcnew SqlCommand(); 
+	objSentencia->Connection = this->objConexion; 
+	objSentencia->CommandText = "SELECT*FROM PedidoCambio";  
+	SqlDataReader^ objData = objSentencia->ExecuteReader();  
+	while (objData->Read()) {  
+		String^ codigo = safe_cast<String^>(objData[0]);  
+		String^ nombre = safe_cast<String^>(objData[1]);  
+		String^ apellidoPaterno = safe_cast<String^>(objData[2]); 
+		String^ apellidoMaterno = safe_cast<String^>(objData[3]); 
+		String^ dni = safe_cast<String^>(objData[4]); 
+		String^ contraseña = safe_cast<String^>(objData[5]); 
+		String^ nombreFoto = safe_cast<String^>(objData[6]); 
+
+		Usuario^ objUsuario = gcnew Usuario(codigo, nombre, apellidoPaterno, apellidoMaterno, dni, nombreFoto, contraseña); 
+		listaUsuarios->Add(objUsuario); 
+	} 
+	CerrarConexionBD(); 
+	return listaUsuarios; 
+} 
+
+Usuario^ UsuarioController::buscarPedidoxCodigo(String^ codigo) { 
+	Usuario^ objUsuario;
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT*FROM PedidoCambio where Codigo= '" + codigo + "'";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		String^ codigo = safe_cast<String^>(objData[0]);
+		String^ nombre = safe_cast<String^>(objData[1]);
+		String^ apellidoPaterno = safe_cast<String^>(objData[2]);
+		String^ apellidoMaterno = safe_cast<String^>(objData[3]);
+		String^ dni = safe_cast<String^>(objData[4]);
+		String^ contraseña = safe_cast<String^>(objData[5]);
+		String^ nombreFoto = safe_cast<String^>(objData[6]);
+
+		objUsuario = gcnew Usuario(codigo, nombre, apellidoPaterno, apellidoMaterno, dni, nombreFoto, contraseña);
+	}
+	CerrarConexionBD();
+	return objUsuario;
+}
+/*
 List<Usuario^>^ UsuarioController::buscarLineasPedidos() {
 
 	List<String^>^ lista = buscarRequests();
@@ -340,5 +575,6 @@ List<Usuario^>^ UsuarioController::buscarLineasPedidos() {
 	}
 	return listaPedidosEncontrados;
 }
+*/
 
 

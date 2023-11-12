@@ -312,8 +312,10 @@ private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Form
 		if (this->openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			String^ nombreArchivo = this->openFileDialog1->FileName;
 			this->pictureBox1->Image = Image::FromFile(nombreArchivo);
-			UsuarioController^ objProyectoControl = gcnew UsuarioController();
-			nombreArchivo = objProyectoControl->obtenerNombreFoto(nombreArchivo);
+			UsuarioController^ objUsuarioControl = gcnew UsuarioController();
+			String^ nombreRealFoto = objUsuarioControl->obtenerNombreFoto(nombreArchivo);
+			nombreArchivo = nombreRealFoto; 
+
 			this->objUsuario->setNombreFoto(nombreArchivo);
 			String^ codigo = this->objUsuario->getCodigoUsuario();
 			String^ nombre = this->objUsuario->getNombres();
@@ -322,14 +324,15 @@ private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Form
 			String^ dni = this->objUsuario->getDni();
 			String^ nombreFoto = nombreArchivo;
 			String^ contraseña = this->objUsuario->getContraseña();
-			objUsuario = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni,codigo, nombreFoto, contraseña);
-			objProyectoControl->actualizarUsuario(objUsuario);
+			objUsuario = gcnew Usuario(codigo, nombre, apellidoPaterno, apellidoMaterno, dni, nombreFoto, contraseña);
+			objUsuarioControl->actualizarUsuario(objUsuario); 
 			MessageBox::Show("La imagen se ha cargado con exito");
 		}
 	}
 
 
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+
 }
 };
 }

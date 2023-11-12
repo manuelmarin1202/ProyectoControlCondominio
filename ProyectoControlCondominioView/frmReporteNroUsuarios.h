@@ -156,7 +156,7 @@ namespace ProyectoControlCondominioView {
 		this->comboBox1->Items->Add("Bloqueados");
 		int nroBloqueados=0, nroInvitados=0, nroResidentes=0;
 		UsuarioController^ objUsuarioController = gcnew UsuarioController();
-		List<Usuario^>^ listaUsuarios = objUsuarioController->buscarAll_2();
+		List<Usuario^>^ listaUsuarios = objUsuarioController->buscarAll();
 		for (int i = 0; i < listaUsuarios->Count; i++) {
 			String^ codigo = listaUsuarios[i]->getCodigoUsuario();
 			if (codigo[0] == 'R') {
@@ -188,7 +188,7 @@ namespace ProyectoControlCondominioView {
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	int nroBloqueados = 0, nroInvitados = 0, nroResidentes = 0;
 	UsuarioController^ objUsuarioController = gcnew UsuarioController();
-	List<Usuario^>^ listaUsuarios = objUsuarioController->buscarAll_2();
+	List<Usuario^>^ listaUsuarios = objUsuarioController->buscarAll();
 	for (int i = 0; i < listaUsuarios->Count; i++) {
 		String^ codigo = listaUsuarios[i]->getCodigoUsuario();
 		if (codigo[0] == 'R') {

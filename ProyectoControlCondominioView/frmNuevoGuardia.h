@@ -259,6 +259,7 @@ namespace ProyectoControlCondominioView {
 			this->Controls->Add(this->Datos);
 			this->Name = L"frmNuevoGuardia";
 			this->Text = L"frmNuevoGuardia";
+			this->Load += gcnew System::EventHandler(this, &frmNuevoGuardia::frmNuevoGuardia_Load);
 			this->Datos->ResumeLayout(false);
 			this->Datos->PerformLayout();
 			this->ResumeLayout(false);
@@ -281,5 +282,7 @@ namespace ProyectoControlCondominioView {
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
+private: System::Void frmNuevoGuardia_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

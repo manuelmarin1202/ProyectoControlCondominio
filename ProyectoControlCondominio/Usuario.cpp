@@ -4,7 +4,7 @@ Usuario::Usuario() {
 
 }
 
-Usuario::Usuario(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ codigo, String^ nombreFoto, String^ contraseña) : DatosPersonales(nombre, apellidoPaterno, apellidoMaterno, dni, nombreFoto, contraseña) {
+Usuario::Usuario(String^ codigo, String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ nombreFoto, String^ contraseña) : DatosPersonales(nombre, apellidoPaterno, apellidoMaterno, dni, nombreFoto, contraseña) {
 	this->codigo = codigo;
 	//this->nombre = nombre;
 	//this->apellidoPaterno = apellidoPaterno;
@@ -19,7 +19,8 @@ String^ Usuario::getCodigoUsuario() {
 void Usuario::setCodigoUsuario(String^ codigo) {
 	this->codigo = codigo;
 }
-/*String^ Usuario::getContraseña() {
+/*
+String^ Usuario::getContraseña() {
 	return this->contraseña;
 }
 void Usuario::setContraseña(String^ contraseña) {

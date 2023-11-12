@@ -90,7 +90,7 @@ namespace ProyectoControlCondominioView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1337, 28);
+			this->menuStrip1->Size = System::Drawing::Size(1337, 25);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -103,7 +103,7 @@ namespace ProyectoControlCondominioView {
 			this->operacionesToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 7.8F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->operacionesToolStripMenuItem->Name = L"operacionesToolStripMenuItem";
-			this->operacionesToolStripMenuItem->Size = System::Drawing::Size(111, 24);
+			this->operacionesToolStripMenuItem->Size = System::Drawing::Size(111, 21);
 			this->operacionesToolStripMenuItem->Text = L"Operaciones";
 			// 
 			// proyectoToolStripMenuItem
@@ -129,7 +129,7 @@ namespace ProyectoControlCondominioView {
 			this->reportesToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 7.8F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->reportesToolStripMenuItem->Name = L"reportesToolStripMenuItem";
-			this->reportesToolStripMenuItem->Size = System::Drawing::Size(89, 24);
+			this->reportesToolStripMenuItem->Size = System::Drawing::Size(89, 21);
 			this->reportesToolStripMenuItem->Text = L"Reportes";
 			// 
 			// proyectosVsNroEdificiosToolStripMenuItem
@@ -151,13 +151,13 @@ namespace ProyectoControlCondominioView {
 			this->empleadosToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->guardiasToolStripMenuItem });
 			this->empleadosToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 7.8F));
 			this->empleadosToolStripMenuItem->Name = L"empleadosToolStripMenuItem";
-			this->empleadosToolStripMenuItem->Size = System::Drawing::Size(98, 24);
+			this->empleadosToolStripMenuItem->Size = System::Drawing::Size(98, 21);
 			this->empleadosToolStripMenuItem->Text = L"Empleados";
 			// 
 			// guardiasToolStripMenuItem
 			// 
 			this->guardiasToolStripMenuItem->Name = L"guardiasToolStripMenuItem";
-			this->guardiasToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->guardiasToolStripMenuItem->Size = System::Drawing::Size(156, 26);
 			this->guardiasToolStripMenuItem->Text = L"Guardias";
 			this->guardiasToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::guardiasToolStripMenuItem_Click);
 			// 
@@ -165,7 +165,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->sOLICITUDESDECAMBIOToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 7.8F));
 			this->sOLICITUDESDECAMBIOToolStripMenuItem->Name = L"sOLICITUDESDECAMBIOToolStripMenuItem";
-			this->sOLICITUDESDECAMBIOToolStripMenuItem->Size = System::Drawing::Size(181, 24);
+			this->sOLICITUDESDECAMBIOToolStripMenuItem->Size = System::Drawing::Size(181, 21);
 			this->sOLICITUDESDECAMBIOToolStripMenuItem->Text = L"SOLICITUDES DE CAMBIO";
 			this->sOLICITUDESDECAMBIOToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::sOLICITUDESDECAMBIOToolStripMenuItem_Click);
 			// 
@@ -181,6 +181,7 @@ namespace ProyectoControlCondominioView {
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"frmPrincipal";
 			this->Text = L"frmPrincipal";
+			this->Load += gcnew System::EventHandler(this, &frmPrincipal::frmPrincipal_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
@@ -226,6 +227,10 @@ namespace ProyectoControlCondominioView {
 			MessageBox::Show("Tiene "+cantPedidos+" solicitudes disponibles");
 		}
 		ventanaCambios->Show();
+		
 	}
+	
+private: System::Void frmPrincipal_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

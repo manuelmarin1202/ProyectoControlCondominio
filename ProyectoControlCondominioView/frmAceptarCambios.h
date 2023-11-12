@@ -241,19 +241,23 @@ namespace ProyectoControlCondominioView {
 	}
 
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		UsuarioController^ objProyectoControl = gcnew UsuarioController();
-		int fila = objProyectoControl->actualizarCambioDatos(objUsuario);
-		objProyectoControl->cancelaPedidos(fila);
+		UsuarioController^ objUsuarioControl = gcnew UsuarioController();
+		String^ codigover = this->objUsuario->getCodigoUsuario();
+		//int fila = objProyectoControl->actualizarCambioDatos(objUsuario);
+		objUsuarioControl->eliminarSolicitud(codigover);
 		MessageBox::Show("La solicitud ha sido rechazada");
 		this->Close();
+		
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		UsuarioController^ objProyectoControl = gcnew UsuarioController();
-		objProyectoControl->actualizarUsuario(objUsuario);
-		int fila = objProyectoControl->actualizarCambioDatos(objUsuario);
-		objProyectoControl->cancelaPedidos(fila);
+		UsuarioController^ objUsuarioControl = gcnew UsuarioController();
+		String^ codigover = this->objUsuario->getCodigoUsuario();  
+		//objProyectoControl->cancelaPedidos(fila);
+		objUsuarioControl->actualizarUsuario(objUsuario); 		
 		MessageBox::Show("La solicitud ha sido aceptada");
+		objUsuarioControl->eliminarSolicitud(codigover); 
 		this->Close();
+		
 	}
 };
 }

@@ -151,6 +151,7 @@ namespace ProyectoControlCondominioView {
 			this->groupBox1->TabIndex = 8;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Lista de Usuarios:";
+			this->groupBox1->Enter += gcnew System::EventHandler(this, &ventanaDeCambios::groupBox1_Enter);
 			// 
 			// button1
 			// 
@@ -212,20 +213,24 @@ private: System::Void dataGridView1_CellContentClick(System::Object^ sender, Sys
 
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0*/
+	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; //Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0
 	String^ codigoEditar = this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString();
-	UsuarioController^ objProyectoControl = gcnew UsuarioController();
-	Usuario^ objProyecto = objProyectoControl->buscarUsuarioCambioxCodigo(codigoEditar);
-	frmAceptarCambios^ ventanaEditarUsuario = gcnew frmAceptarCambios(objProyecto);
+	UsuarioController^ objUsuarioControl = gcnew UsuarioController();
+	Usuario^ objUsuario = objUsuarioControl->buscarPedidoxCodigo(codigoEditar);
+	frmAceptarCambios^ ventanaEditarUsuario = gcnew frmAceptarCambios(objUsuario);
 	ventanaEditarUsuario->ShowDialog();
+	
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }
 private: System::Void ventanaDeCambios_Load(System::Object^ sender, System::EventArgs^ e) {
 	UsuarioController^ objUsuarioController = gcnew UsuarioController();
-	List<Usuario^>^ listaUsuarios = objUsuarioController->buscarLineasPedidos();
+	List<Usuario^>^ listaUsuarios = objUsuarioController->buscarAllPedidos(); 
 	mostrarGrilla(listaUsuarios);
+	
+}
+private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

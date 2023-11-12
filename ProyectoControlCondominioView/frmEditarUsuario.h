@@ -8,6 +8,7 @@ namespace ProyectoControlCondominioView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Collections::Generic;
 	using namespace ProyectoControlCondominioController;
 	using namespace ProyectoControlCondominioModel;
 
@@ -25,9 +26,9 @@ namespace ProyectoControlCondominioView {
 			//
 		}
 
-		frmEditarUsuario(Usuario^ objProyecto) {
+		frmEditarUsuario(Usuario^ objUsuario) {
 			InitializeComponent();
-			this->objProyecto = objProyecto;
+			this->objUsuario = objUsuario;
 		}
 
 	protected:
@@ -41,7 +42,7 @@ namespace ProyectoControlCondominioView {
 				delete components;
 			}
 		}
-		private: Usuario^ objProyecto;//este atributo se agrega para manejar la informacion de usuarios
+		private: Usuario^ objUsuario;//este atributo se agrega para manejar la informacion de usuarios
 	private: System::Windows::Forms::GroupBox^ Datos;
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::TextBox^ textBox4;
@@ -273,13 +274,13 @@ namespace ProyectoControlCondominioView {
 #pragma endregion
 
 	private: System::Void frmEditarUsuario_Load(System::Object^ sender, System::EventArgs^ e) {
-		this->textBox1->Text = this->objProyecto->getCodigoUsuario();
-		this->textBox2->Text = this->objProyecto->getNombres();
-		this->textBox3->Text = this->objProyecto->getApellidoPaterno();
-		this->textBox4->Text = this->objProyecto->getApellidoMaterno();
-		this->textBox5->Text = this->objProyecto->getDni();
-		this->textBox6->Text = this->objProyecto->getNombreFoto();
-		this->textBox8->Text = this->objProyecto->getContraseña();
+		this->textBox1->Text = this->objUsuario->getCodigoUsuario();
+		this->textBox2->Text = this->objUsuario->getNombres();
+		this->textBox3->Text = this->objUsuario->getApellidoPaterno();
+		this->textBox4->Text = this->objUsuario->getApellidoMaterno();
+		this->textBox5->Text = this->objUsuario->getDni();
+		this->textBox6->Text = this->objUsuario->getNombreFoto();
+		this->textBox8->Text = this->objUsuario->getContraseña();
 	}
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -290,9 +291,9 @@ namespace ProyectoControlCondominioView {
 		String^ dni = this->textBox5->Text;
 		String^ nombreFoto = this->textBox6->Text;
 		String^ contraseña = this->textBox8->Text;
-		Usuario^ objProyecto = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni, codigo, nombreFoto, contraseña);
-		UsuarioController^ objProyectoControl = gcnew UsuarioController();
-		objProyectoControl->actualizarUsuario(objProyecto);
+		Usuario^ objUsuario = gcnew Usuario(codigo, nombre, apellidoPaterno,apellidoMaterno, dni, nombreFoto, contraseña);
+		UsuarioController^ objUsuarioController = gcnew UsuarioController();
+		objUsuarioController->actualizarUsuario(objUsuario);
 		MessageBox::Show("El usuario se ha actualizado con éxito");
 		this->Close();
 	}

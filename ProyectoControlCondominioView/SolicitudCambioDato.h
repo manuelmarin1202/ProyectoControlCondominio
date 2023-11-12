@@ -25,7 +25,7 @@ namespace ProyectoControlCondominioView {
 			//TODO: agregar código de constructor aquí
 			//
 		}
-		SolicitudCambioDato(Usuario^ objUsuario, int request ){
+		SolicitudCambioDato(Usuario^ objUsuario){//){
 			InitializeComponent();
 			this->objUsuario = objUsuario;
 		}
@@ -56,7 +56,7 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::Label^ label1;
 
 	private: Usuario^ objUsuario;
-	private: int request;
+	//private: int request;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
@@ -267,13 +267,14 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	String^ dni = this->textBox4->Text;
 	String^ nombreFoto = this->objUsuario->getNombreFoto();
 	String^ contraseña = this->textBox5->Text;
-	Usuario^ objProyecto = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni, codigo, nombreFoto, contraseña);
-	UsuarioController^ objProyectoControl = gcnew UsuarioController();
-	//objProyectoControl->actualizarUsuario(objProyecto);
-	int fila = objProyectoControl->actualizarCambioDatos(objProyecto);
-	objProyectoControl->cambioPedidos(fila);
+	Usuario^ objUsuario = gcnew Usuario(codigo, nombre, apellidoPaterno, apellidoMaterno, dni, nombreFoto, contraseña);
+	UsuarioController^ objUsuarioControl = gcnew UsuarioController();
+	objUsuarioControl->agregarSolicitud(objUsuario);
+	//int fila = objProyectoControl->actualizarCambioDatos(objProyecto);
+	//objProyectoControl->cambioPedidos(fila);
 	MessageBox::Show("Los cambios se han enviado a revisión");
 	this->Close();
+	
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();

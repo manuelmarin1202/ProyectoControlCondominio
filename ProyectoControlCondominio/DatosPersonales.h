@@ -5,6 +5,7 @@ using namespace System;
 namespace ProyectoControlCondominioModel {
 	public ref class DatosPersonales {
 	private:
+		//String^ codigo;
 		String^ nombre;
 		String^ apellidoPaterno;
 		String^ apellidoMaterno;
@@ -14,7 +15,9 @@ namespace ProyectoControlCondominioModel {
 	public:
 		DatosPersonales();
 		DatosPersonales(String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, String^ nombreFoto, String^ contraseña);
-		String^ getNombres();
+		//String^ getCodigoUsuario();
+		//void setCodigoUsuario(String^ codigo);
+		String^ getNombres(); 
 		void setNombres(String^ nombre);
 		String^ getApellidoPaterno();
 		void setApellidoPaterno(String^ apellidoPaterno);

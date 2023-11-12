@@ -125,7 +125,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(213, 249);
+			this->textBox1->Location = System::Drawing::Point(213, 84);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 22);
 			this->textBox1->TabIndex = 19;
@@ -165,7 +165,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox6
 			// 
-			this->textBox6->Location = System::Drawing::Point(213, 216);
+			this->textBox6->Location = System::Drawing::Point(213, 243);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(100, 22);
 			this->textBox6->TabIndex = 15;
@@ -181,28 +181,28 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox5
 			// 
-			this->textBox5->Location = System::Drawing::Point(213, 183);
+			this->textBox5->Location = System::Drawing::Point(213, 210);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(100, 22);
 			this->textBox5->TabIndex = 13;
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(213, 151);
+			this->textBox4->Location = System::Drawing::Point(213, 177);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(100, 22);
 			this->textBox4->TabIndex = 12;
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(213, 119);
+			this->textBox3->Location = System::Drawing::Point(213, 145);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(100, 22);
 			this->textBox3->TabIndex = 11;
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(213, 90);
+			this->textBox2->Location = System::Drawing::Point(213, 113);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(100, 22);
 			this->textBox2->TabIndex = 10;
@@ -308,15 +308,15 @@ namespace ProyectoControlCondominioView {
 			prefijo = "R";
 		}
 		String^ codigo = prefijo + Convert::ToString(rand() % 1000);
-		String^ nombre = this->textBox2->Text;
-		String^ apellidoPaterno = this->textBox3->Text;
-		String^ apellidoMaterno = this->textBox4->Text;
-		String^ dni = this->textBox5->Text;
-		String^ nombreFoto = this->textBox6->Text;
-		String^ contraseña = this->textBox1->Text;
-		Usuario^ objProyecto = gcnew Usuario(nombre, apellidoPaterno, apellidoMaterno, dni, codigo, nombreFoto, contraseña);
-		UsuarioController^ objProyectoControl = gcnew UsuarioController();
-		objProyectoControl->agregarProyecto_2(objProyecto);
+		String^ nombre = this->textBox1->Text;
+		String^ apellidoPaterno = this->textBox2->Text;
+		String^ apellidoMaterno = this->textBox3->Text;
+		String^ dni = this->textBox4->Text;
+		String^ nombreFoto = this->textBox5->Text;
+		String^ contraseña = this->textBox6->Text;
+		Usuario^ objUsuario = gcnew Usuario(codigo, nombre, apellidoPaterno, apellidoMaterno, dni, nombreFoto, contraseña);
+		UsuarioController^ objUsuarioControl = gcnew UsuarioController();
+		objUsuarioControl->agregarUsuario(objUsuario);
 		MessageBox::Show("El Usuario se ha agregado con éxito");
 		this->Close(); /*Esta linea cierra la ventana actual*/
 	}
