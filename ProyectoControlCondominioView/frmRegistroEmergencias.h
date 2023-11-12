@@ -1,5 +1,5 @@
 #pragma once
-#include "frmEditarEmergencia.h"
+//#include "frmEditarEmergencia.h"
 #include "frmVerEmergencia.h"
 
 namespace ProyectoControlCondominioView {
@@ -223,10 +223,10 @@ namespace ProyectoControlCondominioView {
 
 		}
 #pragma endregion
-	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 		frmEditarEmergencia^ ventanaEditarEmergencia = gcnew frmEditarEmergencia();
 		ventanaEditarEmergencia->ShowDialog();
-	}
+	}*/
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmVerEmergencia^ ventanaVerEmergencia = gcnew frmVerEmergencia();
 	ventanaVerEmergencia->ShowDialog();
