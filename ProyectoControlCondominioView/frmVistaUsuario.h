@@ -1,5 +1,6 @@
 #pragma once
 #include "SolicitudCambioDato.h"
+#include "frmEmergencia.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -62,6 +63,7 @@ namespace ProyectoControlCondominioView {
 	private: Usuario^ objUsuario;
 	private: int request;
 	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ button3;
 
 	private:
 		/// <summary>
@@ -91,6 +93,7 @@ namespace ProyectoControlCondominioView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
@@ -107,7 +110,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(145, 504);
+			this->button1->Location = System::Drawing::Point(65, 504);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(88, 29);
 			this->button1->TabIndex = 12;
@@ -252,12 +255,23 @@ namespace ProyectoControlCondominioView {
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &frmVistaUsuario::button2_Click);
 			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(216, 507);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(133, 26);
+			this->button3->TabIndex = 15;
+			this->button3->Text = L"Emergencias";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &frmVistaUsuario::button3_Click);
+			// 
 			// frmVistaUsuario
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::PaleTurquoise;
 			this->ClientSize = System::Drawing::Size(867, 560);
+			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->button1);
@@ -292,6 +306,10 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	
 	SolicitudCambioDato^ ventanaSolicitudCambioDato = gcnew SolicitudCambioDato(objUsuario, request);
 	ventanaSolicitudCambioDato->ShowDialog();
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	frmEmergencia^ ventanaEmergencia = gcnew frmEmergencia();
+	ventanaEmergencia->ShowDialog();
 }
 };
 }

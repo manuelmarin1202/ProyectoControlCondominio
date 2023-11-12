@@ -193,7 +193,6 @@ namespace ProyectoControlCondominioView {
 	}
 
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	Usuario^ objetoProyecto;
 	String^ codigoVer = this->textBox1->Text;
 	String^ contraseñaVer = this->textBox2->Text;
 	UsuarioController^ objProyectoControl = gcnew UsuarioController();

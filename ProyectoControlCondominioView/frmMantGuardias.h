@@ -262,6 +262,7 @@ namespace ProyectoControlCondominioView {
 			this->Controls->Add(this->groupBox1);
 			this->Name = L"frmMantGuardias";
 			this->Text = L"frmMantGuardias";
+			this->Load += gcnew System::EventHandler(this, &frmMantGuardias::frmMantGuardias_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
@@ -311,6 +312,14 @@ namespace ProyectoControlCondominioView {
 		Guardia^ objGuardia = objGuardiaController->buscarGuardiaxCodigo(codigoEliminar);
 		frmEditarGuardia^ ventanaEditarGuardia = gcnew frmEditarGuardia(objGuardia);
 		ventanaEditarGuardia->ShowDialog();
+	}
+	private: System::Void frmMantGuardias_Load(System::Object^ sender, System::EventArgs^ e) {
+		GuardiaController^ objGuardiaController = gcnew GuardiaController();
+		List<String^>^ listaApellidos = objGuardiaController->obtenerApPaterno();
+		this->comboBox1->Items->Clear();
+		for (int i = 0; i < listaApellidos->Count; i++) {
+			this->comboBox1->Items->Add(listaApellidos[i]);
+		}
 	}
 };
 }

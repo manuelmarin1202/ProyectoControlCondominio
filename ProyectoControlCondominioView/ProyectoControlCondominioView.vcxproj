@@ -123,10 +123,12 @@
     <ClCompile Include="frmEditarIntruso.cpp" />
     <ClCompile Include="frmEditarProyecto.cpp" />
     <ClCompile Include="frmEditarUsuario.cpp" />
+    <ClCompile Include="frmEmergencia.cpp" />
     <ClCompile Include="frmIngresoAdmin.cpp" />
     <ClCompile Include="frmIngresoSeguridad.cpp" />
     <ClCompile Include="frmMantenimientoProyectos.cpp" />
     <ClCompile Include="frmMantGuardias.cpp" />
+    <ClCompile Include="frmNuevoEdificio.cpp" />
     <ClCompile Include="frmNuevoGuardia.cpp" />
     <ClCompile Include="frmNuevoProyecto.cpp" />
     <ClCompile Include="frmNuevoUsuario.cpp" />
@@ -186,6 +188,9 @@
     <ClInclude Include="frmEditarUsuario.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="frmEmergencia.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="frmIngresoAdmin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -196,6 +201,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmMantGuardias.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmNuevoEdificio.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmNuevoGuardia.h">
@@ -284,6 +292,9 @@
     <EmbeddedResource Include="frmEditarUsuario.resx">
       <DependentUpon>frmEditarUsuario.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEmergencia.resx">
+      <DependentUpon>frmEmergencia.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmIngresoAdmin.resx">
       <DependentUpon>frmIngresoAdmin.h</DependentUpon>
     </EmbeddedResource>
@@ -295,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMantGuardias.resx">
       <DependentUpon>frmMantGuardias.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoEdificio.resx">
+      <DependentUpon>frmNuevoEdificio.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoGuardia.resx">
       <DependentUpon>frmNuevoGuardia.h</DependentUpon>
