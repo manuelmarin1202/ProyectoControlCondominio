@@ -14,7 +14,7 @@ namespace ProyectoControlCondominioController {
 		List<Emergencia^>^ buscarEmergenciaTipoUbicacion(String^ tipo, String^ ubicacion);
 		void eliminarEmergencia(String^ id);
 		void editarEmergencia(String^ id);
-		void verEmergencia(String^ id);
+		void verEmergencia(String^ id)bfbvvb;
 		*/
 		EmergenciaController();
 		void AbrirConexionBD();
