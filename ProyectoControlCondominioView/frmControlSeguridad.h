@@ -1,6 +1,7 @@
 #pragma once
 #include "frmRegistroEmergencias.h"
 #include "frmRegistroIntrusos.h"
+#include "frmReporteEmergencias.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -97,14 +98,14 @@ namespace ProyectoControlCondominioView {
 			// emergenciasToolStripMenuItem
 			// 
 			this->emergenciasToolStripMenuItem->Name = L"emergenciasToolStripMenuItem";
-			this->emergenciasToolStripMenuItem->Size = System::Drawing::Size(176, 26);
+			this->emergenciasToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->emergenciasToolStripMenuItem->Text = L"Emergencias";
 			this->emergenciasToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmControlSeguridad::emergenciasToolStripMenuItem_Click);
 			// 
 			// intrusosToolStripMenuItem
 			// 
 			this->intrusosToolStripMenuItem->Name = L"intrusosToolStripMenuItem";
-			this->intrusosToolStripMenuItem->Size = System::Drawing::Size(176, 26);
+			this->intrusosToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->intrusosToolStripMenuItem->Text = L"Intrusos";
 			this->intrusosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmControlSeguridad::intrusosToolStripMenuItem_Click);
 			// 
@@ -123,6 +124,7 @@ namespace ProyectoControlCondominioView {
 			this->emergenciasPorFechasToolStripMenuItem->Name = L"emergenciasPorFechasToolStripMenuItem";
 			this->emergenciasPorFechasToolStripMenuItem->Size = System::Drawing::Size(251, 26);
 			this->emergenciasPorFechasToolStripMenuItem->Text = L"Emergencias por Fechas";
+			this->emergenciasPorFechasToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmControlSeguridad::emergenciasPorFechasToolStripMenuItem_Click);
 			// 
 			// intrusosPorFechasToolStripMenuItem
 			// 
@@ -134,7 +136,6 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(868, 498);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
@@ -155,6 +156,10 @@ namespace ProyectoControlCondominioView {
 private: System::Void intrusosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmRegistroIntrusos^ ventanaRegistroIntrusos = gcnew frmRegistroIntrusos();
 	ventanaRegistroIntrusos->Show();
+}
+private: System::Void emergenciasPorFechasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	frmReporteEmergencias^ ventanaReportes = gcnew frmReporteEmergencias();
+	ventanaReportes->Show();
 }
 };
 }

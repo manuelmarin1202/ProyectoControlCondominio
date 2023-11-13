@@ -119,6 +119,7 @@ namespace ProyectoControlCondominioView {
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"Buscar";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &frmReporteEmergencias::button1_Click);
 			// 
 			// label1
 			// 
@@ -149,16 +150,28 @@ namespace ProyectoControlCondominioView {
 		}
 #pragma endregion
 	private: System::Void frmReporteEmergencias_Load(System::Object^ sender, System::EventArgs^ e) {
-		/*ProyectoController^ objProyectoController = gcnew ProyectoController();
-		List<Proyecto^>^ listaProyectos = objProyectoController->buscarAll();
 		EmergenciaController^ objEmergenciaController = gcnew EmergenciaController();
 		List<Emergencia^>^ listEmergencias = objEmergenciaController->buscarAll();
-		for (int i = 0; i < listaProyectos->Count; i++) {
-			this->chart1->Series["Series1"]->Points->Add(listaProyectos[i]->getCantEdificios());
-			this->chart1->Series["Series1"]->Points[i]->AxisLabel = listaProyectos[i]->getNombre();
-			this->chart1->Series["Series1"]->Points[i]->LegendText = listaProyectos[i]->getNombre();
-			this->chart1->Series["Series1"]->Points[i]->Label = Convert::ToString(listaProyectos[i]->getCantEdificios());
-		}*/
+		List<String^>^ listFechas = objEmergenciaController->listaFechas(listEmergencias);
+		for (int i = 0; i < listFechas->Count; i++) {
+			this->chart1->Series["Series1"]->Points->Add(Convert::ToInt32(objEmergenciaController->cantidadEmergenciasxFecha(listFechas[i])));
+			this->chart1->Series["Series1"]->Points[i]->AxisLabel = listFechas[i];
+			this->chart1->Series["Series1"]->Points[i]->LegendText = listFechas[i];
+			this->chart1->Series["Series1"]->Points[i]->Label = Convert::ToString(objEmergenciaController->cantidadEmergenciasxFecha(listFechas[i]));
+		}
+	}
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ fecha = this->dateTimePicker1->Text;
+		EmergenciaController^ objEmergenciaController = gcnew EmergenciaController();
+		List<Emergencia^>^ listEmergencias = objEmergenciaController->buscarEmergenciaxFecha(fecha);
+		List<String^>^ listFechas = objEmergenciaController->listaFechas(listEmergencias);
+		this->chart1->Series["Series1"]->Points->Clear();
+		for (int i = 0; i < listFechas->Count; i++) {
+			this->chart1->Series["Series1"]->Points->Add(Convert::ToInt32(objEmergenciaController->cantidadEmergenciasxFecha(listFechas[i])));
+			this->chart1->Series["Series1"]->Points[i]->AxisLabel = listFechas[i];
+			this->chart1->Series["Series1"]->Points[i]->LegendText = listFechas[i];
+			this->chart1->Series["Series1"]->Points[i]->Label = Convert::ToString(objEmergenciaController->cantidadEmergenciasxFecha(listFechas[i]));
+		}
 	}
 };
 }
