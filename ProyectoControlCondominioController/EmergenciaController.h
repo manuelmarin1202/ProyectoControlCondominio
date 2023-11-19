@@ -22,6 +22,7 @@ namespace ProyectoControlCondominioController {
 		void agregarEmergencia(Emergencia^ objEmergencia);
 		List<Emergencia^>^ buscarAll();
 		List<Emergencia^>^ buscarEmergenciaxFecha(String^ fecha);
+		List<Emergencia^>^ buscarEmergenciaEnFechas(String^ inicio, String^ fin);
 		List<Emergencia^>^ buscarEmergenciaTipoUbicacion(String^ tipo, String^ ubicacion);
 		List<String^>^ listaFechas(List<Emergencia^>^ listaEmergencias);
 		int cantidadEmergenciasxFecha(String^ fecha);

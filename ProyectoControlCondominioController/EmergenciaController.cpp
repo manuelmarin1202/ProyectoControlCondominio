@@ -68,6 +68,26 @@ List<Emergencia^>^ EmergenciaController::buscarEmergenciaxFecha(String^ fecha) {
 	CerrarConexionBD();
 	return listaProyectos;
 }
+
+List<Emergencia^>^ EmergenciaController::buscarEmergenciaEnFechas(String^ inicio, String^ fin) {
+	List<Emergencia^>^ listaProyectos = gcnew List<Emergencia^>();
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "select*from Emergencia where Fecha >= '"+inicio+"' and Fecha <'"+fin+"'";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		int codigo = safe_cast<int>(objData[0]);
+		String^ tipo = safe_cast<String^>(objData[1]);
+		String^ ubicacion = safe_cast<String^>(objData[2]);
+		String^ fecha = safe_cast<String^>(objData[3]);
+		String^ hora = safe_cast<String^>(objData[4]);
+		Emergencia^ objEmergencia = gcnew Emergencia(codigo, tipo, ubicacion, fecha, hora);
+		listaProyectos->Add(objEmergencia);
+	}
+	CerrarConexionBD();
+	return listaProyectos;
+}
 List<Emergencia^>^ EmergenciaController::buscarEmergenciaTipoUbicacion(String^ tipo, String^ ubicacion) {
 	List<Emergencia^>^ listaProyectos = gcnew List<Emergencia^>();
 	AbrirConexionBD();

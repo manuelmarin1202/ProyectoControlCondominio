@@ -43,6 +43,8 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker2;
+	private: System::Windows::Forms::Label^ label2;
 
 	private:
 		/// <summary>
@@ -65,6 +67,8 @@ namespace ProyectoControlCondominioView {
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->dateTimePicker2 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
@@ -88,6 +92,8 @@ namespace ProyectoControlCondominioView {
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->Controls->Add(this->dateTimePicker2);
+			this->groupBox1->Controls->Add(this->label2);
 			this->groupBox1->Controls->Add(this->dateTimePicker1);
 			this->groupBox1->Controls->Add(this->button1);
 			this->groupBox1->Controls->Add(this->label1);
@@ -105,14 +111,14 @@ namespace ProyectoControlCondominioView {
 			// dateTimePicker1
 			// 
 			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
-			this->dateTimePicker1->Location = System::Drawing::Point(166, 38);
+			this->dateTimePicker1->Location = System::Drawing::Point(159, 38);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(200, 27);
+			this->dateTimePicker1->Size = System::Drawing::Size(129, 27);
 			this->dateTimePicker1->TabIndex = 3;
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(447, 37);
+			this->button1->Location = System::Drawing::Point(634, 37);
 			this->button1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(110, 32);
@@ -126,9 +132,26 @@ namespace ProyectoControlCondominioView {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(44, 38);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(60, 20);
+			this->label1->Size = System::Drawing::Size(104, 20);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Fecha:";
+			this->label1->Text = L"Fecha Inicio:";
+			// 
+			// dateTimePicker2
+			// 
+			this->dateTimePicker2->Format = System::Windows::Forms::DateTimePickerFormat::Short;
+			this->dateTimePicker2->Location = System::Drawing::Point(448, 38);
+			this->dateTimePicker2->Name = L"dateTimePicker2";
+			this->dateTimePicker2->Size = System::Drawing::Size(129, 27);
+			this->dateTimePicker2->TabIndex = 5;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(341, 38);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(88, 20);
+			this->label2->TabIndex = 4;
+			this->label2->Text = L"Fecha Fin:";
 			// 
 			// frmReporteEmergencias
 			// 
@@ -161,9 +184,11 @@ namespace ProyectoControlCondominioView {
 		}
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ fecha = this->dateTimePicker1->Text;
+		String^ inicio = this->dateTimePicker1->Text;
+		String^ fin = this->dateTimePicker2->Text;
 		EmergenciaController^ objEmergenciaController = gcnew EmergenciaController();
-		List<Emergencia^>^ listEmergencias = objEmergenciaController->buscarEmergenciaxFecha(fecha);
+		List<Emergencia^>^ listEmergencias = objEmergenciaController->buscarEmergenciaEnFechas(inicio,fin);
+		//List<Emergencia^>^ listEmergencias = objEmergenciaController->buscarEmergenciaxFecha(fecha);
 		List<String^>^ listFechas = objEmergenciaController->listaFechas(listEmergencias);
 		this->chart1->Series["Series1"]->Points->Clear();
 		for (int i = 0; i < listFechas->Count; i++) {

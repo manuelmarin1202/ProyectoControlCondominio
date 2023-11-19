@@ -324,13 +324,13 @@ namespace ProyectoControlCondominioView {
 	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}	
 	private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-		/*String^ departamento = this->comboBox1->Text;
+		String^ departamento = this->comboBox1->Text;
 		ProyectoController^ objProyectoController = gcnew ProyectoController();
 		List<String^>^ listaDistritos = objProyectoController->obtenerDistritosxDptos(departamento);
 		this->comboBox2->Items->Clear();
 		for (int i = 0; i < listaDistritos->Count; i++) {
 			this->comboBox2->Items->Add(listaDistritos[i]);
-		}*/
+		}
 	}
 	private: System::Void button4_Click(System::Object ^ sender, System::EventArgs ^ e) {
 		ProyectoController^ objetoProyecto = gcnew ProyectoController();
@@ -371,13 +371,7 @@ namespace ProyectoControlCondominioView {
 		ventanaVerProyecto->ShowDialog();
 	}
 private: System::Void comboBox2_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	String^ departamento = this->comboBox1->Text; 
-		ProyectoController^ objProyectoController = gcnew ProyectoController(); 
-		List<String^>^ listaDistritos = objProyectoController->obtenerDistritosxDptos(departamento); 
-		this->comboBox2->Items->Clear();
-		for (int i = 0; i < listaDistritos->Count; i++) {
-			this->comboBox2->Items->Add(listaDistritos[i]);
-		} 
+	
 }
 };
 }

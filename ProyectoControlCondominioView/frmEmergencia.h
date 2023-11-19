@@ -217,7 +217,7 @@ namespace ProyectoControlCondominioView {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		DateTime now = DateTime::Now;
-		String^ fechaActual = now.ToString("dd-MM-yyyy");  
+		String^ fechaActual = now.ToString("dd/MM/yyyy");  
 		String^ horaActual = now.ToString("HH:mm:ss");
 		String^ tipo = this->comboBox1->Text;
 		String^ nombreProyecto = this->comboBox2->Text;
