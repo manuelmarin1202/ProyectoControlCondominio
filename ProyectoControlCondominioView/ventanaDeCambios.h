@@ -224,6 +224,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	String^ codigoEditar = this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString();
 	UsuarioController^ objUsuarioControl = gcnew UsuarioController();
 	Usuario^ objUsuario = objUsuarioControl->buscarPedidoxCodigo(codigoEditar);
+	//Usuario^ objUsuario=objUsuarioControl->buscarUsuarioxCodigo(codigoEditar);
 	frmAceptarCambios^ ventanaEditarUsuario = gcnew frmAceptarCambios(objUsuario);
 	ventanaEditarUsuario->ShowDialog();
 	
@@ -233,7 +234,14 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void ventanaDeCambios_Load(System::Object^ sender, System::EventArgs^ e) {
 	UsuarioController^ objUsuarioController = gcnew UsuarioController();
-	List<Usuario^>^ listaUsuarios = objUsuarioController->buscarAllPedidos(); 
+	List<Usuario^>^ listaPedidos = objUsuarioController->buscarAllPedidos(); 
+	List<Usuario^>^ listaUsuarios = gcnew List<Usuario^>();
+	for (int i = 0; i < listaPedidos->Count; i++) {
+		String^ codigo = listaPedidos[i]->getCodigoUsuario();
+		Usuario^ objUsuario = objUsuarioController->buscarUsuarioxCodigo(codigo);
+		listaUsuarios->Add(objUsuario);
+	}
+	//List<Usuario^>^ listaUsuarios = objUsuarioController->;
 	mostrarGrilla(listaUsuarios);
 	
 }
