@@ -56,7 +56,7 @@ namespace ProyectoControlCondominioView {
 
 	private: System::Windows::Forms::Label^ label1;
 
-
+	private: int cantErrores = 0;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::TextBox^ textBox2;
@@ -193,20 +193,27 @@ namespace ProyectoControlCondominioView {
 	}
 
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	Usuario^ objUsuario= gcnew Usuario();  
-	String^ codigoVer = this->textBox1->Text;
-	String^ contraseñaVer = this->textBox2->Text;
-	UsuarioController^ objProyectoControl = gcnew UsuarioController();
-	int existe = objProyectoControl->ConfirmarUsuario(codigoVer, contraseñaVer);
-	//int existe2 = objProyectoControl->ConfirmarContra(codigoVer, contraseñaVer);
-	if (existe==1) {
-		Usuario^ objUsuario = objProyectoControl->buscarUsuarioxCodigo(codigoVer);
-		frmVistaUsuario^ ventanaVistaUsuario = gcnew frmVistaUsuario(objUsuario);//request
-		MessageBox::Show("Bienvenido usuario!");
-		ventanaVistaUsuario->ShowDialog();
+	if (cantErrores<3) {
+		Usuario^ objUsuario = gcnew Usuario();
+		String^ codigoVer = this->textBox1->Text;
+		String^ contraseñaVer = this->textBox2->Text;
+		UsuarioController^ objProyectoControl = gcnew UsuarioController();
+		int existe = objProyectoControl->ConfirmarUsuario(codigoVer, contraseñaVer);
+
+		//int existe2 = objProyectoControl->ConfirmarContra(codigoVer, contraseñaVer);
+		if (existe == 1) {
+			Usuario^ objUsuario = objProyectoControl->buscarUsuarioxCodigo(codigoVer);
+			frmVistaUsuario^ ventanaVistaUsuario = gcnew frmVistaUsuario(objUsuario);//request
+			MessageBox::Show("Bienvenido usuario!");
+			ventanaVistaUsuario->ShowDialog();
+		}
+		else {
+			MessageBox::Show("El usuario o la contraseña ingresados no son correctos");
+			cantErrores++;
+		}
 	}
 	else {
-		MessageBox::Show("El usuario o la contraseña ingresados no son correctos");
+		this->Close();
 	}
 }
 private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
