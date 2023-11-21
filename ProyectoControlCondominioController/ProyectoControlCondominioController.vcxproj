@@ -121,6 +121,7 @@
     <ClInclude Include="EdificioController.h" />
     <ClInclude Include="EmergenciaController.h" />
     <ClInclude Include="GuardiaController.h" />
+    <ClInclude Include="PisoController.h" />
     <ClInclude Include="ProyectoController.h" />
     <ClInclude Include="UsuarioController.h" />
   </ItemGroup>
@@ -129,6 +130,7 @@
     <ClCompile Include="EdificioController.cpp" />
     <ClCompile Include="EmergenciaController.cpp" />
     <ClCompile Include="GuardiaController.cpp" />
+    <ClCompile Include="PisoController.cpp" />
     <ClCompile Include="ProyectoController.cpp" />
     <ClCompile Include="UsuarioController.cpp" />
   </ItemGroup>
