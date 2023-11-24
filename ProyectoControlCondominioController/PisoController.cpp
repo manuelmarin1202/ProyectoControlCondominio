@@ -41,6 +41,15 @@ void PisoController::agregarPiso(int cantAp, int codigoEdificio,int numPiso) {
 	objSentencia->ExecuteNonQuery();
 	CerrarConexionBD();
 }
+
+void PisoController::eliminarPisos(int codigoEdificio) {
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->CommandText = "DELETE FROM Piso WHERE CodigoEdificio=" + codigoEdificio + "";
+	objSentencia->Connection = this->objConexion;
+	objSentencia->ExecuteNonQuery();
+	CerrarConexionBD();
+}
 //void agregarPiso(Edificio^ objEdificio);
 //List<Piso^>^ buscarPisos(String^ codigoEdificio);
 //void eliminarPisos(String^ codigoEdificio);

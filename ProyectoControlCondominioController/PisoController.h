@@ -13,6 +13,7 @@ namespace ProyectoControlCondominioController {
 		void CerrarConexionBD();
 		List<Piso^>^ buscarAll();
 		void agregarPiso(int cantAp, int codigoEdificio,int numPiso);
+		void eliminarPisos(int codigoEdificio);
 		//Edificio^ buscarEdificioxCodigo(int codigo);
 		//void agregarPiso(Edificio^ objEdificio);
 		//List<Piso^>^ buscarPisos(String^ codigoEdificio);
