@@ -174,10 +174,10 @@ namespace ProyectoControlCondominioView {
 #pragma endregion
 	
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ usuarioAdmin = this->textBox1->Text;
-		String^ contraAdmin = this->textBox2->Text;
-		AdminController^ objAdminController = gcnew AdminController();
-		int existe = objAdminController->ConfirmarAdmin(usuarioAdmin, contraAdmin);
+		String^ usuarioGuardia = this->textBox1->Text;
+		String^ contraGuardia = this->textBox2->Text;
+		GuardiaController^ objGuardiaController = gcnew GuardiaController();
+		int existe = objGuardiaController->ConfirmarGuardia(usuarioGuardia, contraGuardia);
 		if (existe) {
 			frmControlSeguridad^ ventanaPrincipal = gcnew frmControlSeguridad();
 			MessageBox::Show("¡Bienvenido guardia!");

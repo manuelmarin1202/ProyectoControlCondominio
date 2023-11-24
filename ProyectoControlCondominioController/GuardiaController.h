@@ -21,5 +21,6 @@ namespace ProyectoControlCondominioController {
 		void actualizarGuardia(int codigo, String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, double sueldo, String^ contraseña, String^ categoria);
 		Guardia^ buscarGuardiaxCodigo(int codigo);
 		List<String^>^ obtenerApPaterno();
+		int GuardiaController::ConfirmarGuardia(String^ usuario, String^ contra);
 	};
 }

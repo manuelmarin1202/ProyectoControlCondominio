@@ -8,6 +8,7 @@ Guardia::Guardia(String^ nombre, String^ apellidoPaterno, String^ apellidoMatern
 	this->codigo = codigo;
 	this->categoria = categoria;
 	this->sueldo = sueldo;
+	this->contraseña = contraseña;
 }
 int Guardia::getCodigoGuardia() {
 	return this->codigo;

@@ -147,3 +147,22 @@ List<String^>^ GuardiaController::obtenerApPaterno() {
 	return listaDepartamentos;
 }
 
+int GuardiaController::ConfirmarGuardia(String^ usuario, String^ contra) {
+	int confirmar = 0;
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT*FROM Guardias";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		String^ codigoGuardia = safe_cast<String^>(objData[3]);
+		String^ contraGuardia = safe_cast<String^>(objData[7]);
+		if (usuario == codigoGuardia) {	
+			if (contraGuardia == contra) {	
+				confirmar = 1;
+			}
+		}
+	}
+	CerrarConexionBD();
+	return confirmar;
+}
