@@ -385,7 +385,7 @@ namespace ProyectoControlCondominioView {
 		ventanaVerProyecto->ShowDialog();
 	}
 private: System::Void comboBox2_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	
+
 }
 };
 }
