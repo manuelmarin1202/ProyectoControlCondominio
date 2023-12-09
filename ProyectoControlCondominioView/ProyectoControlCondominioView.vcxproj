@@ -152,6 +152,12 @@
     <ClCompile Include="VerListaEdificios.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="AForge.Video">
+      <HintPath>..\x64\Debug\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>..\x64\Debug\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />

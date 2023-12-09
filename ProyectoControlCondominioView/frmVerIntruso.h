@@ -188,6 +188,7 @@ namespace ProyectoControlCondominioView {
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"frmVerIntruso";
 			this->Text = L"frmVerIntruso";
+			this->Load += gcnew System::EventHandler(this, &frmVerIntruso::frmVerIntruso_Load);
 			this->Datos->ResumeLayout(false);
 			this->Datos->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -196,5 +197,8 @@ namespace ProyectoControlCondominioView {
 
 		}
 #pragma endregion
-	};
+	private: System::Void frmVerIntruso_Load(System::Object^ sender, System::EventArgs^ e) {
+
+	}
+};
 }

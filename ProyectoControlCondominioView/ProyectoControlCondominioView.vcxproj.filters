@@ -188,9 +188,6 @@
     <ClInclude Include="frmControlSeguridad.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="frmEditarEmergencia.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="frmEditarIntruso.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>

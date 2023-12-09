@@ -1,5 +1,6 @@
 #pragma once
 #include "frmVistaUsuario.h"
+#include <msclr/marshal_cppstd.h>
 
 namespace ProyectoControlCondominioView {
 
@@ -12,7 +13,8 @@ namespace ProyectoControlCondominioView {
 	using namespace ProyectoControlCondominioController;
 	using namespace System::Collections::Generic;
 	using namespace ProyectoControlCondominioModel;
-
+	using namespace AForge::Video;
+	using namespace AForge::Video::DirectShow;
 
 	/// <summary>
 	/// Resumen de IngresoUsuario
@@ -23,6 +25,7 @@ namespace ProyectoControlCondominioView {
 		IngresoUsuario(void)
 		{
 			InitializeComponent();
+			BuscarDispositivos();
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -53,9 +56,10 @@ namespace ProyectoControlCondominioView {
 
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::TextBox^ textBox1;
-
+	private: bool ExistenDispositivos = false;
+	private: FilterInfoCollection^ DispositivosDeVideo;
+	private: VideoCaptureDevice^ FuenteDeVideo = nullptr;
 	private: System::Windows::Forms::Label^ label1;
-
 	private: int cantErrores = 0;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label2;
@@ -210,15 +214,49 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		else {
 			MessageBox::Show("El usuario o la contraseña ingresados no son correctos");
 			cantErrores++;
+
 		}
 	}
 	else {
+		IntrusoController^ objIntrusoController = gcnew IntrusoController();
+		if (ExistenDispositivos) {
+			FuenteDeVideo = gcnew VideoCaptureDevice(DispositivosDeVideo[0]->MonikerString);
+			FuenteDeVideo->Start();
+			System::Threading::Thread::Sleep(5000);
+			FuenteDeVideo->NewFrame += gcnew NewFrameEventHandler(this, &IngresoUsuario::video_NuevoFrame);
+			FuenteDeVideo->SignalToStop();
+			//btnIniciar->Text = "Detener";
+			//cboDispositivos->Enabled = false;
+		}
+		else {
+			MessageBox::Show("Error: No se encuentra dispositivo.");
+		}
 		this->Close();
 	}
 }
+
+private: void video_NuevoFrame(Object^ sender, NewFrameEventArgs^ eventArgs) {
+	Bitmap^ frame = static_cast<Bitmap^>(eventArgs->Frame->Clone());
+	// Guardar el fotograma en un archivo (puedes ajustar la ruta según tus necesidades)
+	String^ filePath = "C:\\Users\\cmose\\OneDrive\\Escritorio\\captura_camara.png";
+	frame->Save(filePath, Imaging::ImageFormat::Png);
+	// Mostrar la dirección del archivo
+	//MessageBox::Show("Captura de cámara guardada en: " + filePath);
+}
+
 private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void IngresoUsuario_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+
+private: void BuscarDispositivos() {
+	DispositivosDeVideo = gcnew FilterInfoCollection(FilterCategory::VideoInputDevice);
+	if (DispositivosDeVideo->Count == 0)
+		ExistenDispositivos = false;
+	else {
+		ExistenDispositivos = true;
+		//CargarDispositivos(DispositivosDeVideo);
+	}
 }
 };
 }
