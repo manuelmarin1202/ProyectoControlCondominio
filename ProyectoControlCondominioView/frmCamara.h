@@ -137,7 +137,7 @@ namespace ProyectoControlCondominioView {
 private: System::Void frmCamara_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
 	TerminarFuenteDeVideo();
 }
-	 void TerminarFuenteDeVideo() {
+	 private: void TerminarFuenteDeVideo() {
 		   if (FuenteDeVideo != nullptr)
 			   if (FuenteDeVideo->IsRunning) {
 				   FuenteDeVideo->SignalToStop();
