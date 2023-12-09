@@ -116,6 +116,7 @@
   <ItemGroup>
     <ClCompile Include="frmAceptarCambios.cpp" />
     <ClCompile Include="frmAdministrarUsuarios.cpp" />
+    <ClCompile Include="frmCamara.cpp" />
     <ClCompile Include="frmConfirmacionAdmin.cpp" />
     <ClCompile Include="frmControlSeguridad.cpp" />
     <ClCompile Include="frmEditarEmergencia.cpp" />
@@ -172,6 +173,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmAdministrarUsuarios.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmCamara.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmConfirmacionAdmin.h">
@@ -277,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdministrarUsuarios.resx">
       <DependentUpon>frmAdministrarUsuarios.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCamara.resx">
+      <DependentUpon>frmCamara.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConfirmacionAdmin.resx">
       <DependentUpon>frmConfirmacionAdmin.h</DependentUpon>

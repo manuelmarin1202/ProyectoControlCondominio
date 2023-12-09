@@ -1,6 +1,7 @@
 #pragma once
 #include "frmVistaUsuario.h"
 #include <msclr/marshal_cppstd.h>
+#include "frmCamara.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -197,7 +198,7 @@ namespace ProyectoControlCondominioView {
 	}
 
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (cantErrores<3) {
+	if (cantErrores<2) {
 		Usuario^ objUsuario = gcnew Usuario();
 		String^ codigoVer = this->textBox1->Text;
 		String^ contraseñaVer = this->textBox2->Text;
@@ -218,19 +219,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		}
 	}
 	else {
-		IntrusoController^ objIntrusoController = gcnew IntrusoController();
-		if (ExistenDispositivos) {
-			FuenteDeVideo = gcnew VideoCaptureDevice(DispositivosDeVideo[0]->MonikerString);
-			FuenteDeVideo->Start();
-			System::Threading::Thread::Sleep(5000);
-			FuenteDeVideo->NewFrame += gcnew NewFrameEventHandler(this, &IngresoUsuario::video_NuevoFrame);
-			FuenteDeVideo->SignalToStop();
-			//btnIniciar->Text = "Detener";
-			//cboDispositivos->Enabled = false;
-		}
-		else {
-			MessageBox::Show("Error: No se encuentra dispositivo.");
-		}
+		frmCamara^ ventana = gcnew frmCamara();
+		ventana->ShowDialog();
 		this->Close();
 	}
 }
