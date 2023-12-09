@@ -74,7 +74,7 @@ List<Emergencia^>^ EmergenciaController::buscarEmergenciaEnFechas(String^ inicio
 	AbrirConexionBD();
 	SqlCommand^ objSentencia = gcnew SqlCommand();
 	objSentencia->Connection = this->objConexion;
-	objSentencia->CommandText = "select*from Emergencia where Fecha >= '"+inicio+"' and Fecha <'"+fin+"'";
+	objSentencia->CommandText = "select*from Emergencia where Fecha >= '"+inicio+"' and Fecha <='"+fin+"'";
 	SqlDataReader^ objData = objSentencia->ExecuteReader();
 	while (objData->Read()) {
 		int codigo = safe_cast<int>(objData[0]);

@@ -16,17 +16,29 @@ namespace ProyectoControlCondominioView {
 	using namespace ProyectoControlCondominioModel;
 	using namespace AForge::Video;
 	using namespace AForge::Video::DirectShow;
-
+	using namespace System::IO::Ports;
 	/// <summary>
 	/// Resumen de IngresoUsuario
 	/// </summary>
 	public ref class IngresoUsuario : public System::Windows::Forms::Form
 	{
+		SerialPort^ port;
 	public:
 		IngresoUsuario(void)
 		{
 			InitializeComponent();
 			BuscarDispositivos();
+			this->port = gcnew SerialPort();
+			this->port->PortName = "COM6";
+			this->port->BaudRate = 9600;
+			this->port->ReadTimeout = 500;
+			try {
+				this->port->Open();
+			}
+			catch (Exception^ ex) {
+
+			}
+			
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -187,6 +199,7 @@ namespace ProyectoControlCondominioView {
 			this->Controls->Add(this->label1);
 			this->Name = L"IngresoUsuario";
 			this->Text = L"IngresoUsuario";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &IngresoUsuario::IngresoUsuario_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &IngresoUsuario::IngresoUsuario_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
@@ -222,6 +235,13 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		frmCamara^ ventana = gcnew frmCamara();
 		ventana->ShowDialog();
 		this->Close();
+		try {
+			this->port->Write("E");
+			this->port->Close();
+		}
+		catch (Exception^ ex) {
+
+		}
 	}
 }
 
@@ -247,6 +267,9 @@ private: void BuscarDispositivos() {
 		ExistenDispositivos = true;
 		//CargarDispositivos(DispositivosDeVideo);
 	}
+}
+private: System::Void IngresoUsuario_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
+	
 }
 };
 }

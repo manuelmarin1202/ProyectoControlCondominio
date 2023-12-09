@@ -2,7 +2,7 @@
 #include <vcclr.h>
 #include <msclr/marshal_cppstd.h>
 #include <thread>
-
+//#include <AForge.Video.h>
 namespace ProyectoControlCondominioView {
 
 	using namespace System;
@@ -16,7 +16,7 @@ namespace ProyectoControlCondominioView {
 	using namespace ProyectoControlCondominioModel;
 	using namespace AForge::Video;
 	using namespace AForge::Video::DirectShow;
-
+	using namespace System::Diagnostics;
 	/// <summary>
 	/// Resumen de frmCamara
 	/// </summary>
@@ -121,18 +121,29 @@ namespace ProyectoControlCondominioView {
 		
 		if (ExistenDispositivos) {
 			FuenteDeVideo = gcnew VideoCaptureDevice(DispositivosDeVideo[0]->MonikerString);
-			FuenteDeVideo->NewFrame += gcnew NewFrameEventHandler(this, &frmCamara::video_NuevoFrame);
+			FuenteDeVideo->NewFrame += gcnew AForge::Video::NewFrameEventHandler(this, &frmCamara::video_NuevoFrame);
 			FuenteDeVideo->Start();
+
 		}
 		else {
 			MessageBox::Show("Error: No se encuentra dispositivo.");
 		}
+		
+
 	}
-	private: void video_NuevoFrame(Object^ sender, NewFrameEventArgs^ eventArgs) {
+	private: void video_NuevoFrame(System::Object^ sender, AForge::Video::NewFrameEventArgs^ eventArgs) {
 		//Debug::WriteLine("Nuevo frame recibido.");
 		//debug
-		Bitmap^ frame = static_cast<Bitmap^>(eventArgs->Frame->Clone());
-		this->pictureBox1->Image = frame;	
+		//Bitmap^ frame = static_cast<Bitmap^>(eventArgs->Frame->Clone());
+		//this->pictureBox1->Image = frame;	
+		try {
+			Debug::WriteLine("Nuevo frame recibido.");  // Mensaje de depuración
+			Bitmap^ frame = static_cast<Bitmap^>(eventArgs->Frame->Clone());
+			this->pictureBox1->Image = frame;
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show("Error en video_NuevoFrame: " + ex->Message);
+		}
 	}
 private: System::Void frmCamara_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
 	TerminarFuenteDeVideo();

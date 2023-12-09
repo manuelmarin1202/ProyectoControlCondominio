@@ -1,9 +1,11 @@
 #include "Inicio.h" 
-
+//#using <System.Core.dll>
 
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace ProyectoControlCondominioView;
+//using namespace System::lin;
+//using namespace System::Linq;
 
 [STAThreadAttribute]
 void main(array <String^>^ args){

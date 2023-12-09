@@ -16,21 +16,23 @@ using namespace AForge::Video;
 using namespace AForge::Video::DirectShow;
 using namespace System;
 using namespace System::Windows;
+using namespace System::IO::Ports;
 
 namespace ProyectoControlCondominioController {
 	
 	public ref class IntrusoController {
+		
 	private: 
 		SqlConnection^ objConexion;
-		bool ExistenDispositivos = false;
-		FilterInfoCollection^ DispositivosDeVideo;
-	    VideoCaptureDevice^ FuenteDeVideo = nullptr;
+		SerialPort^ port;
+		// port = gcnew SerialPort();
+		//port->PortName = "COM6";
+		bool isClosed = false;
 	public:
 		IntrusoController();
 		void AbrirConexionBD();
 		void CerrarConexionBD();
-		void TomarFoto();
-		void BuscarDispositivos();
-		void OnNewFrame(Object^ sender, AForge::Video::NewFrameEventArgs^ eventArgs);
+		void PrenderBuzzer();
+		void CerrarArduino();
 	};
 }

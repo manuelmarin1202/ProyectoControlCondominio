@@ -60,7 +60,6 @@ namespace ProyectoControlCondominioView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmControlSeguridad::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->incidentesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->emergenciasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -81,7 +80,7 @@ namespace ProyectoControlCondominioView {
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
-			this->menuStrip1->Size = System::Drawing::Size(868, 28);
+			this->menuStrip1->Size = System::Drawing::Size(868, 30);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -92,20 +91,20 @@ namespace ProyectoControlCondominioView {
 					this->intrusosToolStripMenuItem
 			});
 			this->incidentesToolStripMenuItem->Name = L"incidentesToolStripMenuItem";
-			this->incidentesToolStripMenuItem->Size = System::Drawing::Size(90, 24);
+			this->incidentesToolStripMenuItem->Size = System::Drawing::Size(90, 26);
 			this->incidentesToolStripMenuItem->Text = L"Incidentes";
 			// 
 			// emergenciasToolStripMenuItem
 			// 
 			this->emergenciasToolStripMenuItem->Name = L"emergenciasToolStripMenuItem";
-			this->emergenciasToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->emergenciasToolStripMenuItem->Size = System::Drawing::Size(176, 26);
 			this->emergenciasToolStripMenuItem->Text = L"Emergencias";
 			this->emergenciasToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmControlSeguridad::emergenciasToolStripMenuItem_Click);
 			// 
 			// intrusosToolStripMenuItem
 			// 
 			this->intrusosToolStripMenuItem->Name = L"intrusosToolStripMenuItem";
-			this->intrusosToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->intrusosToolStripMenuItem->Size = System::Drawing::Size(176, 26);
 			this->intrusosToolStripMenuItem->Text = L"Intrusos";
 			this->intrusosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmControlSeguridad::intrusosToolStripMenuItem_Click);
 			// 
@@ -116,7 +115,7 @@ namespace ProyectoControlCondominioView {
 					this->intrusosPorFechasToolStripMenuItem
 			});
 			this->reportesToolStripMenuItem->Name = L"reportesToolStripMenuItem";
-			this->reportesToolStripMenuItem->Size = System::Drawing::Size(82, 24);
+			this->reportesToolStripMenuItem->Size = System::Drawing::Size(82, 26);
 			this->reportesToolStripMenuItem->Text = L"Reportes";
 			// 
 			// emergenciasPorFechasToolStripMenuItem
@@ -138,6 +137,7 @@ namespace ProyectoControlCondominioView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(868, 498);
 			this->Controls->Add(this->menuStrip1);
+			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"frmControlSeguridad";
@@ -151,14 +151,17 @@ namespace ProyectoControlCondominioView {
 #pragma endregion
 	private: System::Void emergenciasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		frmRegistroEmergencias^ ventanaRegistroEmergencias = gcnew frmRegistroEmergencias();
+		ventanaRegistroEmergencias->MdiParent = this;
 		ventanaRegistroEmergencias->Show();
 	}
 private: System::Void intrusosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmRegistroIntrusos^ ventanaRegistroIntrusos = gcnew frmRegistroIntrusos();
+	ventanaRegistroIntrusos->MdiParent = this;
 	ventanaRegistroIntrusos->Show();
 }
 private: System::Void emergenciasPorFechasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmReporteEmergencias^ ventanaReportes = gcnew frmReporteEmergencias();
+	ventanaReportes->MdiParent = this;
 	ventanaReportes->Show();
 }
 };
