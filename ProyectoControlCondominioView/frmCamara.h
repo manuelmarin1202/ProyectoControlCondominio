@@ -45,6 +45,7 @@ namespace ProyectoControlCondominioView {
 				delete components;
 			}
 		}
+	//Camara Manuel
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: bool ExistenDispositivos = false;
 	private: FilterInfoCollection^ DispositivosDeVideo;
@@ -72,9 +73,10 @@ namespace ProyectoControlCondominioView {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(47, 67);
+			this->pictureBox1->Location = System::Drawing::Point(53, 84);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(487, 364);
+			this->pictureBox1->Size = System::Drawing::Size(548, 455);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
@@ -82,20 +84,24 @@ namespace ProyectoControlCondominioView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(256, 35);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Swis721 BlkEx BT", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(288, 44);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(55, 16);
+			this->label1->Size = System::Drawing::Size(98, 19);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Cámara";
 			this->label1->Click += gcnew System::EventHandler(this, &frmCamara::label1_Click);
 			// 
 			// frmCamara
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(591, 456);
+			this->BackColor = System::Drawing::SystemColors::GrayText;
+			this->ClientSize = System::Drawing::Size(665, 570);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->pictureBox1);
+			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Name = L"frmCamara";
 			this->Text = L"frmCamara";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &frmCamara::frmCamara_FormClosed);

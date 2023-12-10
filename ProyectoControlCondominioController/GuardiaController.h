@@ -8,7 +8,7 @@ namespace ProyectoControlCondominioController {
 	using namespace ProyectoControlCondominioModel;
 	using namespace System::Collections::Generic;
 	public ref class GuardiaController {
-		//agrega por referencia system y system data
+
 	private: SqlConnection^ objConexion;
 	public:
 		GuardiaController();
@@ -21,6 +21,6 @@ namespace ProyectoControlCondominioController {
 		void actualizarGuardia(int codigo, String^ nombre, String^ apellidoPaterno, String^ apellidoMaterno, String^ dni, double sueldo, String^ contraseña, String^ categoria);
 		Guardia^ buscarGuardiaxCodigo(int codigo);
 		List<String^>^ obtenerApPaterno();
-		int GuardiaController::ConfirmarGuardia(String^ usuario, String^ contra);
+		int confirmarGuardia(String^ usuario, String^ contraseña);
 	};
 }

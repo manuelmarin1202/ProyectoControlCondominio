@@ -117,6 +117,7 @@
     <ClCompile Include="frmAceptarCambios.cpp" />
     <ClCompile Include="frmAdministrarUsuarios.cpp" />
     <ClCompile Include="frmCamara.cpp" />
+    <ClCompile Include="frmConfigurarCamara.cpp" />
     <ClCompile Include="frmConfirmacionAdmin.cpp" />
     <ClCompile Include="frmControlSeguridad.cpp" />
     <ClCompile Include="frmEditarEmergencia.cpp" />
@@ -153,12 +154,8 @@
     <ClCompile Include="VerListaEdificios.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="AForge.Video">
-      <HintPath>..\x64\Debug\AForge.Video.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Video.DirectShow">
-      <HintPath>..\x64\Debug\AForge.Video.DirectShow.dll</HintPath>
-    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401" />
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -176,6 +173,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmCamara.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmConfigurarCamara.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmConfirmacionAdmin.h">
@@ -285,6 +285,9 @@
     <EmbeddedResource Include="frmCamara.resx">
       <DependentUpon>frmCamara.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConfigurarCamara.resx">
+      <DependentUpon>frmConfigurarCamara.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConfirmacionAdmin.resx">
       <DependentUpon>frmConfirmacionAdmin.h</DependentUpon>
     </EmbeddedResource>
@@ -389,6 +392,9 @@
     <ProjectReference Include="..\ProyectoControlCondominio\ProyectoControlCondominio.vcxproj">
       <Project>{aeaceeec-c01f-4078-ac60-e65adf5fe4b8}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

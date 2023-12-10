@@ -1,4 +1,4 @@
-#pragma once
+ #pragma once
 #include "frmMantenimientoProyectos.h"
 #include "frmAdministrarUsuarios.h"
 #include "frmReporteNroEdificiosProyecto.h"
@@ -83,6 +83,7 @@ namespace ProyectoControlCondominioView {
 			// menuStrip1
 			// 
 			this->menuStrip1->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->menuStrip1->GripMargin = System::Windows::Forms::Padding(2, 2, 0, 2);
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->operacionesToolStripMenuItem,
@@ -90,7 +91,8 @@ namespace ProyectoControlCondominioView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1337, 25);
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(7, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(1504, 28);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -103,20 +105,20 @@ namespace ProyectoControlCondominioView {
 			this->operacionesToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 7.8F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->operacionesToolStripMenuItem->Name = L"operacionesToolStripMenuItem";
-			this->operacionesToolStripMenuItem->Size = System::Drawing::Size(111, 21);
+			this->operacionesToolStripMenuItem->Size = System::Drawing::Size(135, 24);
 			this->operacionesToolStripMenuItem->Text = L"Operaciones";
 			// 
 			// proyectoToolStripMenuItem
 			// 
 			this->proyectoToolStripMenuItem->Name = L"proyectoToolStripMenuItem";
-			this->proyectoToolStripMenuItem->Size = System::Drawing::Size(161, 26);
+			this->proyectoToolStripMenuItem->Size = System::Drawing::Size(270, 34);
 			this->proyectoToolStripMenuItem->Text = L"Proyecto";
 			this->proyectoToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::proyectoToolStripMenuItem_Click);
 			// 
 			// usuariosToolStripMenuItem
 			// 
 			this->usuariosToolStripMenuItem->Name = L"usuariosToolStripMenuItem";
-			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(161, 26);
+			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(270, 34);
 			this->usuariosToolStripMenuItem->Text = L"Usuarios";
 			this->usuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::usuariosToolStripMenuItem_Click);
 			// 
@@ -129,20 +131,20 @@ namespace ProyectoControlCondominioView {
 			this->reportesToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 7.8F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->reportesToolStripMenuItem->Name = L"reportesToolStripMenuItem";
-			this->reportesToolStripMenuItem->Size = System::Drawing::Size(89, 21);
+			this->reportesToolStripMenuItem->Size = System::Drawing::Size(107, 24);
 			this->reportesToolStripMenuItem->Text = L"Reportes";
 			// 
 			// proyectosVsNroEdificiosToolStripMenuItem
 			// 
 			this->proyectosVsNroEdificiosToolStripMenuItem->Name = L"proyectosVsNroEdificiosToolStripMenuItem";
-			this->proyectosVsNroEdificiosToolStripMenuItem->Size = System::Drawing::Size(284, 26);
+			this->proyectosVsNroEdificiosToolStripMenuItem->Size = System::Drawing::Size(346, 34);
 			this->proyectosVsNroEdificiosToolStripMenuItem->Text = L"Proyectos vs Nro Edificios";
 			this->proyectosVsNroEdificiosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::proyectosVsNroEdificiosToolStripMenuItem_Click);
 			// 
 			// nroDeUsuariosToolStripMenuItem
 			// 
 			this->nroDeUsuariosToolStripMenuItem->Name = L"nroDeUsuariosToolStripMenuItem";
-			this->nroDeUsuariosToolStripMenuItem->Size = System::Drawing::Size(284, 26);
+			this->nroDeUsuariosToolStripMenuItem->Size = System::Drawing::Size(346, 34);
 			this->nroDeUsuariosToolStripMenuItem->Text = L"Nro de Usuarios";
 			this->nroDeUsuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::nroDeUsuariosToolStripMenuItem_Click);
 			// 
@@ -151,13 +153,13 @@ namespace ProyectoControlCondominioView {
 			this->empleadosToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->guardiasToolStripMenuItem });
 			this->empleadosToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 7.8F));
 			this->empleadosToolStripMenuItem->Name = L"empleadosToolStripMenuItem";
-			this->empleadosToolStripMenuItem->Size = System::Drawing::Size(98, 21);
+			this->empleadosToolStripMenuItem->Size = System::Drawing::Size(120, 24);
 			this->empleadosToolStripMenuItem->Text = L"Empleados";
 			// 
 			// guardiasToolStripMenuItem
 			// 
 			this->guardiasToolStripMenuItem->Name = L"guardiasToolStripMenuItem";
-			this->guardiasToolStripMenuItem->Size = System::Drawing::Size(156, 26);
+			this->guardiasToolStripMenuItem->Size = System::Drawing::Size(188, 34);
 			this->guardiasToolStripMenuItem->Text = L"Guardias";
 			this->guardiasToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::guardiasToolStripMenuItem_Click);
 			// 
@@ -165,20 +167,21 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->sOLICITUDESDECAMBIOToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 7.8F));
 			this->sOLICITUDESDECAMBIOToolStripMenuItem->Name = L"sOLICITUDESDECAMBIOToolStripMenuItem";
-			this->sOLICITUDESDECAMBIOToolStripMenuItem->Size = System::Drawing::Size(181, 21);
+			this->sOLICITUDESDECAMBIOToolStripMenuItem->Size = System::Drawing::Size(218, 24);
 			this->sOLICITUDESDECAMBIOToolStripMenuItem->Text = L"SOLICITUDES DE CAMBIO";
 			this->sOLICITUDESDECAMBIOToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmPrincipal::sOLICITUDESDECAMBIOToolStripMenuItem_Click);
 			// 
 			// frmPrincipal
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->ClientSize = System::Drawing::Size(1337, 673);
+			this->ClientSize = System::Drawing::Size(1504, 841);
 			this->Controls->Add(this->menuStrip1);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
+			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Name = L"frmPrincipal";
 			this->Text = L"frmPrincipal";
 			this->Load += gcnew System::EventHandler(this, &frmPrincipal::frmPrincipal_Load);

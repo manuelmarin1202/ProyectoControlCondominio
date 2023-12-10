@@ -106,10 +106,10 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->pictureBox1->BackColor = System::Drawing::SystemColors::GrayText;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(550, 157);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(5, 3, 5, 3);
+			this->pictureBox1->Location = System::Drawing::Point(619, 196);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(6, 4, 6, 4);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(300, 250);
+			this->pictureBox1->Size = System::Drawing::Size(338, 312);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 24;
 			this->pictureBox1->TabStop = false;
@@ -118,10 +118,10 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->button1->BackColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button1->Location = System::Drawing::Point(189, 350);
-			this->button1->Margin = System::Windows::Forms::Padding(5);
+			this->button1->Location = System::Drawing::Point(213, 438);
+			this->button1->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(140, 41);
+			this->button1->Size = System::Drawing::Size(158, 51);
 			this->button1->TabIndex = 21;
 			this->button1->Text = L"Ingresar";
 			this->button1->UseVisualStyleBackColor = false;
@@ -129,64 +129,64 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(317, 213);
-			this->textBox1->Margin = System::Windows::Forms::Padding(5);
+			this->textBox1->Location = System::Drawing::Point(357, 266);
+			this->textBox1->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(184, 22);
+			this->textBox1->Size = System::Drawing::Size(206, 26);
 			this->textBox1->TabIndex = 17;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
 			this->label1->BackColor = System::Drawing::SystemColors::WindowText;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"BankGothic Md BT", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->label1->Location = System::Drawing::Point(66, 213);
-			this->label1->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->label1->Location = System::Drawing::Point(74, 266);
+			this->label1->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(81, 25);
+			this->label1->Size = System::Drawing::Size(114, 25);
 			this->label1->TabIndex = 18;
 			this->label1->Text = L"Codigo:";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(199, 435);
+			this->label4->Location = System::Drawing::Point(224, 544);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(0, 16);
+			this->label4->Size = System::Drawing::Size(0, 20);
 			this->label4->TabIndex = 25;
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
 			this->label2->BackColor = System::Drawing::SystemColors::WindowText;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"BankGothic Md BT", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->label2->Location = System::Drawing::Point(66, 268);
-			this->label2->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->label2->Location = System::Drawing::Point(74, 335);
+			this->label2->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(120, 25);
+			this->label2->Size = System::Drawing::Size(183, 25);
 			this->label2->TabIndex = 26;
 			this->label2->Text = L"Contraseña:";
 			this->label2->Click += gcnew System::EventHandler(this, &IngresoUsuario::label2_Click);
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(317, 268);
-			this->textBox2->Margin = System::Windows::Forms::Padding(5);
+			this->textBox2->Location = System::Drawing::Point(357, 335);
+			this->textBox2->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(184, 22);
+			this->textBox2->Size = System::Drawing::Size(206, 26);
 			this->textBox2->TabIndex = 27;
 			this->textBox2->UseSystemPasswordChar = true;
 			// 
 			// IngresoUsuario
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->ClientSize = System::Drawing::Size(883, 566);
+			this->ClientSize = System::Drawing::Size(993, 708);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label4);
@@ -194,6 +194,7 @@ namespace ProyectoControlCondominioView {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label1);
+			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Name = L"IngresoUsuario";
 			this->Text = L"IngresoUsuario";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &IngresoUsuario::IngresoUsuario_FormClosing);

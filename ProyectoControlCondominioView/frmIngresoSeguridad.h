@@ -12,6 +12,7 @@ namespace ProyectoControlCondominioView {
 	using namespace System::Drawing;
 	using namespace ProyectoControlCondominioController;
 	using namespace ProyectoControlCondominioModel;
+	using namespace System::Collections::Generic;
 	
 	/// <summary>
 	/// Resumen de frmIngresoSeguridad
@@ -177,11 +178,10 @@ namespace ProyectoControlCondominioView {
 		String^ usuarioGuardia = this->textBox1->Text;
 		String^ contraGuardia = this->textBox2->Text;
 		GuardiaController^ objGuardiaController = gcnew GuardiaController();
-		int existe = objGuardiaController->ConfirmarGuardia(usuarioGuardia, contraGuardia);
+		int existe = objGuardiaController->confirmarGuardia(usuarioGuardia, contraGuardia);
 		if (existe) {
 			frmControlSeguridad^ ventanaPrincipal = gcnew frmControlSeguridad();
 			MessageBox::Show("¡Bienvenido guardia!");
-			//this->Close();
 			ventanaPrincipal->Show();
 		}
 		else {
