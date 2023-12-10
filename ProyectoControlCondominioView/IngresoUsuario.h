@@ -27,7 +27,7 @@ namespace ProyectoControlCondominioView {
 		IngresoUsuario(void)
 		{
 			InitializeComponent();
-			BuscarDispositivos();
+			
 			this->port = gcnew SerialPort();
 			this->port->PortName = "COM6";
 			this->port->BaudRate = 9600;
@@ -69,9 +69,6 @@ namespace ProyectoControlCondominioView {
 
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::TextBox^ textBox1;
-	private: bool ExistenDispositivos = false;
-	private: FilterInfoCollection^ DispositivosDeVideo;
-	private: VideoCaptureDevice^ FuenteDeVideo = nullptr;
 	private: System::Windows::Forms::Label^ label1;
 	private: int cantErrores = 0;
 	private: System::Windows::Forms::Label^ label4;
@@ -223,6 +220,13 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			Usuario^ objUsuario = objProyectoControl->buscarUsuarioxCodigo(codigoVer);
 			frmVistaUsuario^ ventanaVistaUsuario = gcnew frmVistaUsuario(objUsuario);//request
 			MessageBox::Show("Bienvenido usuario!");
+			try {
+				this->port->Write("I");
+				this->port->Close();
+			}
+			catch (Exception^ ex) {
+
+			}
 			ventanaVistaUsuario->ShowDialog();
 		}
 		else {
@@ -245,29 +249,14 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	}
 }
 
-private: void video_NuevoFrame(Object^ sender, NewFrameEventArgs^ eventArgs) {
-	Bitmap^ frame = static_cast<Bitmap^>(eventArgs->Frame->Clone());
-	// Guardar el fotograma en un archivo (puedes ajustar la ruta según tus necesidades)
-	String^ filePath = "C:\\Users\\cmose\\OneDrive\\Escritorio\\captura_camara.png";
-	frame->Save(filePath, Imaging::ImageFormat::Png);
-	// Mostrar la dirección del archivo
-	//MessageBox::Show("Captura de cámara guardada en: " + filePath);
-}
+
 
 private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void IngresoUsuario_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 
-private: void BuscarDispositivos() {
-	DispositivosDeVideo = gcnew FilterInfoCollection(FilterCategory::VideoInputDevice);
-	if (DispositivosDeVideo->Count == 0)
-		ExistenDispositivos = false;
-	else {
-		ExistenDispositivos = true;
-		//CargarDispositivos(DispositivosDeVideo);
-	}
-}
+
 private: System::Void IngresoUsuario_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 	
 }

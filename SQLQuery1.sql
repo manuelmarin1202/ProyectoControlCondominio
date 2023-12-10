@@ -12,6 +12,10 @@ SELECT* FROM PedidoCambio
 /*ctrl+shift+r*/
 SELECT*FROM Emergencia where Fecha='19/11/2023'
 SELECT*FROM Emergencia where Fecha like '%19%'
+delete from Emergencia where Codigo=11
+select*from Emergencia where SUBSTRING('12/11/2023',4,2)<=SUBSTRING(fecha, 4, 2) and SUBSTRING(fecha, 4, 2)<=SUBSTRING('23/11/2023',4,2)
+
+select c.*,p.* from T_Reclamo C, T_Cliente P where SUBSTRING(c.fecha, 4, 2) = '03' and SUBSTRING(c.fecha, 7, 4)='2022' and c.codigoCliente=p.codigo
 UPDATE Emergencia set Fecha='12/11/2023' where Fecha like '%19%'
 select*from RT_Edificio
 select*from RT_Cronograma
@@ -31,7 +35,7 @@ select*from T_Incidente
 select*from T_Entrenador
 select*from T_Reclamo
 select*from T_Cliente
-select c.*,p.* from T_Reclamo C, T_Cliente P where SUBSTRING(c.fecha, 4, 2) = '03' and SUBSTRING(c.fecha, 7, 4)='2022' and c.codigoCliente=p.codigo
+
 select c.*,p.*,m.* from T_SesionEntrenamiento C, T_Entrenador P, T_LugarEntrenamiento M where C.fecha='2/03/2022' and p.dni='12345678' and C.codigoEntrenador=p.codigo 
 and c.codigoLugar=m.codigo
 select*from T_Incidente where codigo=4

@@ -15,6 +15,8 @@ namespace ProyectoControlCondominioView {
 	using namespace System::Collections::Generic;
 	using namespace ProyectoControlCondominioModel;
 	using namespace AForge::Video;
+	using namespace System::IO;
+	using namespace System::Drawing::Imaging;
 	using namespace AForge::Video::DirectShow;
 	using namespace System::Diagnostics;
 	/// <summary>
