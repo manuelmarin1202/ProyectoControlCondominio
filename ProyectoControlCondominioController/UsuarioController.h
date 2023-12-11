@@ -27,5 +27,6 @@ namespace ProyectoControlCondominioController {
 		void AbrirConexionBD(); //SQL
 		void CerrarConexionBD(); //SQL
 		int existeCodigo(String^ codigo);
+		String^ ListadeCambios(String^ codigo);
 	};
 }

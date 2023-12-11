@@ -220,12 +220,15 @@ private: System::Void dataGridView1_CellContentClick(System::Object^ sender, Sys
 
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
 	int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; //Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0
 	String^ codigoEditar = this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString();
 	UsuarioController^ objUsuarioControl = gcnew UsuarioController();
 	Usuario^ objUsuario = objUsuarioControl->buscarPedidoxCodigo(codigoEditar);
-	//Usuario^ objUsuario=objUsuarioControl->buscarUsuarioxCodigo(codigoEditar);
+
 	frmAceptarCambios^ ventanaEditarUsuario = gcnew frmAceptarCambios(objUsuario);
+	String^ frase = objUsuarioControl->ListadeCambios(codigoEditar);
+	MessageBox::Show("Los cambios son: " + frase + "");
 	ventanaEditarUsuario->ShowDialog();
 	
 }

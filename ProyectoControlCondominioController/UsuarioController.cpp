@@ -289,5 +289,62 @@ int UsuarioController::existeCodigo(String^ codigo) {
 	return existe;
 }
 
+String^ UsuarioController::ListadeCambios(String^ codigo) {
+	String^ nombreU;
+	String^ apellidoPaternoU;
+	String^ apellidoMaternoU;
+	String^ dniU;
+	String^ contraseñaU;
 
+	String^ nombreCambio;
+	String^ apellidoPaternoCambio;
+	String^ apellidoMaternoCambio;
+	String^ dniCambio;
+	String^ contraseñaCambio;
+
+	String^ nombre = "";
+	String^ apellidoPaterno = "";
+	String^ apellidoMaterno = "";
+	String^ dni = "";
+	String^ contraseña = "";
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "select u.*, p.* from Usuario U, PedidoCambio P where U.codigo = '" + codigo + "' AND P.codigo = '" + codigo + "'";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		nombreU = safe_cast<String^>(objData[1]);
+		apellidoPaternoU = safe_cast<String^>(objData[2]);
+		apellidoMaternoU = safe_cast<String^>(objData[3]);
+		dniU = safe_cast<String^>(objData[4]);
+		contraseñaU = safe_cast<String^>(objData[5]);
+
+		nombreCambio = safe_cast<String^>(objData[8]);
+		apellidoPaternoCambio = safe_cast<String^>(objData[9]);
+		apellidoMaternoCambio = safe_cast<String^>(objData[10]);
+		dniCambio = safe_cast<String^>(objData[11]);
+		contraseñaCambio = safe_cast<String^>(objData[12]);
+
+	}
+	CerrarConexionBD();
+	if (nombreU != nombreCambio) {
+		nombre = "nombre";
+	}
+	if (apellidoPaternoU != apellidoPaternoCambio) {
+		apellidoPaterno = "apellido paterno";
+	}
+	if (apellidoMaternoU != apellidoMaternoCambio) {
+		apellidoMaterno = "apellido materno";
+	}
+	if (dniU != dniCambio) {
+		dni = "dni";
+	}
+	if (contraseñaU != contraseñaCambio) {
+		contraseña = "contraseña";
+	}
+
+	String^ mensaje = "" + nombre + " " + apellidoPaterno + " " + apellidoMaterno + " " + dni + " " + contraseña + "";
+
+	return mensaje;
+}
 
