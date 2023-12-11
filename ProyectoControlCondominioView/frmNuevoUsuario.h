@@ -40,7 +40,7 @@ namespace ProyectoControlCondominioView {
 		}
 	private: System::Windows::Forms::GroupBox^ Datos;
 	protected:
-	private: System::Windows::Forms::TextBox^ textBox5;
+
 	private: System::Windows::Forms::TextBox^ textBox4;
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::TextBox^ textBox2;
@@ -52,7 +52,7 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 
-	private: System::Windows::Forms::Label^ label6;
+
 	private: System::Windows::Forms::TextBox^ textBox6;
 	private: System::Windows::Forms::CheckBox^ checkBox2;
 	private: System::Windows::Forms::CheckBox^ checkBox1;
@@ -80,8 +80,6 @@ namespace ProyectoControlCondominioView {
 			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
@@ -103,8 +101,6 @@ namespace ProyectoControlCondominioView {
 			this->Datos->Controls->Add(this->checkBox2);
 			this->Datos->Controls->Add(this->checkBox1);
 			this->Datos->Controls->Add(this->textBox6);
-			this->Datos->Controls->Add(this->label6);
-			this->Datos->Controls->Add(this->textBox5);
 			this->Datos->Controls->Add(this->textBox4);
 			this->Datos->Controls->Add(this->textBox3);
 			this->Datos->Controls->Add(this->textBox2);
@@ -125,7 +121,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(213, 84);
+			this->textBox1->Location = System::Drawing::Point(213, 97);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 22);
 			this->textBox1->TabIndex = 19;
@@ -133,7 +129,7 @@ namespace ProyectoControlCondominioView {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(72, 249);
+			this->label7->Location = System::Drawing::Point(72, 233);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(86, 16);
 			this->label7->TabIndex = 18;
@@ -144,7 +140,7 @@ namespace ProyectoControlCondominioView {
 			this->checkBox2->AutoSize = true;
 			this->checkBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->checkBox2->Location = System::Drawing::Point(213, 50);
+			this->checkBox2->Location = System::Drawing::Point(213, 63);
 			this->checkBox2->Name = L"checkBox2";
 			this->checkBox2->Size = System::Drawing::Size(84, 20);
 			this->checkBox2->TabIndex = 17;
@@ -156,7 +152,7 @@ namespace ProyectoControlCondominioView {
 			this->checkBox1->AutoSize = true;
 			this->checkBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->checkBox1->Location = System::Drawing::Point(75, 50);
+			this->checkBox1->Location = System::Drawing::Point(75, 63);
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(100, 20);
 			this->checkBox1->TabIndex = 16;
@@ -165,44 +161,28 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox6
 			// 
-			this->textBox6->Location = System::Drawing::Point(213, 243);
+			this->textBox6->Location = System::Drawing::Point(213, 227);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(100, 22);
 			this->textBox6->TabIndex = 15;
 			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(72, 216);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(101, 16);
-			this->label6->TabIndex = 14;
-			this->label6->Text = L"Nombre Foto:";
-			// 
-			// textBox5
-			// 
-			this->textBox5->Location = System::Drawing::Point(213, 210);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(100, 22);
-			this->textBox5->TabIndex = 13;
-			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(213, 177);
+			this->textBox4->Location = System::Drawing::Point(213, 190);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(100, 22);
 			this->textBox4->TabIndex = 12;
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(213, 145);
+			this->textBox3->Location = System::Drawing::Point(213, 158);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(100, 22);
 			this->textBox3->TabIndex = 11;
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(213, 113);
+			this->textBox2->Location = System::Drawing::Point(213, 126);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(100, 22);
 			this->textBox2->TabIndex = 10;
@@ -230,7 +210,7 @@ namespace ProyectoControlCondominioView {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(70, 183);
+			this->label5->Location = System::Drawing::Point(70, 196);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(37, 16);
 			this->label5->TabIndex = 4;
@@ -239,7 +219,7 @@ namespace ProyectoControlCondominioView {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(70, 151);
+			this->label4->Location = System::Drawing::Point(70, 164);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(129, 16);
 			this->label4->TabIndex = 3;
@@ -248,7 +228,7 @@ namespace ProyectoControlCondominioView {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(70, 119);
+			this->label3->Location = System::Drawing::Point(70, 132);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(127, 16);
 			this->label3->TabIndex = 2;
@@ -257,7 +237,7 @@ namespace ProyectoControlCondominioView {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(70, 90);
+			this->label2->Location = System::Drawing::Point(70, 103);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(74, 16);
 			this->label2->TabIndex = 1;
@@ -298,6 +278,7 @@ namespace ProyectoControlCondominioView {
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ prefijo;
+		UsuarioController^ objUsuarioControl = gcnew UsuarioController();
 		if (this->checkBox1->CheckState == CheckState::Checked) {
 			prefijo = "R";
 		}
@@ -307,29 +288,32 @@ namespace ProyectoControlCondominioView {
 		else {
 			prefijo = "R";
 		}
-		String^ codigo = prefijo + Convert::ToString(rand() % 1000);
+		int centinela = 1;
+		String^ codigo;
+		while (centinela) {
+			codigo = prefijo + Convert::ToString((rand() % 1000) +1);
+			int existe = objUsuarioControl->existeCodigo(codigo);
+			if (existe == 0) {
+				centinela = 0;
+			}
+		}
 		String^ nombre = this->textBox1->Text;
 		String^ apellidoPaterno = this->textBox2->Text;
 		String^ apellidoMaterno = this->textBox3->Text;
 		String^ dni = this->textBox4->Text;
-		String^ nombreFoto = this->textBox5->Text;
+		//String^ nombreFoto = this->textBox5->Text;
+		String^ nombreFoto = "Alberto.jpg";
 		String^ contraseña = this->textBox6->Text;
 		Usuario^ objUsuario = gcnew Usuario(codigo, nombre, apellidoPaterno, apellidoMaterno, dni, nombreFoto, contraseña);
-		UsuarioController^ objUsuarioControl = gcnew UsuarioController();
 		objUsuarioControl->agregarUsuario(objUsuario);
 		MessageBox::Show("El Usuario se ha agregado con éxito");
 		this->Close(); /*Esta linea cierra la ventana actual*/
 	}
 
-	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		//Allasi pagara por su insolencia
-		//bdshbsjbds
-		
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {		
 		this->Close();
 	}
 	private: System::Void frmNuevoUsuario_Load(System::Object^ sender, System::EventArgs^ e) {
-		//String^ codigoProyecto = "r"+ Convert::ToString(rand() % 1000);
-		//this->textBox1->Text = codigoProyecto;?????????????????????????????????
 	}
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 }

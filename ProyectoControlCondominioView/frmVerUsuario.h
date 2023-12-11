@@ -248,9 +248,9 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(562, 486);
+			this->button2->Location = System::Drawing::Point(632, 486);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->Size = System::Drawing::Size(89, 33);
 			this->button2->TabIndex = 8;
 			this->button2->Text = L"Cargar";
 			this->button2->UseVisualStyleBackColor = true;
@@ -264,12 +264,13 @@ namespace ProyectoControlCondominioView {
 			// 
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button3->Location = System::Drawing::Point(727, 486);
+			this->button3->Location = System::Drawing::Point(760, 486);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(75, 23);
 			this->button3->TabIndex = 9;
 			this->button3->Text = L"Guardar";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Visible = false;
 			this->button3->Click += gcnew System::EventHandler(this, &frmVerUsuario::button3_Click);
 			// 
 			// frmVerUsuario

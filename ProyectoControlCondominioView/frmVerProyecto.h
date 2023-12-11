@@ -129,6 +129,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox1
 			// 
+			this->textBox1->Enabled = false;
 			this->textBox1->Location = System::Drawing::Point(161, 30);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 25);
@@ -137,6 +138,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox2
 			// 
+			this->textBox2->Enabled = false;
 			this->textBox2->Location = System::Drawing::Point(161, 67);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(100, 25);
@@ -144,6 +146,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox3
 			// 
+			this->textBox3->Enabled = false;
 			this->textBox3->Location = System::Drawing::Point(161, 158);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(100, 25);
@@ -151,6 +154,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox4
 			// 
+			this->textBox4->Enabled = false;
 			this->textBox4->Location = System::Drawing::Point(161, 110);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(100, 25);
@@ -176,6 +180,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox5
 			// 
+			this->textBox5->Enabled = false;
 			this->textBox5->Location = System::Drawing::Point(161, 266);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(100, 25);
@@ -183,6 +188,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox6
 			// 
+			this->textBox6->Enabled = false;
 			this->textBox6->Location = System::Drawing::Point(161, 215);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(100, 25);
@@ -292,6 +298,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// dateTimePicker1
 			// 
+			this->dateTimePicker1->Enabled = false;
 			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
 			this->dateTimePicker1->Location = System::Drawing::Point(161, 319);
 			this->dateTimePicker1->Name = L"dateTimePicker1";

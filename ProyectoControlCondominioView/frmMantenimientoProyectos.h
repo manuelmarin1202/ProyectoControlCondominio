@@ -333,13 +333,6 @@ namespace ProyectoControlCondominioView {
 		}
 	}
 	private: System::Void button4_Click(System::Object ^ sender, System::EventArgs ^ e) {
-		/*ProyectoController^ objetoProyecto = gcnew ProyectoController();
-		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; 
-		String^ codigoEliminar = this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString();
-		EdificioController^ objEdificioController = gcnew EdificioController();
-		objEdificioController->eliminarEdificios(codigoEliminar);
-		objetoProyecto->eliminarProyectoFisico(codigoEliminar);
-		MessageBox::Show("El proyecto ha sido eliminado con éxito");*/
 		ProyectoController^ objetoProyecto = gcnew ProyectoController();
 		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0*/
 		String^ codigoEliminar = this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString();
@@ -354,10 +347,15 @@ namespace ProyectoControlCondominioView {
 		objEdificioController->eliminarEdificios(codigoEliminar);
 		objetoProyecto->eliminarProyectoFisico(codigoEliminar);
 		MessageBox::Show("El proyecto ha sido eliminado con éxito");
+		List<Proyecto^>^ listaProyectos = objetoProyecto->buscarAll();
+		mostrarGrilla(listaProyectos);
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		frmNuevoProyecto^ ventanaNuevoProyecto = gcnew frmNuevoProyecto();
 		ventanaNuevoProyecto->ShowDialog();
+		ProyectoController^ objProyectoController = gcnew ProyectoController();
+		List<Proyecto^>^ listaProyectos = objProyectoController->buscarAll();
+		mostrarGrilla(listaProyectos);
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0*/
@@ -366,6 +364,9 @@ namespace ProyectoControlCondominioView {
 		Proyecto^ objProyecto = objProyectoController->buscarProyectoxCodigo(codigoEditar);
 		frmEditarProyecto^ ventanaEditarProyecto = gcnew frmEditarProyecto(objProyecto);
 		ventanaEditarProyecto->ShowDialog();
+		//ProyectoController^ objProyectoController = gcnew ProyectoController();
+		List<Proyecto^>^ listaProyectos = objProyectoController->buscarAll();
+		mostrarGrilla(listaProyectos);
 	}
 	private: System::Void frmMantenimientoProyectos_Load(System::Object^ sender, System::EventArgs^ e) {
 		ProyectoController^ objProyectoController = gcnew ProyectoController();
@@ -374,7 +375,8 @@ namespace ProyectoControlCondominioView {
 		for (int i = 0; i<listaDepartamentos->Count; i++) { 
 			this->comboBox1->Items->Add(listaDepartamentos[i]); 
 		}
-		
+		List<Proyecto^>^ listaProyectos = objProyectoController->buscarAll();
+		mostrarGrilla(listaProyectos);
 	}
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 		int filaSeleccionada = this->dataGridView1->SelectedRows[0]->Index; /*Le pongo [0] porque en este caso estamos asumiendo que solo seleccionamos una fila, por ello es la de la posicion 0*/

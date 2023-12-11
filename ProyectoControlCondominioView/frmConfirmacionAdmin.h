@@ -133,8 +133,9 @@ namespace ProyectoControlCondominioView {
 		}
 		else {
 			MessageBox::Show("No se ha podido crear una cuenta de administrador");
-			this->Close();
+			
 		}
+		this->Close();
 	}
 	private: System::Void frmConfirmacionAdmin_Load(System::Object^ sender, System::EventArgs^ e) {
 	}

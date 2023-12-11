@@ -125,7 +125,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox8
 			// 
-			this->textBox8->Location = System::Drawing::Point(215, 244);
+			this->textBox8->Location = System::Drawing::Point(215, 209);
 			this->textBox8->Name = L"textBox8";
 			this->textBox8->Size = System::Drawing::Size(100, 22);
 			this->textBox8->TabIndex = 17;
@@ -133,7 +133,7 @@ namespace ProyectoControlCondominioView {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(74, 247);
+			this->label8->Location = System::Drawing::Point(74, 212);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(86, 16);
 			this->label8->TabIndex = 16;
@@ -142,18 +142,20 @@ namespace ProyectoControlCondominioView {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(74, 213);
+			this->label6->Location = System::Drawing::Point(74, 243);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(101, 16);
 			this->label6->TabIndex = 15;
 			this->label6->Text = L"Nombre Foto:";
+			this->label6->Visible = false;
 			// 
 			// textBox6
 			// 
-			this->textBox6->Location = System::Drawing::Point(215, 207);
+			this->textBox6->Location = System::Drawing::Point(215, 237);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(100, 22);
 			this->textBox6->TabIndex = 14;
+			this->textBox6->Visible = false;
 			// 
 			// textBox5
 			// 
@@ -207,7 +209,7 @@ namespace ProyectoControlCondominioView {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(83, 35);
 			this->button1->TabIndex = 6;
-			this->button1->Text = L"Grabar";
+			this->button1->Text = L"Actualizar";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &frmEditarUsuario::button1_Click);
 			// 

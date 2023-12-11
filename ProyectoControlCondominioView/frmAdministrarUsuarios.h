@@ -297,12 +297,17 @@ namespace ProyectoControlCondominioView {
 			for (int i = 0; i < listaApellidos->Count; i++) {
 				this->comboBox1->Items->Add(listaApellidos[i]);
 			}
+			List<Usuario^>^ listaUsuarios = objUsuarioController->buscarAll();
+			mostrarGrilla(listaUsuarios);
 		}
 
 	    
 		private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 			frmNuevoUsuario^ ventanaNuevoUsuario = gcnew frmNuevoUsuario();
 			ventanaNuevoUsuario->ShowDialog();
+			UsuarioController^ objUsuarioController = gcnew UsuarioController();
+			List<Usuario^>^ listaUsuarios = objUsuarioController->buscarAll();
+			mostrarGrilla(listaUsuarios);
 		}
 
 		private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -313,6 +318,8 @@ namespace ProyectoControlCondominioView {
 			Usuario^ objProyecto = objProyectoControl->buscarUsuarioxCodigo(codigoEditar);
 			frmEditarUsuario^ ventanaEditarUsuario = gcnew frmEditarUsuario(objProyecto);
 			ventanaEditarUsuario->ShowDialog();
+			List<Usuario^>^ listaUsuarios = objProyectoControl->buscarAll();
+			mostrarGrilla(listaUsuarios);
 		}
 		
 		
@@ -322,6 +329,8 @@ namespace ProyectoControlCondominioView {
 			String^ codigoEliminar = this->dataGridView1->Rows[filaSeleccionada]->Cells[0]->Value->ToString();
 			objUsuario->eliminarUsuarioFisico(codigoEliminar); 
 			MessageBox::Show("El proyecto ha sido eliminado con éxito");
+			List<Usuario^>^ listaUsuarios = objUsuario->buscarAll();
+			mostrarGrilla(listaUsuarios);
 		}
 		private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 			Usuario^ objUsuario;
