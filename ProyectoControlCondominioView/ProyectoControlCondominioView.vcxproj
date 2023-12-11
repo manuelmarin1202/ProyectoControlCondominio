@@ -139,6 +139,7 @@
     <ClCompile Include="frmRegistroEmergencias.cpp" />
     <ClCompile Include="frmRegistroIntrusos.cpp" />
     <ClCompile Include="frmReporteEmergencias.cpp" />
+    <ClCompile Include="frmReporteIntrusos.cpp" />
     <ClCompile Include="frmReporteNroEdificiosProyecto.cpp" />
     <ClCompile Include="frmReporteNroUsuarios.cpp" />
     <ClCompile Include="frmVerEmergencia.cpp" />
@@ -240,6 +241,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmReporteEmergencias.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="frmReporteIntrusos.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="frmReporteNroEdificiosProyecto.h">
@@ -351,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteEmergencias.resx">
       <DependentUpon>frmReporteEmergencias.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteIntrusos.resx">
+      <DependentUpon>frmReporteIntrusos.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteNroEdificiosProyecto.resx">
       <DependentUpon>frmReporteNroEdificiosProyecto.h</DependentUpon>

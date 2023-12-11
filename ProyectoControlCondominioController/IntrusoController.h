@@ -31,6 +31,9 @@ namespace ProyectoControlCondominioController {
 		void CerrarConexionBD();
 		void agregarIntruso(Intruso^ objIntruso);
 		List<Intruso^>^ buscarAll();
+		List<Intruso^>^ buscarIntrusosxFechas(String^ inicio, String^ fin);
 		Intruso^ buscarIntrusoxID(int id);
+		List<String^>^ getListaFechas(List<Intruso^>^ listaIntrusos);
+		int cantidadIntrusosxFecha(String^ fecha);
 	};
 }

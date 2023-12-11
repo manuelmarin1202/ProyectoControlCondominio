@@ -80,3 +80,57 @@ Intruso^ IntrusoController::buscarIntrusoxID(int id) {
 	CerrarConexionBD();
 	return objIntruso;
 }
+
+List<String^>^ IntrusoController::getListaFechas(List<Intruso^>^ listaIntrusos) {
+	List<String^>^ listaFechas = gcnew List<String^>();
+	for (int i = 0; i < listaIntrusos->Count; i++) {
+		/*Aqui voy a buscar cada departamento si ya se encuentra en la lista de departamentos*/
+		String^ departamento = listaIntrusos[i]->getFecha();
+		/*Voy a buscarlo en la listaDepartamentos*/
+		int existe = 0;
+		for (int j = 0; j < listaFechas->Count; j++) {
+			if (listaFechas[j] == departamento) {
+				existe = 1;
+			}
+		}
+		if (existe == 0) {
+			listaFechas->Add(departamento);
+		}
+	}
+	return listaFechas;
+}
+
+int IntrusoController::cantidadIntrusosxFecha(String^ fecha) {
+	int coincidencia = 0;
+	List<Intruso^>^ listaEmergencias = buscarAll();
+	List<String^>^ listaFechas = gcnew List<String^>();
+	for (int i = 0; i < listaEmergencias->Count; i++) {
+		listaFechas->Add(listaEmergencias[i]->getFecha());
+	}
+	for (int i = 0; i < listaFechas->Count; i++) {
+		if (listaFechas[i] == fecha) {
+			coincidencia++;
+		}
+	}
+	return coincidencia;
+}
+
+List<Intruso^>^ IntrusoController::buscarIntrusosxFechas(String^ inicio, String^ fin) {
+	List<Intruso^>^ listaIntrusos = gcnew List<Intruso^>();
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "select*from Intruso where Fecha >= '" + inicio + "' and Fecha <='" + fin + "'";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		int id = safe_cast<int>(objData[0]);
+		//int id = safe_cast<int>(objData[0]);
+		String^ fecha = safe_cast<String^>(objData[1]);
+		String^ hora = safe_cast<String^>(objData[2]);
+		String^ nombreFoto = safe_cast<String^>(objData[3]);
+		Intruso^ objIntruso = gcnew Intruso(id, fecha, hora, nombreFoto);
+		listaIntrusos->Add(objIntruso);
+	}
+	CerrarConexionBD();
+	return listaIntrusos;
+}

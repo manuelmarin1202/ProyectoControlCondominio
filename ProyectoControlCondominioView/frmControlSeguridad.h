@@ -3,6 +3,7 @@
 #include "frmRegistroIntrusos.h"
 #include "frmReporteEmergencias.h"
 #include "frmConfigurarCamara.h"
+#include "frmReporteIntrusos.h"
 
 namespace ProyectoControlCondominioView {
 
@@ -213,6 +214,9 @@ private: System::Void verFotosToolStripMenuItem_Click(System::Object^ sender, Sy
 
 }
 private: System::Void intrusosPorFechasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	frmReporteIntrusos^ ventanaReportes = gcnew frmReporteIntrusos();
+	ventanaReportes->MdiParent = this;
+	ventanaReportes->Show();
 }
 };
 }

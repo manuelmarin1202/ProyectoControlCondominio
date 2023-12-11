@@ -1,0 +1,2 @@
+#include "frmReporteIntrusos.h"
+
