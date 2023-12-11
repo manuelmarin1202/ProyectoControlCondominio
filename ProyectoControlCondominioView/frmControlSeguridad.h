@@ -64,7 +64,6 @@ namespace ProyectoControlCondominioView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(frmControlSeguridad::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->incidentesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->emergenciasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -179,6 +178,7 @@ namespace ProyectoControlCondominioView {
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(994, 528);
 			this->Controls->Add(this->menuStrip1);
+			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"frmControlSeguridad";
@@ -192,14 +192,17 @@ namespace ProyectoControlCondominioView {
 #pragma endregion
 	private: System::Void emergenciasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		frmRegistroEmergencias^ ventanaRegistroEmergencias = gcnew frmRegistroEmergencias();
+		ventanaRegistroEmergencias->MdiParent = this;
 		ventanaRegistroEmergencias->Show();
 	}
 private: System::Void intrusosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmRegistroIntrusos^ ventanaRegistroIntrusos = gcnew frmRegistroIntrusos();
+	ventanaRegistroIntrusos->MdiParent = this;
 	ventanaRegistroIntrusos->Show();
 }
 private: System::Void emergenciasPorFechasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmReporteEmergencias^ ventanaReportes = gcnew frmReporteEmergencias();
+	ventanaReportes->MdiParent = this;
 	ventanaReportes->Show();
 }
 private: System::Void configurarCámaraToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
