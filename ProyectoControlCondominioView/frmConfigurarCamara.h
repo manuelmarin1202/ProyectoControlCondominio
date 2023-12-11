@@ -64,10 +64,10 @@ namespace ProyectoControlCondominioView {
 		void InitializeComponent(void)
 		{
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -87,6 +87,16 @@ namespace ProyectoControlCondominioView {
 			this->groupBox1->TabIndex = 0;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Seleccionar cámara:";
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(852, 27);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(144, 34);
+			this->button2->TabIndex = 2;
+			this->button2->Text = L"Capturar";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmConfigurarCamara::button2_Click);
 			// 
 			// button1
 			// 
@@ -114,19 +124,9 @@ namespace ProyectoControlCondominioView {
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(1019, 419);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 1;
 			this->pictureBox1->TabStop = false;
-			// 
-			// button2
-			// 
-			this->button2->Location = System::Drawing::Point(852, 27);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(144, 34);
-			this->button2->TabIndex = 2;
-			this->button2->Text = L"Capturar";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &frmConfigurarCamara::button2_Click);
 			// 
 			// frmConfigurarCamara
 			// 

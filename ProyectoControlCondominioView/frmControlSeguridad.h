@@ -81,7 +81,6 @@ namespace ProyectoControlCondominioView {
 			// menuStrip1
 			// 
 			this->menuStrip1->BackColor = System::Drawing::SystemColors::ScrollBar;
-			this->menuStrip1->GripMargin = System::Windows::Forms::Padding(2, 2, 0, 2);
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(24, 24);
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->incidentesToolStripMenuItem,
@@ -89,7 +88,8 @@ namespace ProyectoControlCondominioView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1118, 36);
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(994, 29);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -102,20 +102,20 @@ namespace ProyectoControlCondominioView {
 			this->incidentesToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Artifakt Element", 8.999999F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->incidentesToolStripMenuItem->Name = L"incidentesToolStripMenuItem";
-			this->incidentesToolStripMenuItem->Size = System::Drawing::Size(120, 32);
+			this->incidentesToolStripMenuItem->Size = System::Drawing::Size(100, 25);
 			this->incidentesToolStripMenuItem->Text = L"Incidentes";
 			// 
 			// emergenciasToolStripMenuItem
 			// 
 			this->emergenciasToolStripMenuItem->Name = L"emergenciasToolStripMenuItem";
-			this->emergenciasToolStripMenuItem->Size = System::Drawing::Size(270, 34);
+			this->emergenciasToolStripMenuItem->Size = System::Drawing::Size(184, 26);
 			this->emergenciasToolStripMenuItem->Text = L"Emergencias";
 			this->emergenciasToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmControlSeguridad::emergenciasToolStripMenuItem_Click);
 			// 
 			// intrusosToolStripMenuItem
 			// 
 			this->intrusosToolStripMenuItem->Name = L"intrusosToolStripMenuItem";
-			this->intrusosToolStripMenuItem->Size = System::Drawing::Size(270, 34);
+			this->intrusosToolStripMenuItem->Size = System::Drawing::Size(184, 26);
 			this->intrusosToolStripMenuItem->Text = L"Intrusos";
 			this->intrusosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmControlSeguridad::intrusosToolStripMenuItem_Click);
 			// 
@@ -128,20 +128,20 @@ namespace ProyectoControlCondominioView {
 			this->reportesToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Artifakt Element", 8.999999F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->reportesToolStripMenuItem->Name = L"reportesToolStripMenuItem";
-			this->reportesToolStripMenuItem->Size = System::Drawing::Size(105, 32);
+			this->reportesToolStripMenuItem->Size = System::Drawing::Size(88, 25);
 			this->reportesToolStripMenuItem->Text = L"Reportes";
 			// 
 			// emergenciasPorFechasToolStripMenuItem
 			// 
 			this->emergenciasPorFechasToolStripMenuItem->Name = L"emergenciasPorFechasToolStripMenuItem";
-			this->emergenciasPorFechasToolStripMenuItem->Size = System::Drawing::Size(321, 34);
+			this->emergenciasPorFechasToolStripMenuItem->Size = System::Drawing::Size(264, 26);
 			this->emergenciasPorFechasToolStripMenuItem->Text = L"Emergencias por Fechas";
 			this->emergenciasPorFechasToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmControlSeguridad::emergenciasPorFechasToolStripMenuItem_Click);
 			// 
 			// intrusosPorFechasToolStripMenuItem
 			// 
 			this->intrusosPorFechasToolStripMenuItem->Name = L"intrusosPorFechasToolStripMenuItem";
-			this->intrusosPorFechasToolStripMenuItem->Size = System::Drawing::Size(321, 34);
+			this->intrusosPorFechasToolStripMenuItem->Size = System::Drawing::Size(264, 26);
 			this->intrusosPorFechasToolStripMenuItem->Text = L"Intrusos por Fechas";
 			// 
 			// camaraToolStripMenuItem
@@ -153,30 +153,31 @@ namespace ProyectoControlCondominioView {
 			this->camaraToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Artifakt Element", 8.999999F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->camaraToolStripMenuItem->Name = L"camaraToolStripMenuItem";
-			this->camaraToolStripMenuItem->Size = System::Drawing::Size(91, 32);
+			this->camaraToolStripMenuItem->Size = System::Drawing::Size(76, 25);
 			this->camaraToolStripMenuItem->Text = L"Camara";
 			// 
 			// configurarCámaraToolStripMenuItem
 			// 
 			this->configurarCámaraToolStripMenuItem->Name = L"configurarCámaraToolStripMenuItem";
-			this->configurarCámaraToolStripMenuItem->Size = System::Drawing::Size(272, 34);
+			this->configurarCámaraToolStripMenuItem->Size = System::Drawing::Size(225, 26);
 			this->configurarCámaraToolStripMenuItem->Text = L"Configurar Cámara";
 			this->configurarCámaraToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmControlSeguridad::configurarCámaraToolStripMenuItem_Click);
 			// 
 			// verFotosToolStripMenuItem
 			// 
 			this->verFotosToolStripMenuItem->Name = L"verFotosToolStripMenuItem";
-			this->verFotosToolStripMenuItem->Size = System::Drawing::Size(272, 34);
+			this->verFotosToolStripMenuItem->Size = System::Drawing::Size(225, 26);
 			this->verFotosToolStripMenuItem->Text = L"Ver Fotos";
+			this->verFotosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmControlSeguridad::verFotosToolStripMenuItem_Click);
 			// 
 			// frmControlSeguridad
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ButtonShadow;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(1118, 660);
+			this->ClientSize = System::Drawing::Size(994, 528);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
@@ -204,6 +205,9 @@ private: System::Void emergenciasPorFechasToolStripMenuItem_Click(System::Object
 private: System::Void configurarCámaraToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	frmConfigurarCamara^ ventanaConfigCamara = gcnew frmConfigurarCamara();
 	ventanaConfigCamara->Show();
+}
+private: System::Void verFotosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
 }
 };
 }

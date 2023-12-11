@@ -1,4 +1,5 @@
 SELECT* FROM Usuario
+select*from Administrador
 select*from Edificio
 select*from Piso
 select*from Proyecto
