@@ -3,7 +3,7 @@
 #include <msclr/marshal_cppstd.h>
 #include "IntrusoController.h"
 
-using namespace ProyectoControlCondominioController;
+using namespace ProyectoControlCondominioModel;
 using namespace System::IO;//para utilizar los archivos de texto
 using namespace System::Text;
 using namespace System::Drawing::Imaging;
@@ -12,16 +12,13 @@ using namespace AForge::Video;
 using namespace AForge::Video::DirectShow;
 using namespace System;
 using namespace System::Windows;
+using namespace ProyectoControlCondominioController;
 
 
 
 IntrusoController::IntrusoController(){
 	this->objConexion = gcnew SqlConnection();
-	this->port = gcnew SerialPort();
-	this->port->PortName = "COM6";
-	this->port->BaudRate = 9600;
-	this->port->ReadTimeout = 500;
-	//this->port->dataTerminal
+
 }
 
 void IntrusoController::AbrirConexionBD() {
@@ -33,11 +30,53 @@ void IntrusoController::CerrarConexionBD() {
 	this->objConexion->Close();
 }
 
-void IntrusoController::PrenderBuzzer() {
-	this->port->Open();
-	this->port->Write("E");
+void IntrusoController::agregarIntruso(Intruso^ objIntruso) {
+	AbrirConexionBD();
+	String^ fecha = objIntruso->getFecha();
+	String^ hora = objIntruso->getHora();
+	String^ nombreFoto = objIntruso->getNombreFoto();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->CommandText = "Insert into Intruso(Fecha,Hora,NombreFoto)values('" + fecha + "','" + hora + "','" + nombreFoto + "')";
+	objSentencia->Connection = this->objConexion;
+	objSentencia->ExecuteNonQuery();
+	CerrarConexionBD();
 }
 
-void IntrusoController::CerrarArduino() {
-	this->port->Close();
+List<Intruso^>^ IntrusoController::buscarAll() {
+	List<Intruso^>^ listaIntrusos = gcnew List<Intruso^>();
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT*FROM Intruso";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		//int codigo = safe_cast<int>(objData[0]);
+		int id = safe_cast<int>(objData[0]);
+		String^ fecha = safe_cast<String^>(objData[1]);
+		String^ hora = safe_cast<String^>(objData[2]);
+		String^ nombreFoto = safe_cast<String^>(objData[3]);
+		Intruso^ objIntruso = gcnew Intruso(id,fecha,hora,nombreFoto);
+		listaIntrusos->Add(objIntruso);
+	}
+	CerrarConexionBD();
+	return listaIntrusos;
+}
+
+Intruso^ IntrusoController::buscarIntrusoxID(int id) {
+	Intruso^ objIntruso;
+	AbrirConexionBD();
+	SqlCommand^ objSentencia = gcnew SqlCommand();
+	objSentencia->Connection = this->objConexion;
+	objSentencia->CommandText = "SELECT*FROM Intruso where ID="+id+"";
+	SqlDataReader^ objData = objSentencia->ExecuteReader();
+	while (objData->Read()) {
+		//int codigo = safe_cast<int>(objData[0]);
+		//int id = safe_cast<int>(objData[0]);
+		String^ fecha = safe_cast<String^>(objData[1]);
+		String^ hora = safe_cast<String^>(objData[2]);
+		String^ nombreFoto = safe_cast<String^>(objData[3]);
+		objIntruso = gcnew Intruso(id, fecha, hora, nombreFoto);
+	}
+	CerrarConexionBD();
+	return objIntruso;
 }

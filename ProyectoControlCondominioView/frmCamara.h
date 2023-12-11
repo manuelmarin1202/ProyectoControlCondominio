@@ -113,7 +113,38 @@ namespace ProyectoControlCondominioView {
 		}
 #pragma endregion
 	private: System::Void frmCamara_Load(System::Object^ sender, System::EventArgs^ e) {
+		DateTime now = DateTime::Now;
 		
+		IntrusoController^ objIntrusoController = gcnew IntrusoController();
+		int id = 1;
+		if (ExistenDispositivos) {
+			FuenteDeVideo = gcnew VideoCaptureDevice(DispositivosDeVideo[0]->MonikerString);
+			FuenteDeVideo->NewFrame += gcnew AForge::Video::NewFrameEventHandler(this, &frmCamara::video_NuevoFrame);
+			FuenteDeVideo->Start();
+			System::Threading::Thread::Sleep(3000);
+			if (FuenteDeVideo != nullptr && FuenteDeVideo->IsRunning) {
+				// Tomar una captura del fotograma actual
+				Bitmap^ captura = static_cast<Bitmap^>(pictureBox1->Image->Clone());
+				// Guardar la captura en un archivo 	
+				List<Intruso^>^ listaIntrusos = objIntrusoController->buscarAll();
+				int cantIntrusos = listaIntrusos->Count;
+				//String^ rutaGuardar = "captura.jpg";
+				String^ rutaGuardar = String::Format("captura_{0:yyyyMMddHHmmss}.jpg", now);
+				String^ fechaActual = now.ToString("dd/MM/yyyy");
+				String^ horaActual = now.ToString("HH:mm:ss");
+				captura->Save(rutaGuardar, Imaging::ImageFormat::Jpeg);	
+				Intruso^ objIntruso = gcnew Intruso(id,fechaActual,horaActual,rutaGuardar);
+				objIntrusoController->agregarIntruso(objIntruso);
+			}
+			else {
+				MessageBox::Show("Error: La cámara no está en funcionamiento.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			}
+			TerminarFuenteDeVideo();
+			this->Close();
+		}
+		else {
+			MessageBox::Show("Error: No se encuentra dispositivo.");
+		}
 	}
 
 	private: void BuscarDispositivos() {
@@ -127,23 +158,11 @@ namespace ProyectoControlCondominioView {
 	
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 		
-		if (ExistenDispositivos) {
-			FuenteDeVideo = gcnew VideoCaptureDevice(DispositivosDeVideo[0]->MonikerString);
-			FuenteDeVideo->NewFrame += gcnew AForge::Video::NewFrameEventHandler(this, &frmCamara::video_NuevoFrame);
-			FuenteDeVideo->Start();
-
-		}
-		else {
-			MessageBox::Show("Error: No se encuentra dispositivo.");
-		}
+		
 		
 
 	}
 	private: void video_NuevoFrame(System::Object^ sender, AForge::Video::NewFrameEventArgs^ eventArgs) {
-		//Debug::WriteLine("Nuevo frame recibido.");
-		//debug
-		//Bitmap^ frame = static_cast<Bitmap^>(eventArgs->Frame->Clone());
-		//this->pictureBox1->Image = frame;	
 		try {
 			Debug::WriteLine("Nuevo frame recibido.");  // Mensaje de depuración
 			Bitmap^ frame = static_cast<Bitmap^>(eventArgs->Frame->Clone());

@@ -324,7 +324,6 @@ String^ UsuarioController::ListadeCambios(String^ codigo) {
 		apellidoMaternoCambio = safe_cast<String^>(objData[10]);
 		dniCambio = safe_cast<String^>(objData[11]);
 		contraseñaCambio = safe_cast<String^>(objData[12]);
-
 	}
 	CerrarConexionBD();
 	if (nombreU != nombreCambio) {

@@ -142,6 +142,7 @@ namespace ProyectoControlCondominioView {
 			this->intrusosPorFechasToolStripMenuItem->Name = L"intrusosPorFechasToolStripMenuItem";
 			this->intrusosPorFechasToolStripMenuItem->Size = System::Drawing::Size(264, 26);
 			this->intrusosPorFechasToolStripMenuItem->Text = L"Intrusos por Fechas";
+			this->intrusosPorFechasToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmControlSeguridad::intrusosPorFechasToolStripMenuItem_Click);
 			// 
 			// camaraToolStripMenuItem
 			// 
@@ -174,7 +175,6 @@ namespace ProyectoControlCondominioView {
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ButtonShadow;
-			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(994, 528);
 			this->Controls->Add(this->menuStrip1);
@@ -211,6 +211,8 @@ private: System::Void configurarCámaraToolStripMenuItem_Click(System::Object^ se
 }
 private: System::Void verFotosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
+}
+private: System::Void intrusosPorFechasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

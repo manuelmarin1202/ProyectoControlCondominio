@@ -8,6 +8,10 @@ namespace ProyectoControlCondominioView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Drawing::Imaging;
+	using namespace ProyectoControlCondominioController;
+	using namespace ProyectoControlCondominioModel;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Resumen de frmVerIntruso
@@ -22,7 +26,11 @@ namespace ProyectoControlCondominioView {
 			//TODO: agregar código de constructor aquí
 			//
 		}
-
+		frmVerIntruso(Intruso^ objIntruso)
+		{
+			InitializeComponent();
+			this->objIntruso = objIntruso;
+		}
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
@@ -45,7 +53,7 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Label^ label2;
-
+	private: Intruso^ objIntruso;
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -96,6 +104,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox5
 			// 
+			this->textBox5->Enabled = false;
 			this->textBox5->Location = System::Drawing::Point(211, 177);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(100, 27);
@@ -103,6 +112,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// textBox4
 			// 
+			this->textBox4->Enabled = false;
 			this->textBox4->Location = System::Drawing::Point(211, 145);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(100, 27);
@@ -124,6 +134,7 @@ namespace ProyectoControlCondominioView {
 			this->button2->TabIndex = 7;
 			this->button2->Text = L"Cerrar";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &frmVerIntruso::button2_Click);
 			// 
 			// label5
 			// 
@@ -160,6 +171,7 @@ namespace ProyectoControlCondominioView {
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(337, 270);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 6;
 			this->pictureBox1->TabStop = false;
 			// 
@@ -198,7 +210,14 @@ namespace ProyectoControlCondominioView {
 		}
 #pragma endregion
 	private: System::Void frmVerIntruso_Load(System::Object^ sender, System::EventArgs^ e) {
-
+		this->textBox1->Text = Convert::ToString(objIntruso->getId());
+		this->textBox4->Text = objIntruso->getFecha();
+		this->textBox5->Text = objIntruso->getHora();
+		String^ nombreArchivo = this->objIntruso->getNombreFoto();
+		this->pictureBox1->Image = Image::FromFile(this->objIntruso->getNombreFoto());
 	}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
 };
 }

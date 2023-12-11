@@ -17,6 +17,7 @@ using namespace AForge::Video::DirectShow;
 using namespace System;
 using namespace System::Windows;
 using namespace System::IO::Ports;
+using namespace ProyectoControlCondominioModel;
 
 namespace ProyectoControlCondominioController {
 	
@@ -24,15 +25,12 @@ namespace ProyectoControlCondominioController {
 		
 	private: 
 		SqlConnection^ objConexion;
-		SerialPort^ port;
-		// port = gcnew SerialPort();
-		//port->PortName = "COM6";
-		bool isClosed = false;
 	public:
 		IntrusoController();
 		void AbrirConexionBD();
 		void CerrarConexionBD();
-		void PrenderBuzzer();
-		void CerrarArduino();
+		void agregarIntruso(Intruso^ objIntruso);
+		List<Intruso^>^ buscarAll();
+		Intruso^ buscarIntrusoxID(int id);
 	};
 }
