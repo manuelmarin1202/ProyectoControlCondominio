@@ -41,7 +41,7 @@ namespace ProyectoControlCondominioView {
 		}
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	private: System::Windows::Forms::Button^ button5;
-	private: System::Windows::Forms::Button^ button4;
+
 
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
@@ -70,7 +70,6 @@ namespace ProyectoControlCondominioView {
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button5 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -112,7 +111,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(130, 320);
+			this->button5->Location = System::Drawing::Point(258, 318);
 			this->button5->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(94, 26);
@@ -120,17 +119,6 @@ namespace ProyectoControlCondominioView {
 			this->button5->Text = L"Ver";
 			this->button5->UseVisualStyleBackColor = true;
 			this->button5->Click += gcnew System::EventHandler(this, &frmRegistroIntrusos::button5_Click);
-			// 
-			// button4
-			// 
-			this->button4->Location = System::Drawing::Point(329, 320);
-			this->button4->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(100, 26);
-			this->button4->TabIndex = 10;
-			this->button4->Text = L"Eliminar";
-			this->button4->UseVisualStyleBackColor = true;
-			this->button4->Click += gcnew System::EventHandler(this, &frmRegistroIntrusos::button4_Click);
 			// 
 			// frmRegistroIntrusos
 			// 
@@ -140,7 +128,6 @@ namespace ProyectoControlCondominioView {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->ClientSize = System::Drawing::Size(591, 381);
 			this->Controls->Add(this->button5);
-			this->Controls->Add(this->button4);
 			this->Controls->Add(this->dataGridView1);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));

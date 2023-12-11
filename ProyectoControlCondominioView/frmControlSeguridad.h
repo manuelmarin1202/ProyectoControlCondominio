@@ -49,7 +49,7 @@ namespace ProyectoControlCondominioView {
 	private: System::Windows::Forms::ToolStripMenuItem^ intrusosPorFechasToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ camaraToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ configurarCámaraToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ verFotosToolStripMenuItem;
+
 	protected:
 
 	private:
@@ -74,7 +74,6 @@ namespace ProyectoControlCondominioView {
 			this->intrusosPorFechasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->camaraToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->configurarCámaraToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->verFotosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -147,10 +146,7 @@ namespace ProyectoControlCondominioView {
 			// 
 			// camaraToolStripMenuItem
 			// 
-			this->camaraToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->configurarCámaraToolStripMenuItem,
-					this->verFotosToolStripMenuItem
-			});
+			this->camaraToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->configurarCámaraToolStripMenuItem });
 			this->camaraToolStripMenuItem->Font = (gcnew System::Drawing::Font(L"Artifakt Element", 8.999999F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->camaraToolStripMenuItem->Name = L"camaraToolStripMenuItem";
@@ -164,18 +160,11 @@ namespace ProyectoControlCondominioView {
 			this->configurarCámaraToolStripMenuItem->Text = L"Configurar Cámara";
 			this->configurarCámaraToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmControlSeguridad::configurarCámaraToolStripMenuItem_Click);
 			// 
-			// verFotosToolStripMenuItem
-			// 
-			this->verFotosToolStripMenuItem->Name = L"verFotosToolStripMenuItem";
-			this->verFotosToolStripMenuItem->Size = System::Drawing::Size(225, 26);
-			this->verFotosToolStripMenuItem->Text = L"Ver Fotos";
-			this->verFotosToolStripMenuItem->Click += gcnew System::EventHandler(this, &frmControlSeguridad::verFotosToolStripMenuItem_Click);
-			// 
 			// frmControlSeguridad
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::ButtonShadow;
+			this->BackColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(994, 528);
 			this->Controls->Add(this->menuStrip1);
